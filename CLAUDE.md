@@ -41,6 +41,8 @@ Node 22 (exact version in `.node-version`). Install with `npm ci`.
 - `npm run lint`: ESLint (TypeScript, Astro, jsx-a11y-x) + `prettier --check`
 - `npm run format`: `prettier --write .` (`prototype/`, `docs/`, `brand/` and Markdown are ignored)
 - `npm run lhci`: Lighthouse CI against `dist/` (run `npm run build` first). Asserts performance ≥ 0.95 and accessibility = 1.00.
+  - **Never lower these gates** (Ryan, Oct 14, 2026). If performance fails, investigate and optimize. The home page sits at about 0.95–0.96 (mobile): its LCP is the hero paragraph text, and most of the cost is style and layout of the long page under 4× CPU throttling.
+  - Already tried, so don't repeat: `content-visibility: auto` on sections gives 0.98 performance but makes Lighthouse report false contrast failures (accessibility 0.97). Removing `text-wrap: balance` changes heading wraps. Lowering the hero image's `fetchpriority` made no difference.
 - `npm run test:e2e`: Playwright against the build (run `npm run build` first; one-time `npx playwright install chromium`). Smoke tests, axe WCAG 2.2 AA scan and `_redirects` checks at 1280 px and 390 px.
 - `npm run visual`: prototype vs build screenshots at 1280 px and 390 px, per section, with pixel diffs. Writes `screenshots/phase-1/` (gitignored) including `report.md`.
 - `npm run check:launch`: fails if any `[CONFIRM]` marker is left in `dist/`. Must pass before launch.
