@@ -68,21 +68,41 @@ const year = new Date().getFullYear();
       <div class="foot-col">
         <h2>Ecosystem</h2>
         <ul>
-          <li><a href="/#ecosystem">Chemistry</a></li>
-          <li><a href="/#equipment">Equipment and filtration</a></li>
-          <li><a href="/#service">Monitoring and service</a></li>
-          <li><a href="/#ridgewater">Ridgewater Analytical</a></li>
+          <li>
+            <a href="/#ecosystem">Chemistry</a>
+          </li>
+          <li>
+            <a href="/#equipment">Equipment and filtration</a>
+          </li>
+          <li>
+            <a href="/#service">Monitoring and service</a>
+          </li>
+          <li>
+            <a href="/#ridgewater">Ridgewater Analytical</a>
+          </li>
         </ul>
       </div>
       <div class="foot-col">
         <h2>Company</h2>
         <ul>
-          <li><a href="/#about">About us</a></li>
-          <li><a href="/#industries">Industries</a></li>
-          <li><a href="/#memberships">Memberships</a></li>
-          <li><a href="/#construction">New construction</a></li>
-          <li><a href="/#service">Training</a></li>
-          <li><a href="/#contact">Site survey</a></li>
+          <li>
+            <a href="/#about">About us</a>
+          </li>
+          <li>
+            <a href="/#industries">Industries</a>
+          </li>
+          <li>
+            <a href="/#memberships">Memberships</a>
+          </li>
+          <li>
+            <a href="/#construction">New construction</a>
+          </li>
+          <li>
+            <a href="/#service">Training</a>
+          </li>
+          <li>
+            <a href="/#contact">Site survey</a>
+          </li>
         </ul>
       </div>
       <div class="foot-col">
@@ -98,24 +118,22 @@ const year = new Date().getFullYear();
     <details class="credits">
       <summary>Photo credits</summary>
       <ul>
-        {
-          credits.map((c) => (
-            <li>
-              {c.text},{' '}
-              <a href={c.href} rel="noopener">
-                {c.license}
-              </a>
-            </li>
-          ))
-        }
+        {credits.map((c) => (
+          <li>
+            {c.text},{' '}
+            <a href={c.href} rel="noopener">
+              {c.license}
+            </a>
+          </li>
+        ))}
       </ul>
     </details>
     <div class="foot-bottom">
       <span>&copy; {year} Power Engineering Company, Inc.</span>
-      <span
-        >Ridgewater Analytical is the in-house laboratory of Power Engineering. Member of AWT and
-        Associated Labs.</span
-      >
+      <span>
+        Ridgewater Analytical is the in-house laboratory of Power Engineering. Member of AWT and
+        Associated Labs.
+      </span>
     </div>
   </div>
 </footer>

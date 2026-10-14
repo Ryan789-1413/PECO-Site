@@ -32,13 +32,19 @@ const mobile = [
       <Image src={logo} alt="Power Engineering" height={46} densities={[1, 2]} loading="eager" />
     </a>
     <nav class="nav" aria-label="Primary">
-      {primary.map((item) => <a href={item.href}>{item.label}</a>)}
-      <a class="btn btn-primary" href="/#contact">Request a site survey</a>
+      {primary.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <a class="btn btn-primary" href="/#contact">
+        Request a site survey
+      </a>
     </nav>
     <details class="menu">
       <summary>Menu</summary>
       <nav aria-label="Mobile">
-        {mobile.map((item) => <a href={item.href}>{item.label}</a>)}
+        {mobile.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
       </nav>
     </details>
   </div>
