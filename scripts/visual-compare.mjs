@@ -7,7 +7,7 @@
 import { chromium } from '@playwright/test';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -198,9 +198,12 @@ try {
   }
 } finally {
   await browser?.close();
-  server.kill();
+  // Stop the preview server before exiting: Astro allows only one preview at a time, so a
+  // leftover one blocks `npm run test:e2e`. On Windows, kill the whole npx process tree.
   if (process.platform === 'win32' && server.pid) {
-    spawn('taskkill', ['/pid', String(server.pid), '/T', '/F'], { stdio: 'ignore' });
+    spawnSync('taskkill', ['/pid', String(server.pid), '/T', '/F'], { stdio: 'ignore' });
+  } else {
+    server.kill();
   }
 }
 
