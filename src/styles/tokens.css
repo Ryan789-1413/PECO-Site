@@ -1,0 +1,50 @@
+/*
+ * Design tokens, ported from the :root block of prototype/index.html (light theme).
+ * Components use these tokens only, never literal colors.
+ * The prototype's dark theme is intentionally not ported (PROJECT_CONTEXT §4, open question 14).
+ */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --ink: #0d1b2e;
+  --muted: #4d5c71;
+  --line: #d6dee9;
+  --grid: rgba(35, 95, 172, 0.07);
+  --brand: #235fac;
+  --brand-strong: #1a4c8f;
+  --brand-tint: #e4edf8;
+  --on-brand: #ffffff;
+  --deep: #0b1a2f;
+  --deep-2: #12253f;
+  --deep-ink: #e6edf6;
+  --deep-muted: #9fb0c6;
+  --deep-line: #24395a;
+  --lab: #2f9c92;
+  --deep-accent: #7aaae6;
+  --lab-tint: rgba(47, 156, 146, 0.14);
+  --ok: #2f8f5b;
+  --logo-filter: none;
+  /* Single-color logo rendered white on navy bands (footer). */
+  --logo-filter-on-deep: brightness(0) invert(1);
+
+  /* Literal values the prototype used inline, promoted to tokens. */
+  --shadow-pop: 0 12px 30px rgba(8, 20, 40, 0.14);
+  --shadow-photo: 0 24px 50px rgba(10, 30, 60, 0.18);
+  --caption-bg: rgba(8, 18, 33, 0.82);
+  --caption-ink: #eaf1fa;
+
+  --f-display: 'Saira Semi Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --f-body: 'IBM Plex Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.25rem, 4.6vw, 3.5rem);
+  --radius: 6px;
+
+  --header-offset: 84px;
+  color-scheme: light;
+}
