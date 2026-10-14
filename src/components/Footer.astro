@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/brand/logo-power-engineering.png';
+import { PHONE_DISPLAY, PHONE_TEL } from '../data/company';
 
 // Wikimedia Commons credits (CC BY / CC BY-SA). Keep these wherever the photos are used.
 const credits = [
@@ -98,7 +99,7 @@ const year = new Date().getFullYear();
             <a href="/#construction">New construction</a>
           </li>
           <li>
-            <a href="/#service">Training</a>
+            <a href="/#training">Training</a>
           </li>
           <li>
             <a href="/#contact">Site survey</a>
@@ -108,7 +109,9 @@ const year = new Date().getFullYear();
       <div class="foot-col">
         <h2>Contact</h2>
         <ul>
-          <li>801.532.6972</li>
+          <li>
+            <a href={PHONE_TEL}>{PHONE_DISPLAY}</a>
+          </li>
           <li>PecoWater.com</li>
           <li>Salt Lake City, UT</li>
           <li>Idaho Falls, ID</li>
