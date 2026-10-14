@@ -43,6 +43,9 @@ jobs:
         with:
           name: dist
           path: dist
+      # Absolute links to https://pecowater.com (canonical, og:url) point at the
+      # old WordPress site until cutover, so they are excluded. Internal links are
+      # root-relative and still checked against dist/. Remove the exclude after cutover.
       - uses: lycheeverse/lychee-action@v2
         with:
           fail: true
@@ -51,6 +54,7 @@ jobs:
             --no-progress
             --max-retries 3
             --accept 200..=299,429
+            --exclude '^https://pecowater\.com'
             './dist/**/*.html'
 
   lighthouse:
