@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { PHONE_DISPLAY, PHONE_TEL } from '../data/company';
 ---
 
 <BaseLayout
@@ -12,7 +13,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">Error 404</p>
       <h1>Page not found</h1>
       <p class="lead">
-        This page has moved or no longer exists. Start from the home page or call 801.532.6972.
+        This page has moved or no longer exists. Start from the home page or call{' '}
+        <a href={PHONE_TEL}>{PHONE_DISPLAY}</a>.
       </p>
       <p>
         <a class="btn btn-primary" href="/">

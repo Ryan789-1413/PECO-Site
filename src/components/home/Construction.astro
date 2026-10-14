@@ -1,0 +1,130 @@
+---
+const items = [
+  {
+    title: 'Engineering consultation',
+    text: 'Guidance on treatment equipment and applications while systems are still on the drawings.',
+  },
+  {
+    title: 'System cleaning and flushing',
+    text: 'Pre-commissioning cleanouts that remove mill scale, oils and construction debris.',
+  },
+  {
+    title: 'Domestic water disinfection',
+    text: 'Sterilization of new domestic water piping before occupancy.',
+  },
+  {
+    title: 'Closed loop charging',
+    text: 'Loops charged with corrosion inhibitor or glycol and verified by lab test.',
+  },
+  {
+    title: 'Freeze protection',
+    text: 'Glycol concentration sized and tested for Mountain West winters.',
+  },
+  {
+    title: 'Corrosion protection systems',
+    text: 'Feed equipment, controls and coupon racks installed and commissioned.',
+  },
+];
+---
+
+<section class="section" id="construction">
+  <div class="wrap build">
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">New construction and project services</p>
+        <h2>From design review to startup.</h2>
+        <p class="lead">
+          We work with design engineers during planning and with contractors after award, so new
+          systems start clean, protected and properly instrumented.
+        </p>
+      </div>
+      <div class="depts">
+        <div class="dept">
+          <b>Construction Service Department</b>
+          <span>
+            Cleans and flushes new systems, disinfects domestic water lines, charges closed loops
+            and oversees control and feed equipment installation.
+          </span>
+        </div>
+        <div class="dept">
+          <b>Equipment Service Department</b>
+          <span>
+            Solves treatment and equipment problems, distributes parts from Salt Lake City and gets
+            systems back in operation quickly.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="build-list">
+      {items.map((item) => (
+        <div class="build-item">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .build {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .section-head {
+    margin-bottom: 0;
+  }
+  .build-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 32px;
+  }
+  .build-item {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 6px;
+  }
+  .build-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .build-item p {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  .depts {
+    margin-top: 28px;
+    display: grid;
+    gap: 12px;
+  }
+  .dept {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    background: var(--surface);
+    display: grid;
+    gap: 4px;
+  }
+  .dept b {
+    font-family: var(--f-display);
+    font-size: 1.125rem;
+  }
+  .dept span {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  @media (max-width: 900px) {
+    .build {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+  @media (max-width: 560px) {
+    .build-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

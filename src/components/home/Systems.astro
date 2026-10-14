@@ -1,0 +1,261 @@
+---
+import PhotoFigure from '../PhotoFigure.astro';
+import towerOffice from '../../assets/photos/tower-office.jpg';
+import boilerRoom from '../../assets/photos/boiler-room.jpg';
+import pumpsChilled from '../../assets/photos/pumps-chilled.jpg';
+---
+
+<section class="section systems" id="systems">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Systems we treat</p>
+      <h2>Protection for every water-side asset in your plant.</h2>
+      <p class="lead">
+        Each program is built from a baseline water analysis and tuned to your equipment, makeup
+        water and operating goals.
+      </p>
+    </div>
+    <div class="sys-photos">
+      <PhotoFigure
+        src={towerOffice}
+        alt="Packaged cooling towers on a commercial building roof"
+        sizes="(max-width: 820px) calc(100vw - 36px), 450px"
+        caption="Cooling towers"
+      />
+      <PhotoFigure
+        src={boilerRoom}
+        alt="Industrial fire-tube boiler with burner and gas train"
+        sizes="(max-width: 480px) calc(100vw - 36px), (max-width: 820px) 50vw, 340px"
+        caption="Boilers and steam"
+      />
+      <PhotoFigure
+        src={pumpsChilled}
+        alt="Row of chilled water pumps in a central plant"
+        sizes="(max-width: 480px) calc(100vw - 36px), (max-width: 820px) 50vw, 340px"
+        caption="Closed loops"
+      />
+    </div>
+    <div class="sys-list">
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M8 38h28M12 38l3-24h14l3 24M15 14c0-5 3-8 7-8s7 3 7 8"></path>
+          <path d="M18 22v6M22 20v8M26 22v6"></path>
+        </svg>
+        <div>
+          <h3>Cooling towers</h3>
+          <p>
+            Scale, corrosion and biological control that lets towers run at higher cycles with less
+            water and energy.
+          </p>
+          <div class="terms">
+            <span>Cycles of concentration</span>
+            <span>Bio-control</span>
+            <span>Water savings</span>
+          </div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <rect x="9" y="12" width="26" height="26" rx="3"></rect>
+          <path d="M15 6h14M22 6v6M15 25h14M15 31h14"></path>
+          <circle cx="22" cy="19" r="2"></circle>
+        </svg>
+        <div>
+          <h3>Boilers and steam</h3>
+          <p>
+            Internal treatment, oxygen control and condensate protection for hot water and steam
+            boilers of every size.
+          </p>
+          <div class="terms">
+            <span>Oxygen scavenging</span>
+            <span>Condensate</span>
+            <span>Blowdown</span>
+          </div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M10 16a12 12 0 0 1 22-4M34 28a12 12 0 0 1-22 4"></path>
+          <path d="M32 6v6h-6M12 38v-6h6"></path>
+        </svg>
+        <div>
+          <h3>Closed loops</h3>
+          <p>
+            Corrosion inhibition and lab-verified monitoring for chilled water, hot water and
+            process loops.
+          </p>
+          <div class="terms">
+            <span>Chilled &amp; hot water</span>
+            <span>Process loops</span>
+          </div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M22 6v32M8 14l28 16M36 14L8 30"></path>
+          <path d="M18 8l4 4 4-4M18 36l4-4 4 4"></path>
+        </svg>
+        <div>
+          <h3>Heat transfer fluids and freeze protection</h3>
+          <p>
+            Glycol supply, inhibitor maintenance and concentration testing so loops stay protected
+            through Intermountain winters.
+          </p>
+          <div class="terms">
+            <span>Glycol</span>
+            <span>Freeze point</span>
+          </div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <rect x="13" y="6" width="18" height="32" rx="9"></rect>
+          <path d="M13 18h18M18 26h8M18 31h8"></path>
+        </svg>
+        <div>
+          <h3>Filtration and pretreatment</h3>
+          <p>
+            Side-stream filtration, cartridge and bag filters, water softeners, dealkalizers and
+            reverse osmosis that keep solids, hardness and alkalinity out of towers, boilers and
+            loops.
+          </p>
+          <div class="terms">
+            <span>Side-stream</span>
+            <span>Softeners</span>
+            <span>Dealkalizers</span>
+            <span>RO</span>
+          </div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg
+          viewBox="0 0 44 44"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <rect x="7" y="8" width="30" height="22" rx="2"></rect>
+          <path d="M15 38h14M22 30v8M12 22l6-6 5 4 9-8"></path>
+        </svg>
+        <div>
+          <h3>Controls and feed equipment</h3>
+          <p>
+            Chemical feed pumps, conductivity and pH controllers, probes and feed systems installed
+            and supported by the same team that treats your water.
+          </p>
+          <div class="terms">
+            <span>Feed pumps</span>
+            <span>Controllers</span>
+            <span>Probes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .systems {
+    background: var(--surface);
+    border-block: 1px solid var(--line);
+  }
+  .sys-photos {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-auto-rows: 300px;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .sys-photos :global(.photo) {
+    height: 100%;
+  }
+  @media (max-width: 820px) {
+    .sys-photos {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 220px;
+    }
+    .sys-photos :global(.photo:first-child) {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 480px) {
+    .sys-photos {
+      grid-template-columns: 1fr;
+    }
+  }
+  .sys-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 56px;
+  }
+  .sys {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 18px;
+    padding-block: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .sys svg {
+    width: 44px;
+    height: 44px;
+    color: var(--brand);
+  }
+  h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .sys p {
+    color: var(--muted);
+  }
+  .terms {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .terms > :global(span) {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--ink);
+    background: var(--brand-tint);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  @media (max-width: 820px) {
+    .sys-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

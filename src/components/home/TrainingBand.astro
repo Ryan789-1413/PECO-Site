@@ -1,0 +1,85 @@
+---
+// id="training" added (not in the prototype) so the footer link has a target. Approved by Ryan.
+---
+
+<section class="training" id="training">
+  <div class="wrap">
+    <div>
+      <h2>Water Treatment 101 and seasonal courses</h2>
+      <p>
+        Training for operations personnel, maintenance staff and facility managers, held at your
+        site, at a local facility or at our Salt Lake City training center. On-site sessions are
+        tailored to your facility's own equipment and conditions.
+      </p>
+      <div class="courses">
+        <span>Cooling water treatment</span>
+        <span>Boiler water treatment</span>
+        <span>Boiler maintenance</span>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="#contact">
+        Schedule a training
+      </a>
+      <small>One-day seasonal courses</small>
+    </div>
+  </div>
+</section>
+
+<style>
+  .training {
+    background: var(--brand);
+    color: var(--on-brand);
+  }
+  .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: center;
+    padding-block: 48px;
+  }
+  h2 {
+    font-size: var(--step-3);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  p {
+    max-width: 64ch;
+    opacity: 0.92;
+  }
+  .btn {
+    background: var(--on-brand);
+    color: var(--brand);
+  }
+  .btn:hover {
+    opacity: 0.92;
+  }
+  .courses {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .courses span {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .actions {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+  }
+  .actions small {
+    opacity: 0.85;
+    font-size: 0.8125rem;
+  }
+  @media (max-width: 760px) {
+    .wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

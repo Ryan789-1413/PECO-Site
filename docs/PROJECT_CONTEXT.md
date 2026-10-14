@@ -30,13 +30,14 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - Legal name: **Power Engineering Company, Inc.** `[SITE]` (footer: "© Power Engineering Company")
 - Short name: **Power Engineering**, nickname **PECO**. Domain: pecowater.com.
 - Headquarters: **Salt Lake City, Utah**. `[SCOPE]` `[CONFIRM street address: not published on current site]`
+  - The Salt Lake City site houses the headquarters, chemical production, a fabrication shop and Ridgewater Analytical. `[RYAN, confirmed Oct 14, 2026]`
 - Second location: **Idaho Falls, Idaho**, with a local representative and chemical storage/inventory. `[SCOPE]`
 - Phone: **801-532-6972**. `[SITE]`
 - Email: none published on the current site. `[CONFIRM]` (ryan@pecowater.com is Ryan's own address, not a general inbox.)
 - Hours: not published. `[CONFIRM]`
 - Service area: Utah, Idaho and the **Mountain West / Intermountain West**. `[SITE]`
 - Employees: **22**. `[SCOPE]`
-- Privately held and independent. Implied by Associated Labs membership, which requires privately held, owner-operated companies. `[CONFIRM wording]`
+- Privately held and independent. Implied by Associated Labs membership, which requires privately held, owner-operated companies. `[RYAN, confirmed Oct 14, 2026]`: "privately held and independent" and "privately held and locally run" are approved wording.
 
 ### History
 - **1946**: founded as a **design-build firm for steam generating plants**. `[SITE]`
@@ -59,7 +60,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
    - `[CONFIRM]` AWT logo/badge usage rules before using the official logo. The prototype uses a text badge "AWT" instead of their logo.
 2. **Associated Labs (AL)**, https://associatedlabs.org/
    - An alliance of privately held, independent water treatment companies, each owner-operated (typically $5–20M revenue). Not a franchise, a buying group or a private equity platform.
-   - From the AL intro PDF (Intro-4): **9 member companies, 150 employees, 2 countries, 9 manufacturing and distribution sites, 6 labs and R&D facilities.** `[CONFIRM: AL's own website was still a draft ("Website Option 1/2"), so confirm these numbers are cleared for publication]`
+   - From the AL intro PDF (Intro-4): **9 member companies, 150 employees, 2 countries, 9 manufacturing and distribution sites, 6 labs and R&D facilities.** `[RYAN, confirmed for publication Oct 14, 2026]` Don't round these up: say "a network of labs and plants", not "dozens".
    - Members work in different regional markets with little overlap, so they share openly under confidentiality agreements.
    - Membership delivers: open exchange of ideas, benchmarking, technical expertise across boiler, cooling, closed loop, wastewater and potable treatment, and **serving customers beyond a member's footprint through shared products and services**.
    - Meeting cadence: monthly topic calls, a spring owner-level on-site, and a fall full-team on-site.
@@ -73,13 +74,13 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - Led by an **in-house PhD chemist**. `[SCOPE]`
 - Functions: quality control, R&D/formulation, and advanced analytical testing. `[SCOPE]`
 - Current site wording: an "expanded analytical lab" that gives on-site support "to identify, define, and fix problems quickly." `[SITE]`
-- Location: Salt Lake City, alongside chemical production. `[CONFIRM]`
+- Location: Salt Lake City, alongside chemical production. `[RYAN, confirmed Oct 14, 2026]`
 - Instrument models, inferred from file names on Ryan's computer only. `[CONFIRM before publishing any model names]`
   - ICP: Thermo Scientific **iCAP PRO XP Duo** (ICP-OES)
   - HPLC: Thermo Scientific **Vanquish Flex** with VWD (variable wavelength detector)
   - IC: **Metrohm** ion chromatograph
 - Do **not** claim CDC ELITE, ISO 17025, NELAP or any other accreditation unless Ryan confirms it. Competitors (Aqua-Serv) advertise "CDC ELITE & ISO 17025" for Legionella. If Ridgewater has none, say nothing.
-- Analyte-to-instrument mapping used on the site (water chemistry; confirm with the chemist):
+- Analyte-to-instrument mapping used on the site (water chemistry). The home page table, including silica reported as **mg/L SiO₂**, was confirmed by Ryan on Oct 14, 2026:
 
 | Analyte | Instrument | Reported as |
 |---|---|---|
@@ -87,7 +88,8 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 | Magnesium hardness | ICP | mg/L as CaCO₃ |
 | Total iron | ICP | mg/L Fe |
 | Copper | ICP | mg/L Cu |
-| Zinc, molybdenum, total phosphorus, silica | ICP | mg/L |
+| Silica | ICP | mg/L SiO₂ |
+| Zinc, molybdenum, total phosphorus | ICP | mg/L |
 | Chloride | IC | mg/L Cl⁻ |
 | Sulfate | IC | mg/L SO₄²⁻ |
 | Nitrate, nitrite (closed loops), fluoride | IC | mg/L |
@@ -100,11 +102,12 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 ### Services `[SCOPE]` `[SITE]`
 - **Chemical treatment programs** for cooling towers, boilers (hot water and steam) and closed loops.
 - **Remote monitoring** integrated with the water treatment controller, with real-time alarms when parameters leave control limits. PECO is notified alongside the customer.
-- **Bi-monthly on-site testing and service.** `[SCOPE]`
+- **Monthly on-site testing and service.** `[RYAN, Oct 14, 2026]` This overrides the Scope PDF's "bi-monthly". Say "monthly" everywhere; don't use "bi-monthly".
 - **Digital service reports**, available the moment the technician submits them on site. `[SCOPE]`
-- **Online service history**: past reports, lab results and performance data. `[SCOPE]` `[CONFIRM: what portal? See the "AquaCore Hub" and "Aquassist" notes in §9]`
+- **Online service history**: past reports, lab results and performance data. `[SCOPE]` `[RYAN, confirmed Oct 14, 2026]` The portal's name and a customer login link are still open (§9 q7).
 - **Hands-free chemical delivery** and transfer directly into on-site storage tanks. `[SCOPE]`
 - **Chemical production in Salt Lake City**, local inventory/storage in Idaho Falls, and expedited production for short lead times. `[SCOPE]`
+- **Replacement parts stocked in Salt Lake City and Idaho Falls.** `[RYAN, confirmed Oct 14, 2026]`
 - **Equipment Service Department** (Salt Lake City): solves treatment and equipment problems, distributes parts, and gets systems back in operation quickly. `[SITE]`
 - **Construction Service Department**: after a bid award, it cleans out systems, disinfects domestic water lines, charges closed loops with corrosion inhibitor or glycol, and oversees installation of treatment control and feed equipment. `[SITE]`
 - **New construction consulting**: water treatment equipment and applications, freeze protection, sterilization of domestic water piping, corrosion protection systems, system cleaning. `[SITE]`
@@ -113,7 +116,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
   - "**Water Treatment 101**": structured on-site training for operations personnel, maintenance staff and facility managers. `[SCOPE]`
   - **Seasonal one-day courses**: cooling treatment, boiler treatment, boiler maintenance. `[SITE]`
   - Held on site, at a local facility, or at the **PECO training center in Salt Lake City**. On-site sessions are tailored to the facility. `[SITE]`
-- **Free site survey** with baseline water analysis (the main CTA). `[CONFIRM "free"]`
+- **Free site survey** with baseline water analysis (the main CTA). `[RYAN, "free" confirmed Oct 14, 2026]`
 
 ### Procurement
 - **State contracts** and an **FSS (Federal Supply Schedule) contract for GSA-qualified purchases**. `[SITE]` `[SCOPE]` `[CONFIRM contract numbers/schedule SIN for display]`
@@ -137,13 +140,13 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - **Tanks**: PECO chemical tanks.
 - **Valves**: **Belimo**, **Bi-torq** (motorized/actuated valves).
 - **Misc**: corrosion coupon racks; hand-held test kits (titration, drop tests, handheld meters, fluorescence, photometers).
-- **Filtration** `[RYAN]`: "we deal with filtration." The prototype lists side-stream filtration for towers, cartridge and bag housings, closed loop filtration, elements/media/spare parts. `[CONFIRM product lines/brands]`
+- **Filtration** `[RYAN]`: "we deal with filtration." Product lines confirmed Oct 14, 2026: side-stream and full-flow filtration for towers, cartridge and bag housings, closed loop filtration, filter elements/media/spare parts. `[CONFIRM brands, if they should be named]`
 - **Probes/sensors** `[RYAN]`: conductivity, pH (plus ORP and fluorescence per the controllers page).
 
 ### Systems served
 Cooling towers; boilers and steam (hot water and steam, condensate); closed loops (chilled water, hot water, process); heat transfer fluids and freeze protection (glycol); filtration, softeners and pretreatment; controls and feed equipment. Domestic water disinfection on new construction.
 
-### Industries (prototype list) `[CONFIRM: remove any PECO doesn't serve]`
+### Industries (prototype list) `[RYAN, all eight confirmed Oct 14, 2026]`
 Commercial buildings and property portfolios; government and federal (FAA, State, GSA); healthcare (hospitals, e.g. Logan Regional appears in Ryan's files); education (school districts and universities); data centers; manufacturing; food and beverage; hospitality. Public, case-study-worthy names should only be used with customer permission.
 
 ---
@@ -360,15 +363,15 @@ peco-website/
 
 1. ★ Street addresses for Salt Lake City and Idaho Falls, a general email inbox for form leads, and business hours.
 2. ★ Who controls DNS and hosting for pecowater.com today? Which hosting platform do we want (Netlify / Cloudflare Pages / Vercel / the existing host)?
-3. ★ Confirm the Ridgewater instrument models (iCAP PRO XP Duo, Vanquish Flex, Metrohm IC), whether to name them, and whether Ridgewater takes outside samples.
-4. ★ Confirm the Associated Labs figures (9 / 150 / 2 / 9 / 6) are cleared for publication, and get logo-use permission for AWT and AL.
+3. ★ Confirm the Ridgewater instrument models (iCAP PRO XP Duo, Vanquish Flex, Metrohm IC), whether to name them, and whether Ridgewater takes outside samples. (Lab location confirmed Oct 14, 2026.)
+4. ★ Get logo-use permission for AWT and AL. (The Associated Labs figures were confirmed for publication Oct 14, 2026.)
 5. How many staff are AWT **CWT**-certified?
-6. Is the site survey free? Confirm the "bi-monthly" service frequency wording (bi-monthly can mean twice a month or every two months).
+6. ~~Is the site survey free? What does "bi-monthly" mean?~~ Resolved Oct 14, 2026: the survey is free, and on-site service visits are monthly.
 7. Customer portal: is there a customer-facing service report portal (Ryan's files mention "AquaCore Hub" implementation/exclusivity docs and "Aquassist" licenses)? If so, add a "Customer login" link and feature smart testing on the site.
-8. Filtration: which product lines or brands (side-stream sand/media, cartridge/bag, separators)?
+8. Filtration: should specific brands be named? (Product lines confirmed Oct 14, 2026.)
 9. Real descriptions for feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations), coupon rack and test kits. The current pages are lorem ipsum.
 10. PECO chemistry bulletins: the PDFs or text for PECO 4971–4992, plus boiler, closed loop, antimicrobial and calcium chloride lines. Should SDS be public?
-11. Industries list: keep, remove or add? Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)?
+11. Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)? (The industries list was confirmed Oct 14, 2026.)
 12. Team page: names, titles and photos to include (e.g. the PhD chemist, service techs)?
 13. Real photography: can we schedule a shoot (see the shot list in §5)? Until then, keep the Commons photos with credits.
 14. Dark mode: wanted or not?

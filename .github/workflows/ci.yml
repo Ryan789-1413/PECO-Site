@@ -32,6 +32,16 @@ jobs:
           path: dist
           include-hidden-files: true
           retention-days: 7
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Playwright smoke, accessibility (axe) and redirect-file tests
+        run: npm run test:e2e
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 14
 
   links:
     name: Link check (lychee)
@@ -46,6 +56,7 @@ jobs:
       # Absolute links to https://pecowater.com (canonical, og:url) point at the
       # old WordPress site until cutover, so they are excluded. Internal links are
       # root-relative and still checked against dist/. Remove the exclude after cutover.
+      # /api/site-survey/ is the contact form's Pages Function (Phase 4); drop that exclude then.
       - uses: lycheeverse/lychee-action@v2
         with:
           fail: true
@@ -55,6 +66,7 @@ jobs:
             --max-retries 3
             --accept 200..=299,429
             --exclude '^https://pecowater\.com'
+            --exclude '/api/site-survey/?$'
             './dist/**/*.html'
 
   lighthouse:

@@ -1,5 +1,6 @@
 ---
 // Navy utility bar above the header. Copy matches prototype/index.html.
+import { PHONE_DISPLAY, PHONE_TEL } from '../data/company';
 ---
 
 <div class="utility">
@@ -8,7 +9,10 @@
       <b>Celebrating 80 years</b> &middot; 1946&ndash;2026
     </span>
     <span>
-      AWT member &middot; Associated Labs member &middot; <strong>801.532.6972</strong>
+      AWT member &middot; Associated Labs member &middot;{' '}
+      <strong>
+        <a href={PHONE_TEL}>{PHONE_DISPLAY}</a>
+      </strong>
     </span>
   </div>
 </div>
@@ -29,6 +33,12 @@
   .utility strong {
     color: var(--deep-ink);
     font-weight: 500;
+  }
+  .utility strong a {
+    text-decoration: none;
+  }
+  .utility strong a:hover {
+    text-decoration: underline;
   }
   .anniv {
     font-family: var(--f-mono);

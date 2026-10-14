@@ -1,0 +1,93 @@
+---
+// Five sourced facts: 1946 [SITE], 22 employees [SCOPE], PhD chemist [SCOPE],
+// SLC + Idaho Falls [SCOPE], AWT + AL memberships [RYAN].
+const facts = [
+  { value: '80 yrs', label: 'Continuous operation since 1946' },
+  { value: '22', label: 'Dedicated employees, one accountable team' },
+  { value: 'PhD', label: 'Chemist leading QC, R&D and analysis' },
+  { value: '2', label: 'Locations: Salt Lake City HQ and Idaho Falls' },
+  {
+    value: 'AWT + AL',
+    label: 'Member of the Association of Water Technologies and Associated Labs',
+  },
+];
+---
+
+<section class="proof" aria-label="Company at a glance">
+  <div class="wrap">
+    <dl>
+      {facts.map((f) => (
+        <div>
+          <dt>{f.value}</dt>
+          <dd>{f.label}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .proof {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+  /*
+   * The prototype's `.proof div` rule also matched the .wrap, adding vertical padding to the
+   * strip (and removing its side gutters). The padding is kept; the gutters are not, so text
+   * never touches the screen edge on phones.
+   */
+  .proof .wrap {
+    padding-block: 26px;
+  }
+  @media (max-width: 900px) {
+    .proof .wrap {
+      padding-block: 20px;
+    }
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  dl div {
+    padding: 26px 20px;
+    border-left: 1px solid var(--line);
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+  dl div:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+  dt {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  dd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  @media (max-width: 900px) {
+    dl {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    dl div {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    dl div:nth-child(-n + 2) {
+      border-top: 0;
+    }
+    dl div:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

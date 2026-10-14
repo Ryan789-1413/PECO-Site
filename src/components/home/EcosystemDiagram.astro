@@ -1,0 +1,127 @@
+---
+// The closed-loop diagram: six numbered nodes in a dashed ring around "Your Water System".
+// Geometry copied from prototype/index.html. 06 Analyze (Ridgewater) is drawn in lab teal.
+const nodes = [
+  { n: '01', name: 'Formulate', sub: 'our chemistry', x: 260, y: 75 },
+  { n: '02', name: 'Fabricate', sub: 'feed equipment', x: 420.2, y: 167.5 },
+  { n: '03', name: 'Deliver', sub: 'hands-free', x: 420.2, y: 352.5 },
+  { n: '04', name: 'Monitor', sub: 'real-time alarms', x: 260, y: 445 },
+  { n: '05', name: 'Service', sub: 'on-site testing', x: 99.8, y: 352.5 },
+  { n: '06', name: 'Analyze', sub: 'Ridgewater lab', x: 99.8, y: 167.5, lab: true },
+];
+const chevrons = [
+  [352.5, 99.8, 30],
+  [445, 260, 90],
+  [352.5, 420.2, 150],
+  [167.5, 420.2, 210],
+  [75, 260, 270],
+  [167.5, 99.8, 330],
+];
+---
+
+<svg class="eco-svg" viewBox="0 0 520 520" role="img" aria-labelledby="eco-title eco-desc">
+  <title id="eco-title">The Power Engineering water treatment ecosystem</title>
+  <desc id="eco-desc">
+    A closed loop of six capabilities around your water system: formulate chemistry, fabricate
+    equipment, deliver, monitor, service, and analyze in the Ridgewater lab, which feeds back into
+    formulation.
+  </desc>
+  <circle class="ring" cx="260" cy="260" r="185"></circle>
+  <g class="chev">
+    {chevrons.map(([x, y, r]) => (
+      <path d="M-6,-6 L6,0 L-6,6Z" transform={`translate(${x} ${y}) rotate(${r})`} />
+    ))}
+  </g>
+  <circle class="core" cx="260" cy="260" r="86"></circle>
+  <text class="core-s" x="260" y="236" text-anchor="middle">
+    YOUR
+  </text>
+  <text class="core-t" x="260" y="264" text-anchor="middle">
+    Water System
+  </text>
+  <text class="core-s" x="260" y="290" text-anchor="middle">
+    COOLING &#183; BOILER
+  </text>
+  <text class="core-s" x="260" y="305" text-anchor="middle">
+    CLOSED LOOP
+  </text>
+  {nodes.map((node) => (
+    <g>
+      <circle class:list={['node', { lab: node.lab }]} cx={node.x} cy={node.y} r="58" />
+      <text class="num" x={node.x} y={node.y - 13} text-anchor="middle">
+        {node.n}
+      </text>
+      <text class="name" x={node.x} y={node.y + 9} text-anchor="middle">
+        {node.name}
+      </text>
+      <text class="sub" x={node.x} y={node.y + 25} text-anchor="middle">
+        {node.sub}
+      </text>
+    </g>
+  ))}
+</svg>
+
+<style>
+  .eco-svg {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    margin-inline: auto;
+  }
+  .ring {
+    fill: none;
+    stroke: var(--brand);
+    stroke-width: 2;
+    stroke-dasharray: 4 6;
+  }
+  .chev {
+    fill: var(--brand);
+  }
+  .node {
+    fill: var(--surface);
+    stroke: var(--brand);
+    stroke-width: 2;
+  }
+  .node.lab {
+    stroke: var(--lab);
+  }
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    fill: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .name {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 19px;
+    fill: var(--ink);
+  }
+  .sub {
+    font-family: var(--f-body);
+    font-size: 11px;
+    fill: var(--muted);
+  }
+  .core {
+    fill: var(--brand);
+  }
+  .core-t {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 21px;
+    fill: var(--on-brand);
+  }
+  .core-s {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    fill: var(--on-brand);
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+  }
+  @media (max-width: 900px) {
+    .eco-svg {
+      max-width: 380px;
+    }
+  }
+</style>

@@ -8,6 +8,7 @@ export default defineConfig({
   output: 'static',
   // Every page is served as /path/ so Cloudflare Pages never adds a second redirect hop.
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  // Inline all CSS: no render-blocking stylesheet requests before the first paint.
+  build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [sitemap()],
 });

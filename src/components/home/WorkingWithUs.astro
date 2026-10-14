@@ -1,0 +1,72 @@
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Working with us</p>
+      <h2>Simple to start, simple to buy.</h2>
+    </div>
+    <div class="procure">
+      <div>
+        <h3>State and GSA contracts</h3>
+        <p>
+          Purchase approved products and services through State contracts or our FSS contract for
+          GSA-qualified purchases.
+        </p>
+      </div>
+      <div>
+        <h3>Equipment in stock</h3>
+        <p>
+          Feed pumps, controllers, probes, filters and parts stocked locally to keep your systems
+          running.
+        </p>
+      </div>
+      <div>
+        <h3>Free site survey</h3>
+        <p>
+          We assess your systems, test your water and recommend a program tailored to your
+          operation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .procure {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .procure > div {
+    padding: 26px 26px 28px;
+    border-left: 1px solid var(--line);
+    display: grid;
+    gap: 8px;
+    align-content: start;
+  }
+  .procure > div:first-child {
+    border-left: 0;
+  }
+  h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+  }
+  .procure p {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  @media (max-width: 820px) {
+    .procure {
+      grid-template-columns: 1fr;
+    }
+    .procure > div {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+    }
+    .procure > div:first-child {
+      border-top: 0;
+    }
+  }
+</style>

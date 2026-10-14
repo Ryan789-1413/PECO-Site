@@ -1,0 +1,98 @@
+---
+import ContactForm from './ContactForm.astro';
+import { PHONE_DISPLAY, PHONE_TEL } from '../../data/company';
+---
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Talk with a water treatment specialist.</h2>
+      <p class="lead">
+        Tell us about your cooling towers, boilers or closed loops. We will follow up to schedule a
+        site survey and baseline water analysis.
+      </p>
+      <div class="locs">
+        <div class="loc">
+          <span>Call us</span>
+          <a class="phone" href={PHONE_TEL}>
+            {PHONE_DISPLAY}
+          </a>
+        </div>
+        <div class="loc">
+          <b>Salt Lake City, Utah</b>
+          <span>Headquarters, chemical production, fabrication shop and Ridgewater Analytical</span>
+        </div>
+        <div class="loc">
+          <b>Idaho Falls, Idaho</b>
+          <span>Local representative and chemical storage</span>
+        </div>
+      </div>
+    </div>
+    <ContactForm />
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--deep);
+    color: var(--deep-ink);
+  }
+  .contact .eyebrow {
+    color: var(--deep-accent);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 56px;
+  }
+  h2 {
+    font-size: var(--step-4);
+    font-weight: 700;
+    margin: 14px 0 16px;
+  }
+  .contact .lead {
+    color: var(--deep-muted);
+  }
+  .locs {
+    margin-top: 32px;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--deep-line);
+  }
+  .loc {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--deep-line);
+    display: grid;
+    gap: 4px;
+  }
+  .loc b {
+    font-family: var(--f-display);
+    font-size: 1.375rem;
+  }
+  .loc > span {
+    color: var(--deep-muted);
+    font-size: 0.9375rem;
+  }
+  /*
+   * The prototype's CSS intent (1.5rem, --deep-ink). Its `.loc span` rule outranked this, so
+   * the prototype rendered the phone small and muted; Ryan chose the larger style (Oct 14, 2026).
+   */
+  .phone {
+    font-family: var(--f-mono);
+    font-size: 1.5rem;
+    color: var(--deep-ink);
+    user-select: all;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .phone:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
