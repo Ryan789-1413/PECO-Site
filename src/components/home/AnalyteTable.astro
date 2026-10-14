@@ -1,0 +1,87 @@
+---
+import Unconfirmed from '../Unconfirmed.astro';
+
+// Analyte-to-instrument mapping from PROJECT_CONTEXT §2 (to be reviewed by the chemist).
+const rows = [
+  { analyte: 'Calcium hardness', inst: 'ICP', unit: 'mg/L as CaCO₃' },
+  { analyte: 'Magnesium hardness', inst: 'ICP', unit: 'mg/L as CaCO₃' },
+  { analyte: 'Total iron', inst: 'ICP', unit: 'mg/L Fe' },
+  { analyte: 'Copper', inst: 'ICP', unit: 'mg/L Cu' },
+  {
+    analyte: 'Silica',
+    inst: 'ICP',
+    unit: 'mg/L SiO₂',
+    confirm: "PROJECT_CONTEXT §2 lists silica as 'mg/L'; the prototype says 'mg/L SiO₂'",
+  },
+  { analyte: 'Chloride', inst: 'IC', unit: 'mg/L Cl⁻' },
+  { analyte: 'Sulfate', inst: 'IC', unit: 'mg/L SO₄²⁻' },
+  { analyte: 'Orthophosphate', inst: 'IC', unit: 'mg/L PO₄³⁻' },
+  { analyte: 'Tolyltriazole', inst: 'HPLC', unit: 'mg/L TTA' },
+];
+---
+
+<div class="table-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Analyte</th>
+        <th scope="col">Instrument</th>
+        <th scope="col">Reported as</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          <td>{r.analyte}</td>
+          <td class="m">{r.inst}</td>
+          <td class="u">
+            {r.confirm ? <Unconfirmed note={r.confirm}>{r.unit}</Unconfirmed> : r.unit}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--deep-line);
+    border-radius: var(--radius);
+  }
+  table {
+    color: inherit;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    min-width: 460px;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--deep-line);
+  }
+  th {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--deep-muted);
+    background: var(--deep-2);
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  td.m {
+    font-family: var(--f-mono);
+    font-size: 0.8125rem;
+    color: var(--lab);
+  }
+  td.u {
+    font-family: var(--f-mono);
+    font-size: 0.8125rem;
+    color: var(--deep-muted);
+  }
+</style>

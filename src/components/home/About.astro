@@ -1,0 +1,168 @@
+---
+import Unconfirmed from '../Unconfirmed.astro';
+
+const values = [
+  {
+    title: 'Built in-house',
+    text: 'Chemistry, equipment, filtration and lab work under our own quality control.',
+  },
+  {
+    title: 'Accountable',
+    text: 'Digital reports document every visit, test and corrective action.',
+  },
+  {
+    title: 'Local and responsive',
+    text: 'Short lead times and fast response from Salt Lake City and Idaho Falls.',
+  },
+  {
+    title: 'Committed to education',
+    text: 'Water Treatment 101 and seasonal courses at our Salt Lake City training center.',
+  },
+];
+---
+
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-mark">
+      <span class="yr">1946</span>
+      <span class="yr-sub">
+        Founded in Salt Lake City &middot; Water treatment specialists since 1961
+      </span>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">About us</p>
+      <h2>Eighty years of keeping water working.</h2>
+      <p>
+        Power Engineering began in 1946 as a design-build firm for steam generating plants. In 1961
+        we turned that plant-side experience to water treatment, and we have designed, installed and
+        maintained treatment systems and programs across the Mountain West ever since.
+      </p>
+      <p>
+        Over the decades we have grown into a complete industrial water ecosystem. We consult with
+        design engineers during planning, track regional water supply patterns to customize each
+        program, and work with a university metallurgical department on corrosion questions. We
+        manufacture our own chemical formulations, fabricate our own feed equipment, operate our own
+        analytical laboratory through Ridgewater Analytical, and deliver and service every program
+        with our own team. When each part of the program comes from one place, quality is easier to
+        control and problems are faster to solve.
+      </p>
+      <p>
+        Our 22 employees work from our Salt Lake City headquarters and our Idaho Falls location,
+        which keeps a local representative and chemical inventory close to customers in Idaho.{' '}
+        <Unconfirmed note="PROJECT_CONTEXT §2 Identity: 'privately held and independent' wording">
+          {'We remain privately held and independent, and we'}
+        </Unconfirmed>{' '}
+        are active members of the Association of Water Technologies and Associated Labs, which keep
+        our equipment, chemistry and best practices aligned with current industry standards.
+      </p>
+      <div class="values">
+        <div class="mission">
+          <h3>Our mission</h3>
+          <p>
+            To always provide the highest quality products and equipment with the highest value to
+            our clients, to keep a positive working environment for customers and employees, and to
+            honor our commitments.
+          </p>
+        </div>
+        {values.map((v) => (
+          <div>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--bg);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 64px;
+    align-items: start;
+  }
+  .about-mark {
+    display: grid;
+    gap: 18px;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 96px);
+  }
+  .yr {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(5rem, 11vw, 8.5rem);
+    line-height: 0.85;
+    color: var(--brand);
+    letter-spacing: -0.02em;
+  }
+  .yr-sub {
+    font-family: var(--f-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .about-copy {
+    display: grid;
+    gap: 20px;
+    font-size: 1.0625rem;
+    max-width: 64ch;
+  }
+  .about-copy h2 {
+    font-size: var(--step-4);
+    font-weight: 700;
+  }
+  /* As in the prototype, this also turns the "About us" eyebrow ink rather than brand blue. */
+  .about-copy > p {
+    color: var(--ink);
+  }
+  .about-copy > p + p {
+    color: var(--muted);
+  }
+  .values {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+  }
+  .values > div {
+    border-top: 2px solid var(--brand);
+    padding-top: 12px;
+  }
+  .values .mission {
+    grid-column: 1 / -1;
+    background: var(--brand-tint);
+    padding: 16px 18px;
+  }
+  .values .mission p {
+    color: var(--ink);
+    font-size: 1rem;
+  }
+  .values h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .values p {
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .about-mark {
+      position: static;
+    }
+  }
+  @media (max-width: 520px) {
+    .values {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

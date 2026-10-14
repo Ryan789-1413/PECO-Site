@@ -1,0 +1,84 @@
+---
+import Unconfirmed from '../Unconfirmed.astro';
+
+const industries = [
+  {
+    title: 'Commercial buildings',
+    text: 'Office towers, campuses and property portfolios with central plants.',
+  },
+  {
+    title: 'Government and federal',
+    text: 'Public facilities served through State and GSA contract vehicles.',
+  },
+  {
+    title: 'Healthcare',
+    text: 'Hospitals and clinics where system reliability protects patients.',
+  },
+  { title: 'Education', text: 'Universities and school districts with boilers, towers and loops.' },
+  {
+    title: 'Data centers',
+    text: 'High-load cooling where water and energy efficiency matter most.',
+  },
+  { title: 'Manufacturing', text: 'Process cooling, steam and industrial water across the plant.' },
+  { title: 'Food and beverage', text: 'Boilers and cooling systems supporting production lines.' },
+  { title: 'Hospitality', text: 'Hotels and resorts with year-round heating and cooling demand.' },
+];
+---
+
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Who we serve</p>
+      <h2>Facilities that cannot afford downtime.</h2>
+    </div>
+    <Unconfirmed
+      as="div"
+      note="PROJECT_CONTEXT §2 Industries: remove any PECO doesn't serve (§9 q11)"
+    >
+      <div class="ind-grid">
+        {industries.map((ind) => (
+          <div class="ind">
+            <h3>{ind.title}</h3>
+            <p>{ind.text}</p>
+          </div>
+        ))}
+      </div>
+    </Unconfirmed>
+  </div>
+</section>
+
+<style>
+  .ind-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .ind {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    background: var(--surface);
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .ind p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  @media (max-width: 960px) {
+    .ind-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 480px) {
+    .ind-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

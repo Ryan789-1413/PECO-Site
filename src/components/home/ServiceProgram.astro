@@ -1,0 +1,121 @@
+---
+import Unconfirmed from '../Unconfirmed.astro';
+import ServiceReport from './ServiceReport.astro';
+---
+
+<section class="section" id="service">
+  <div class="wrap svc">
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">Service program</p>
+        <h2>Proactive service you can verify.</h2>
+        <p class="lead">
+          Our program is built on proactive communication, rapid response and measurable
+          performance. You see what we did, when we did it and what we found.
+        </p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="when">Continuous</span>
+          <div>
+            <h3>Remote monitoring</h3>
+            <p>
+              Controller-integrated alarms reach our team in real time when operating parameters
+              drift outside established limits.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Bi-monthly</span>
+          <div>
+            <h3>On-site testing and service</h3>
+            <p>
+              Technicians test, adjust and document every system to keep it efficient and within
+              control limits.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Same visit</span>
+          <div>
+            <h3>Digital service reports</h3>
+            <p>
+              Reports are available to you the moment the technician submits them onsite, with test
+              results, corrective actions and recommendations.
+            </p>
+          </div>
+        </li>
+        <Unconfirmed
+          as="li"
+          note="PROJECT_CONTEXT §2 Services: online service history portal (§9 q7)"
+        >
+          <span class="when">Any time</span>
+          <div>
+            <h3>Online service history</h3>
+            <p>
+              Review past reports, lab results and system performance data whenever you need them,
+              including for audits.
+            </p>
+          </div>
+        </Unconfirmed>
+      </ol>
+    </div>
+
+    <ServiceReport />
+  </div>
+</section>
+
+<style>
+  .svc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .section-head {
+    margin-bottom: 32px;
+  }
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .steps > :global(li) {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .steps > :global(li:last-child) {
+    border-bottom: 1px solid var(--line);
+  }
+  .steps :global(.when) {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    padding-top: 4px;
+  }
+  .steps :global(h3) {
+    font-size: var(--step-2);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .steps :global(p) {
+    color: var(--muted);
+  }
+  @media (max-width: 960px) {
+    .svc {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 520px) {
+    .steps > :global(li) {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  }
+</style>

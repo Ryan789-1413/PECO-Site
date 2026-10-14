@@ -1,0 +1,239 @@
+---
+import EcosystemDiagram from './EcosystemDiagram.astro';
+
+const items = [
+  {
+    n: '01',
+    kind: 'Chemistry',
+    title: 'Formulate',
+    text: 'We manufacture our own chemical formulations in Salt Lake City, with direct oversight of consistency, performance and supply.',
+    points: [
+      'Scale and corrosion inhibitors',
+      'Biocide and microbiological control',
+      'Boiler, closed loop and heat transfer fluids',
+      'Expedited production for short lead times',
+    ],
+    lines: ['PECO cooling', 'PECO boiler', 'PECO closed loop', 'Antimicrobials'],
+  },
+  {
+    n: '02',
+    kind: 'Equipment',
+    title: 'Fabricate',
+    text: "We supply, fabricate and install the equipment that feeds, controls and protects your water, built to each site's requirements.",
+    points: [
+      'Chemical feed pumps and feed panels',
+      'Conductivity and pH controllers, probes and sensors',
+      'Glycol feeders, filtration and motorized valves',
+      'Parts stocked locally for fast repairs',
+    ],
+  },
+  {
+    n: '03',
+    kind: 'Logistics',
+    title: 'Deliver',
+    text: 'Hands-free chemical delivery and transfer directly into your onsite storage tanks. Your staff never handles a drum.',
+    points: [
+      'Production in Salt Lake City',
+      'Local inventory and storage in Idaho Falls',
+      'Reduced risk of shortages and emergencies',
+    ],
+  },
+  {
+    n: '04',
+    kind: 'Data',
+    title: 'Monitor',
+    text: 'Remote monitoring integrated with your water treatment controller sends real-time alarms the moment a parameter leaves its control limits.',
+    points: [
+      'Conductivity, pH, ORP and flow alarms',
+      'Our team notified alongside yours',
+      'Issues caught before they become failures',
+    ],
+  },
+  {
+    n: '05',
+    kind: 'Field',
+    title: 'Service',
+    text: 'Scheduled testing and service visits keep every system operating efficiently and within specified limits.',
+    points: [
+      'Bi-monthly on-site testing and service',
+      'Digital reports available the moment they are filed',
+      'Rapid response from local technicians',
+    ],
+  },
+  {
+    n: '06',
+    kind: 'Laboratory',
+    title: 'Analyze',
+    text: 'Ridgewater Analytical, our in-house lab, verifies what is happening in your water and feeds the results back into your program.',
+    points: [
+      'HPLC, ICP and IC instrumentation',
+      'Product QC and formulation R&D',
+      'Led by our in-house PhD chemist',
+    ],
+    lab: true,
+  },
+];
+---
+
+<section class="section" id="ecosystem">
+  <div class="wrap">
+    <div class="eco-head">
+      <div class="section-head">
+        <p class="eyebrow">The ecosystem</p>
+        <h2>Six capabilities, one closed loop.</h2>
+        <p class="lead">
+          Most treatment programs stitch together a chemical supplier, an equipment vendor, an
+          outside lab and a service contractor. We own every link. That means faster answers,
+          tighter quality control and one phone number when something needs attention.
+        </p>
+      </div>
+      <figure>
+        <EcosystemDiagram />
+      </figure>
+    </div>
+
+    <div class="eco-grid">
+      {items.map((item) => (
+        <article class:list={['eco-item', { lab: item.lab }]}>
+          <div class="tag">
+            <span class="n">{item.n}</span>
+            <span class="w">{item.kind}</span>
+          </div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <ul>
+            {item.points.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+          {item.lines && (
+            <div class="lines">
+              {item.lines.map((l) => (
+                <span>{l}</span>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .eco-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .eco-head .section-head {
+    margin-bottom: 0;
+  }
+  .eco-head figure {
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .eco-head {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .eco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .eco-item {
+    padding: 30px 28px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    background: var(--surface);
+    min-width: 0;
+  }
+  .tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .tag .n {
+    font-family: var(--f-mono);
+    font-size: var(--step--1);
+    color: var(--brand);
+    letter-spacing: 0.06em;
+  }
+  .tag .w {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-size: var(--step-3);
+    font-weight: 700;
+  }
+  .eco-item p {
+    color: var(--muted);
+  }
+  ul {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 6px;
+    font-size: 0.9375rem;
+  }
+  li {
+    padding-left: 18px;
+    position: relative;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 8px;
+    height: 1.5px;
+    background: var(--brand);
+  }
+  .eco-item.lab .tag .n {
+    color: var(--lab);
+  }
+  .eco-item.lab li::before {
+    background: var(--lab);
+  }
+  .lines {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .lines span {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    background: var(--brand-tint);
+    color: var(--ink);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  @media (max-width: 960px) {
+    .eco-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 620px) {
+    .eco-grid {
+      grid-template-columns: 1fr;
+    }
+    .eco-item {
+      padding: 24px 20px;
+    }
+  }
+</style>

@@ -1,0 +1,299 @@
+---
+import Unconfirmed from '../Unconfirmed.astro';
+// Text badges instead of the AWT and AL logos until logo use is approved (PROJECT_CONTEXT §2).
+---
+
+<section class="section members" id="memberships">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Memberships</p>
+      <h2>Backed by two industry networks.</h2>
+      <p class="lead">
+        Power Engineering belongs to the Association of Water Technologies and Associated Labs. Both
+        connect our team to training, technical research and peers who solve the same problems every
+        day, and that knowledge goes straight into your program.
+      </p>
+    </div>
+
+    <div class="mem-grid">
+      <article class="mem">
+        <div class="mem-id">
+          <div class="mem-badge" aria-hidden="true">
+            AWT
+          </div>
+          <div>
+            <h3>Association of Water Technologies</h3>
+            <span>Member company</span>
+          </div>
+        </div>
+        <p>
+          AWT is the international association for water treatment companies that serve industrial
+          and commercial cooling and heating systems. It sets the bar for training and professional
+          certification in our industry.
+        </p>
+        <div class="mem-stats">
+          <div>
+            <b>500+</b>
+            <span>Member companies</span>
+          </div>
+          <div>
+            <b>CWT</b>
+            <span>Certified Water Technologist credential</span>
+          </div>
+          <div>
+            <b>Intl.</b>
+            <span>Industry association</span>
+          </div>
+        </div>
+        <h4>What it means for you</h4>
+        <ul>
+          <li>Technicians trained through AWT technical seminars, webinars and safety courses</li>
+          <li>
+            A path to the Certified Water Technologist (CWT) credential, which requires five years
+            of field experience and a proctored exam
+          </li>
+          <li>
+            Current technical papers and AWT's industry publication, <em>The Analyst</em>
+          </li>
+          <li>Legionella guidance and water management resources from the association</li>
+        </ul>
+        <a class="ext" href="https://awt.org/" rel="noopener">
+          awt.org &rarr;
+        </a>
+      </article>
+
+      <article class="mem">
+        <div class="mem-id">
+          <div class="mem-badge al" aria-hidden="true">
+            AL
+          </div>
+          <div>
+            <h3>Associated Labs</h3>
+            <span>Member company</span>
+          </div>
+        </div>
+        <p>
+          Associated Labs is an alliance of privately held, independent water treatment companies,
+          each owner-operated. Members work in different regional markets, so they share technical
+          knowledge, case studies and best practices openly.
+        </p>
+        <Unconfirmed
+          as="div"
+          note="PROJECT_CONTEXT §2 Associated Labs: figures 9 / 9 / 6 not cleared for publication (§9 q4)"
+        >
+          <div class="mem-stats">
+            <div>
+              <b>9</b>
+              <span>Member companies</span>
+            </div>
+            <div>
+              <b>9</b>
+              <span>Manufacturing and distribution sites</span>
+            </div>
+            <div>
+              <b>6</b>
+              <span>Labs and R&amp;D facilities</span>
+            </div>
+          </div>
+        </Unconfirmed>
+        <h4>What it means for you</h4>
+        <ul>
+          <li>
+            Collective expertise across boiler, cooling, closed loop, wastewater and potable
+            treatment
+          </li>
+          <li>
+            Shared case work on high-silica towers, data center cooling, tagged polymer monitoring
+            and Legionella control
+          </li>
+          <li>
+            Formulation testing on corrosion, scale loops and pilot towers across the member network
+          </li>
+          <li>
+            Support for customers with sites outside Utah and Idaho through shared products and
+            services
+          </li>
+        </ul>
+        <a class="ext" href="https://associatedlabs.org/" rel="noopener">
+          associatedlabs.org &rarr;
+        </a>
+      </article>
+    </div>
+
+    <div class="mem-band">
+      <Unconfirmed
+        as="div"
+        note="PROJECT_CONTEXT §2 Identity: 'privately held and independent' wording"
+      >
+        <h3>Independent, with national reach.</h3>
+        <p>
+          Private equity is consolidating the water treatment industry. Power Engineering remains
+          privately held and locally run, so decisions about your program are made in Salt Lake City
+          by people who know your site.
+        </p>
+      </Unconfirmed>
+      <div>
+        <h3>Someone has already solved it.</h3>
+        <p>
+          <Unconfirmed note="AL figures not cleared (§9 q4); 'dozens of labs and plants' overstates 6 labs + 9 sites">
+            {
+              'When a system behaves in an unusual way, our team can draw on peers across two countries and dozens of labs and plants.'
+            }
+          </Unconfirmed>{' '}
+          You get a local team with the knowledge base of a much larger organization.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .members {
+    background: var(--surface);
+    border-block: 1px solid var(--line);
+  }
+  .mem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .mem {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    display: grid;
+    gap: 16px;
+    align-content: start;
+    background: var(--bg);
+    min-width: 0;
+  }
+  .mem-id {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .mem-badge {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: var(--on-brand);
+    background: var(--brand);
+    letter-spacing: 0.02em;
+  }
+  .mem-badge.al {
+    background: var(--deep-2);
+    color: var(--deep-ink);
+    border: 1px solid var(--deep-line);
+  }
+  .mem-id h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+  }
+  .mem-id span {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .mem > p {
+    color: var(--muted);
+  }
+  .mem-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-block: 1px solid var(--line);
+  }
+  .mem-stats div {
+    padding: 14px 12px 14px 0;
+    display: grid;
+    gap: 2px;
+  }
+  .mem-stats b {
+    font-family: var(--f-display);
+    font-size: 1.75rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .mem-stats span {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+  .mem h4 {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  .mem ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+    font-size: 0.9375rem;
+  }
+  .mem li {
+    padding-left: 18px;
+    position: relative;
+  }
+  .mem li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 8px;
+    height: 1.5px;
+    background: var(--brand);
+  }
+  .ext {
+    font-size: 0.875rem;
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .ext:hover {
+    text-decoration: underline;
+  }
+  .mem-band {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+    padding: 26px 28px;
+    border-radius: var(--radius);
+    background: var(--deep);
+    color: var(--deep-ink);
+  }
+  .mem-band h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .mem-band p {
+    color: var(--deep-muted);
+    font-size: 0.9375rem;
+  }
+  @media (max-width: 860px) {
+    .mem-grid,
+    .mem-band {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 420px) {
+    .mem-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

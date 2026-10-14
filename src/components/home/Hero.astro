@@ -1,0 +1,150 @@
+---
+import PhotoFigure from '../PhotoFigure.astro';
+import towerHospital from '../../assets/photos/tower-hospital.jpg';
+---
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Water treatment specialists since 1961 &middot; Founded 1946</p>
+      <h1>
+        One ecosystem for <span>industrial water.</span>
+      </h1>
+      <p class="lead">
+        We formulate our own chemistry, fabricate our own feed equipment, run our own analytical
+        laboratory, and service every system with our own technicians. One accountable team protects
+        your cooling towers, boilers and closed loops from start to finish.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">
+          Request a site survey
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M3 8h10M9 4l4 4-4 4"></path>
+          </svg>
+        </a>
+        <a class="btn btn-ghost" href="#ecosystem">
+          See how the ecosystem works
+        </a>
+      </div>
+      <div class="hero-note">
+        <span>Chemistry made in Salt Lake City</span>
+        <span>In-house HPLC, ICP and IC lab</span>
+        <span>AWT &amp; Associated Labs member</span>
+      </div>
+    </div>
+
+    <PhotoFigure
+      class="hero-photo"
+      src={towerHospital}
+      alt="Rooftop cooling tower with condenser water piping and valves"
+      sizes="(max-width: 900px) calc(100vw - 36px), 560px"
+      caption="Cooling towers · boilers · closed loops"
+      priority
+    >
+      <div class="spec">
+        <span>Condenser water</span>
+        <b>Cooling tower program</b>
+      </div>
+    </PhotoFigure>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 48px;
+    align-items: center;
+    padding-block: 72px 64px;
+  }
+  .hero-copy {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h1 span {
+    color: var(--brand);
+  }
+  .lead {
+    font-size: 1.25rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .hero-note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .hero-note span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-note span::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--brand);
+    border-radius: 50%;
+  }
+  .hero :global(.hero-photo) {
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+    box-shadow: var(--shadow-photo);
+  }
+  .spec {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 12px;
+    display: grid;
+    gap: 2px;
+    min-width: 150px;
+  }
+  .spec span {
+    font-family: var(--f-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .spec b {
+    font-family: var(--f-display);
+    font-size: 1.125rem;
+  }
+  @media (max-width: 900px) {
+    .hero .wrap {
+      grid-template-columns: 1fr;
+      padding-block: 48px;
+    }
+  }
+</style>
