@@ -14,7 +14,8 @@
     "check": "astro check && tsc --noEmit && npm run lint",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
-    "lhci": "npx --yes @lhci/cli@0.15.1 autorun"
+    "lhci": "npx --yes @lhci/cli@0.15.1 autorun",
+    "check:launch": "node scripts/check-launch.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

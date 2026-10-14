@@ -1,0 +1,47 @@
+---
+/*
+ * Wraps prototype copy that docs/PROJECT_CONTEXT.md still tags [CONFIRM].
+ * In drafts it renders with a visible dashed outline and a "CONFIRM" tag (CLAUDE.md:
+ * "visibly marked as a TODO in drafts"). `npm run check:launch` fails while any
+ * marker is left in dist/, so unconfirmed copy cannot reach production.
+ * Resolve each one by removing the wrapper (confirmed) or the content (not confirmed).
+ */
+interface Props {
+  /** What needs confirming, e.g. "PROJECT_CONTEXT §2: 'free' site survey". Listed in the PR. */
+  note: string;
+  as?: 'span' | 'div' | 'li' | 'p';
+}
+
+const { note, as: Tag = 'span' } = Astro.props;
+// Markers often wrap part of a sentence. Pass inline text as {'...'} expressions so
+// no stray whitespace lands inside the marker (Astro drops whitespace around expressions).
+---
+
+<Tag class="unconfirmed" data-confirm={note} title={`To confirm: ${note}`}>
+  <slot />
+</Tag>
+
+<style>
+  .unconfirmed {
+    position: relative;
+    outline: 2px dashed var(--todo);
+    outline-offset: 2px;
+  }
+  .unconfirmed::after {
+    content: 'CONFIRM';
+    position: absolute;
+    right: 0;
+    top: -2px;
+    transform: translateY(-100%);
+    font-family: var(--f-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    padding: 0 4px;
+    background: var(--todo);
+    color: var(--todo-ink);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+</style>
