@@ -4,7 +4,10 @@
  * Not connected yet: Phase 4 adds a Cloudflare Pages Function at /api/site-survey/
  * (Turnstile, honeypot, email routing). method="post" keeps entries out of the URL;
  * until Phase 4 a submit on staging returns an error page.
+ * The "not connected yet" note (approved by Ryan, Oct 14, 2026) is removed in Phase 4.
  */
+import { PHONE_DISPLAY, PHONE_TEL } from '../../data/company';
+
 const systems = [
   'Cooling tower',
   'Boiler or steam',
@@ -50,6 +53,9 @@ const systems = [
   <button class="btn btn-primary" type="submit">
     Request a site survey
   </button>
+  <p class="form-note">
+    This form isn't connected yet. Call <a href={PHONE_TEL}>{PHONE_DISPLAY}</a> for now.
+  </p>
 </form>
 
 <style>
@@ -103,6 +109,15 @@ const systems = [
   }
   .btn {
     justify-self: start;
+  }
+  /* Same style as the prototype's (script-driven) .form-msg line. */
+  .form-note {
+    grid-column: 1 / -1;
+    font-size: 0.9375rem;
+    color: var(--lab);
+  }
+  .form-note a {
+    white-space: nowrap;
   }
   @media (max-width: 560px) {
     form {
