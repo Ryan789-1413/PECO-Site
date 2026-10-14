@@ -1,0 +1,15 @@
+# Reference material: never reformat.
+prototype/
+docs/
+brand/
+*.md
+
+# Generated
+dist/
+.astro/
+.lighthouseci/
+package-lock.json
+
+# Host config files with their own syntax
+public/_redirects
+public/_headers

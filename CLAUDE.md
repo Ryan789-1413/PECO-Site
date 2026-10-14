@@ -13,12 +13,14 @@ This is the production rebuild of pecowater.com for Power Engineering Company, I
 - Only publish facts tagged as sourced in `docs/PROJECT_CONTEXT.md` §2. Anything tagged `[CONFIRM]` must stay out of production copy (or be visibly marked as a TODO in drafts) until Ryan confirms it.
 - Keep Wikimedia Commons photo credits wherever those photos are used (CC BY / CC BY-SA).
 
-## Stack (proposed; confirm with Ryan before Phase 0)
+## Stack (approved by Ryan, Oct 14, 2026)
 - Astro (static output) + TypeScript strict + plain CSS tokens ported from the prototype
 - Self-hosted fonts via @fontsource: Saira Semi Condensed, IBM Plex Sans, IBM Plex Mono
 - Content collections with Zod schemas for products, systems, industries, courses and case studies
-- `astro:assets` for images; `@astrojs/sitemap`; a `_redirects` file for old WordPress URLs
-- Host: Netlify, Cloudflare Pages or Vercel (TBD). Forms via the host's form handling or a serverless function plus an email API.
+- `astro:assets` for images; `@astrojs/sitemap`; `public/_redirects` for old WordPress URLs
+- Host: **Cloudflare Pages**. Config lives in `public/_redirects` and `public/_headers`. Forms (Phase 4): a Pages Function + Turnstile + an email API, with keys in Cloudflare environment variables.
+- Light theme only; the prototype's dark theme is not ported unless Ryan asks (PROJECT_CONTEXT §9 q14).
+- URLs end in `/` (`trailingSlash: 'always'`).
 
 ## Conventions
 - CSS: design tokens live in `src/styles/tokens.css` (copy the `:root` block from the prototype). Components use tokens only, never literal colors.
@@ -27,12 +29,18 @@ This is the production rebuild of pecowater.com for Power Engineering Company, I
 - Commits: small and descriptive. Open PRs for each phase. Don't push to `main` without review once CI exists.
 - Never commit secrets. Use environment variables on the host.
 
-## Commands (fill in after scaffolding)
-- `npm run dev`: local dev server
-- `npm run build`: static build to `dist/`
-- `npm run preview`: serve the build
-- `npm run check`: astro check + tsc + lint
-- `npm run test:e2e`: Playwright smoke and visual tests
+## Commands
+Node 22 (exact version in `.node-version`). Install with `npm ci`.
+- `npm run dev`: local dev server at http://localhost:4321
+- `npm run build`: static build to `dist/` (pages, `sitemap-index.xml`, and `public/` files including `_redirects` and `_headers`)
+- `npm run preview`: serve the built `dist/` locally
+- `npm run check`: `astro check` + `tsc --noEmit` + `npm run lint`. Run before every commit; CI runs the same command.
+- `npm run lint`: ESLint (TypeScript, Astro, jsx-a11y-x) + `prettier --check`
+- `npm run format`: `prettier --write .` (`prototype/`, `docs/`, `brand/` and Markdown are ignored)
+- `npm run lhci`: Lighthouse CI against `dist/` (run `npm run build` first). Asserts performance ≥ 0.95 and accessibility = 1.00.
+- `npm run test:e2e`: Playwright smoke and visual tests (added in Phase 1)
+
+CI (`.github/workflows/ci.yml`) runs on every PR: check + build, lychee link check on `dist/`, and Lighthouse CI.
 
 ## Start here (first Claude Code session)
 1. Read `docs/PROJECT_CONTEXT.md` fully and open `prototype/index.html` in a browser.

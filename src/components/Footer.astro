@@ -1,0 +1,231 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-power-engineering.png';
+
+// Wikimedia Commons credits (CC BY / CC BY-SA). Keep these wherever the photos are used.
+const credits = [
+  {
+    text: 'Cooling towers at Queensland hospital, Kgbo',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Cooling_towers_at_Queensland%E2%80%99_hospital_02.jpg',
+  },
+  {
+    text: 'Cooling towers, Brisbane office building, Chris Olszewski',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Cooling_Towers_at_the_office_building_in_Brisbane,_Queensland_02.jpg',
+  },
+  {
+    text: 'Boiler room in Tula Oblast, Press Service of the Governor of Tula Oblast',
+    license: 'CC BY 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Boiler_room_in_Tula_Oblast_04.jpg',
+  },
+  {
+    text: 'Chilled water pumps, Kgbo',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Chilled_water_pumps_at_Queensland%E2%80%99_hospital.jpg',
+  },
+  {
+    text: 'Chemical metering pump, LaurelBloch',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:LMI%27s_EXCEL_XR,_Chemical_Metering_Pump.jpg',
+  },
+  {
+    text: 'Mechanical room piping, Wolfmann',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Teknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_varmtvann_isolerte_r%C3%B8r_m%C3%A5lere_termometere_sirkulasjonspumpe_strupeventil_radiatorer_gulvvarme_elkabler_etc_IMG_0350.jpg',
+  },
+  {
+    text: 'Condenser water pumps, Kgbo',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Condenser_water_pumps_in_large_commercial_building,_Brisbane.jpg',
+  },
+  {
+    text: 'HPLC-ICP instrumentation, Superchilum',
+    license: 'CC BY-SA 3.0',
+    href: 'https://commons.wikimedia.org/wiki/File:HPLC-ICPMS_TISIS_01.JPG',
+  },
+  {
+    text: 'Ion chromatography system, LukaszKatlewa',
+    license: 'CC BY-SA 4.0',
+    href: 'https://commons.wikimedia.org/wiki/File:Dionex_ICS-3000_ion_chromatography_system.jpg',
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <Image src={logo} alt="Power Engineering" height={52} densities={[1, 2]} />
+        <p>
+          Founded in 1946. Water treatment specialists since 1961. Chemistry, equipment, laboratory
+          and service from one team.
+        </p>
+      </div>
+      <!-- Headings are h2 (styled as the prototype's h4) to keep the document outline valid. -->
+      <div class="foot-col">
+        <h2>Ecosystem</h2>
+        <ul>
+          <li>
+            <a href="/#ecosystem">Chemistry</a>
+          </li>
+          <li>
+            <a href="/#equipment">Equipment and filtration</a>
+          </li>
+          <li>
+            <a href="/#service">Monitoring and service</a>
+          </li>
+          <li>
+            <a href="/#ridgewater">Ridgewater Analytical</a>
+          </li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Company</h2>
+        <ul>
+          <li>
+            <a href="/#about">About us</a>
+          </li>
+          <li>
+            <a href="/#industries">Industries</a>
+          </li>
+          <li>
+            <a href="/#memberships">Memberships</a>
+          </li>
+          <li>
+            <a href="/#construction">New construction</a>
+          </li>
+          <li>
+            <a href="/#service">Training</a>
+          </li>
+          <li>
+            <a href="/#contact">Site survey</a>
+          </li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>801.532.6972</li>
+          <li>PecoWater.com</li>
+          <li>Salt Lake City, UT</li>
+          <li>Idaho Falls, ID</li>
+        </ul>
+      </div>
+    </div>
+    <details class="credits">
+      <summary>Photo credits</summary>
+      <ul>
+        {credits.map((c) => (
+          <li>
+            {c.text},{' '}
+            <a href={c.href} rel="noopener">
+              {c.license}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+    <div class="foot-bottom">
+      <span>&copy; {year} Power Engineering Company, Inc.</span>
+      <span>
+        Ridgewater Analytical is the in-house laboratory of Power Engineering. Member of AWT and
+        Associated Labs.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--deep);
+    color: var(--deep-muted);
+    border-top: 1px solid var(--deep-line);
+    font-size: 0.875rem;
+  }
+  .footer .wrap {
+    padding-block: 48px 32px;
+    display: grid;
+    gap: 36px;
+  }
+  .foot-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .foot-brand img {
+    height: 52px;
+    width: auto;
+    filter: var(--logo-filter-on-deep);
+  }
+  .foot-brand p {
+    margin-top: 14px;
+    max-width: 34ch;
+  }
+  .foot-col h2 {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--deep-ink);
+    margin-bottom: 12px;
+  }
+  .foot-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .foot-col a {
+    text-decoration: none;
+  }
+  .foot-col a:hover {
+    color: var(--deep-ink);
+  }
+  .foot-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: space-between;
+    border-top: 1px solid var(--deep-line);
+    padding-top: 20px;
+    font-size: 0.8125rem;
+  }
+  @media (max-width: 820px) {
+    .foot-top {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .foot-brand {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 420px) {
+    .foot-top {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .credits {
+    font-size: 0.75rem;
+    color: var(--deep-muted);
+  }
+  .credits summary {
+    cursor: pointer;
+    font-family: var(--f-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .credits ul {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 4px;
+  }
+  .credits a {
+    color: var(--deep-ink);
+  }
+</style>

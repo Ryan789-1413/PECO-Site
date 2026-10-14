@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | Power Engineering"
+  description="The page you requested could not be found."
+  noindex
+>
+  <section class="section">
+    <div class="wrap section-head">
+      <p class="eyebrow">Error 404</p>
+      <h1>Page not found</h1>
+      <p class="lead">
+        This page has moved or no longer exists. Start from the home page or call 801.532.6972.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="/">
+          Go to the home page
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: var(--step-4);
+    font-weight: 700;
+  }
+</style>

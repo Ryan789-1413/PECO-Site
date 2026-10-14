@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-power-engineering.png';
+
+// Links point at home page sections until the inner pages exist (Phase 3).
+const primary = [
+  { href: '/#ecosystem', label: 'Ecosystem' },
+  { href: '/#systems', label: 'Systems' },
+  { href: '/#equipment', label: 'Equipment' },
+  { href: '/#ridgewater', label: 'Ridgewater Lab' },
+  { href: '/#service', label: 'Service' },
+  { href: '/#about', label: 'About' },
+];
+
+const mobile = [
+  { href: '/#ecosystem', label: 'Ecosystem' },
+  { href: '/#systems', label: 'Systems we treat' },
+  { href: '/#equipment', label: 'Equipment and filtration' },
+  { href: '/#ridgewater', label: 'Ridgewater Analytical' },
+  { href: '/#service', label: 'Service program' },
+  { href: '/#construction', label: 'New construction' },
+  { href: '/#industries', label: 'Industries' },
+  { href: '/#memberships', label: 'Memberships' },
+  { href: '/#about', label: 'About us' },
+  { href: '/#contact', label: 'Request a site survey' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Power Engineering home">
+      <Image src={logo} alt="Power Engineering" height={46} densities={[1, 2]} loading="eager" />
+    </a>
+    <nav class="nav" aria-label="Primary">
+      {primary.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <a class="btn btn-primary" href="/#contact">
+        Request a site survey
+      </a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile">
+        {mobile.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding-block: 12px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .brand img {
+    height: 46px;
+    width: auto;
+    filter: var(--logo-filter);
+    display: block;
+  }
+  .nav {
+    display: flex;
+    gap: 26px;
+    margin-left: auto;
+    align-items: center;
+  }
+  .nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+  .nav a:hover {
+    color: var(--brand);
+  }
+  .nav .btn {
+    padding: 10px 18px;
+    font-size: 1rem;
+    color: var(--on-brand);
+  }
+  .nav .btn:hover {
+    color: var(--on-brand);
+  }
+  .menu {
+    display: none;
+    margin-left: auto;
+    position: relative;
+  }
+  .menu summary {
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--f-display);
+    font-weight: 600;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 8px 14px;
+  }
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .menu nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: min(280px, 80vw);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    display: grid;
+    padding: 8px;
+    box-shadow: var(--shadow-pop);
+  }
+  .menu nav a {
+    padding: 10px 12px;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+  .menu nav a:hover {
+    background: var(--brand-tint);
+  }
+  @media (max-width: 960px) {
+    .nav {
+      display: none;
+    }
+    .menu {
+      display: block;
+    }
+    .brand img {
+      height: 40px;
+    }
+  }
+</style>
