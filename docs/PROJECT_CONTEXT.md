@@ -102,7 +102,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 ### Services `[SCOPE]` `[SITE]`
 - **Chemical treatment programs** for cooling towers, boilers (hot water and steam) and closed loops.
 - **Remote monitoring** integrated with the water treatment controller, with real-time alarms when parameters leave control limits. PECO is notified alongside the customer.
-- **Bi-monthly on-site testing and service.** `[SCOPE]`
+- **Bi-monthly on-site testing and service.** `[SCOPE]` "Bi-monthly" means **every two months**, not twice a month. `[RYAN, Oct 14, 2026]`
 - **Digital service reports**, available the moment the technician submits them on site. `[SCOPE]`
 - **Online service history**: past reports, lab results and performance data. `[SCOPE]` `[RYAN, confirmed Oct 14, 2026]` The portal's name and a customer login link are still open (§9 q7).
 - **Hands-free chemical delivery** and transfer directly into on-site storage tanks. `[SCOPE]`
@@ -366,7 +366,7 @@ peco-website/
 3. ★ Confirm the Ridgewater instrument models (iCAP PRO XP Duo, Vanquish Flex, Metrohm IC), whether to name them, and whether Ridgewater takes outside samples. (Lab location confirmed Oct 14, 2026.)
 4. ★ Get logo-use permission for AWT and AL. (The Associated Labs figures were confirmed for publication Oct 14, 2026.)
 5. How many staff are AWT **CWT**-certified?
-6. Confirm the "bi-monthly" service frequency wording (bi-monthly can mean twice a month or every two months). (The site survey is free: confirmed Oct 14, 2026.)
+6. ~~Is the site survey free? What does "bi-monthly" mean?~~ Resolved Oct 14, 2026: the survey is free, and bi-monthly means every two months.
 7. Customer portal: is there a customer-facing service report portal (Ryan's files mention "AquaCore Hub" implementation/exclusivity docs and "Aquassist" licenses)? If so, add a "Customer login" link and feature smart testing on the site.
 8. Filtration: should specific brands be named? (Product lines confirmed Oct 14, 2026.)
 9. Real descriptions for feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations), coupon rack and test kits. The current pages are lorem ipsum.
