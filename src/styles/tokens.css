@@ -22,7 +22,10 @@
   --lab: #2f9c92;
   --deep-accent: #7aaae6;
   --lab-tint: rgba(47, 156, 146, 0.14);
-  --ok: #2f8f5b;
+  /* Teal for text on light surfaces. --lab (#2f9c92) is 3.3:1 on white, below WCAG AA. */
+  --lab-ink: #23766e;
+  /* Prototype #2f8f5b was 4.1:1 on white (fails WCAG AA for small text); darkened to 5.3:1. */
+  --ok: #237a4b;
   --logo-filter: none;
   /* Single-color logo rendered white on navy bands (footer). */
   --logo-filter-on-deep: brightness(0) invert(1);

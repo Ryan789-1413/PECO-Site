@@ -20,7 +20,8 @@ const rows = [
 ];
 ---
 
-<div class="table-scroll">
+<!-- Focusable so keyboard users can scroll the table on narrow screens. -->
+<div class="table-scroll" role="region" aria-label="Analytes by instrument" tabindex="0">
   <table>
     <thead>
       <tr>
