@@ -1,12 +1,26 @@
 ---
 // Self-hosted fonts (weights match the prototype's Google Fonts request).
-import '@fontsource/saira-semi-condensed/500.css';
-import '@fontsource/saira-semi-condensed/600.css';
-import '@fontsource/saira-semi-condensed/700.css';
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/500.css';
-import '@fontsource/ibm-plex-sans/600.css';
-import '@fontsource/ibm-plex-mono/500.css';
+// Latin subset only: one file per weight (7 total). Fontsource's per-subset CSS has no
+// unicode-range, so adding latin-ext files would make the browser fetch both for every
+// weight and re-lay out the page as each arrives. Characters outside Latin (the ₂ ₃ ⁻
+// in the analyte table) fall back to system fonts, as they do in the prototype.
+import '@fontsource/saira-semi-condensed/latin-500.css';
+import '@fontsource/saira-semi-condensed/latin-600.css';
+import '@fontsource/saira-semi-condensed/latin-700.css';
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
+// Every face used above the fold is preloaded, so they arrive together before first paint
+// instead of each triggering a full-page relayout on arrival (Lighthouse "Style & Layout").
+import plexSans400 from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url';
+import plexSans500 from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2?url';
+import plexSans600 from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2?url';
+import saira600 from '@fontsource/saira-semi-condensed/files/saira-semi-condensed-latin-600-normal.woff2?url';
+import saira700 from '@fontsource/saira-semi-condensed/files/saira-semi-condensed-latin-700-normal.woff2?url';
+import plexMono500 from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2?url';
+
+const preloadFonts = [plexSans400, saira700, plexSans500, plexMono500, saira600, plexSans600];
 import '../styles/tokens.css';
 import '../styles/base.css';
 
@@ -31,6 +45,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
+    {preloadFonts.map((href) => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
