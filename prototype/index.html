@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Power Engineering Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: engineered, static. Light technical-grid hero with a closed-loop ecosystem diagram, alternating plain and deep-navy bands, no motion anywhere. */
+:root {
+  --bg: #F4F7FB;
+  --surface: #FFFFFF;
+  --ink: #0D1B2E;
+  --muted: #4D5C71;
+  --line: #D6DEE9;
+  --grid: rgba(35, 95, 172, 0.07);
+  --brand: #235FAC;
+  --brand-strong: #1A4C8F;
+  --brand-tint: #E4EDF8;
+  --on-brand: #FFFFFF;
+  --deep: #0B1A2F;
+  --deep-2: #12253F;
+  --deep-ink: #E6EDF6;
+  --deep-muted: #9FB0C6;
+  --deep-line: #24395A;
+  --lab: #2F9C92;
+  --deep-accent: #7AAAE6;
+  --lab-tint: rgba(47, 156, 146, 0.14);
+  --ok: #2F8F5B;
+  --logo-filter: none;
+
+  --f-display: "Saira Semi Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.25rem, 4.6vw, 3.5rem);
+  --radius: 6px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A111B; --surface: #111C2A; --ink: #E5ECF5; --muted: #9AA9BD; --line: #22324A;
+    --grid: rgba(110, 160, 225, 0.06);
+    --brand: #5E97DE; --brand-strong: #7AAAE6; --brand-tint: #15263D; --on-brand: #06111F;
+    --deep: #060D18; --deep-2: #0D1A2C; --deep-ink: #E6EDF6; --deep-muted: #9AACC3; --deep-line: #1F3352;
+    --lab: #4FBDB2; --lab-tint: rgba(79, 189, 178, 0.14); --ok: #58B985;
+    --logo-filter: brightness(0) invert(1);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A111B; --surface: #111C2A; --ink: #E5ECF5; --muted: #9AA9BD; --line: #22324A;
+  --grid: rgba(110, 160, 225, 0.06);
+  --brand: #5E97DE; --brand-strong: #7AAAE6; --brand-tint: #15263D; --on-brand: #06111F;
+  --deep: #060D18; --deep-2: #0D1A2C; --deep-ink: #E6EDF6; --deep-muted: #9AACC3; --deep-line: #1F3352;
+  --lab: #4FBDB2; --lab-tint: rgba(79, 189, 178, 0.14); --ok: #58B985;
+  --logo-filter: brightness(0) invert(1);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+section[id] { scroll-margin-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--f-display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.005em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+@media (max-width: 480px) { .wrap { padding-inline: 18px; } }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.lead { font-size: var(--step-1); color: var(--muted); max-width: 60ch; }
+.section { padding-block: 96px; }
+.section-head { display: grid; gap: 14px; max-width: 760px; margin-bottom: 48px; }
+.section-head h2 { font-size: var(--step-4); font-weight: 700; }
+@media (max-width: 700px) { .section { padding-block: 64px; } .section-head { margin-bottom: 32px; } }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-display); font-weight: 600; font-size: 1.0625rem; letter-spacing: 0.02em;
+  padding: 13px 22px; border-radius: var(--radius); text-decoration: none; border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.btn-primary { background: var(--brand); color: var(--on-brand); }
+.btn-primary:hover { background: var(--brand-strong); }
+.btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
+.btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+.btn svg { width: 16px; height: 16px; }
+
+/* Utility bar */
+.utility { background: var(--deep); color: var(--deep-muted); font-size: var(--step--1); }
+.utility .wrap { display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between; padding-block: 8px; }
+.utility strong { color: var(--deep-ink); font-weight: 500; }
+.utility .anniv { font-family: var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.utility .anniv b { color: var(--deep-ink); font-weight: 500; }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; gap: 28px; padding-block: 12px; }
+.brand { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.brand img { height: 46px; width: auto; filter: var(--logo-filter); display: block; }
+.nav { display: flex; gap: 26px; margin-left: auto; align-items: center; }
+.nav a { text-decoration: none; font-weight: 500; font-size: 0.9375rem; color: var(--ink); }
+.nav a:hover { color: var(--brand); }
+.nav .btn { padding: 10px 18px; font-size: 1rem; }
+.nav .btn:hover { color: var(--on-brand); }
+.menu { display: none; margin-left: auto; position: relative; }
+.menu summary {
+  list-style: none; cursor: pointer; font-family: var(--f-display); font-weight: 600;
+  border: 1.5px solid var(--line); border-radius: var(--radius); padding: 8px 14px;
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu nav {
+  position: absolute; right: 0; top: calc(100% + 10px); width: min(280px, 80vw);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  display: grid; padding: 8px; box-shadow: 0 12px 30px rgba(8, 20, 40, 0.14);
+}
+.menu nav a { padding: 10px 12px; text-decoration: none; font-weight: 500; border-radius: 4px; }
+.menu nav a:hover { background: var(--brand-tint); }
+@media (max-width: 960px) { .nav { display: none; } .menu { display: block; } .brand img { height: 40px; } }
+
+/* Hero */
+.hero {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-bottom: 1px solid var(--line);
+}
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: center; padding-block: 72px 64px; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.4rem); font-weight: 700; letter-spacing: -0.01em; }
+.hero h1 span { color: var(--brand); }
+.hero .lead { font-size: 1.25rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.hero-note { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: var(--step--1); color: var(--muted); }
+.hero-note span { display: inline-flex; align-items: center; gap: 8px; }
+.hero-note span::before { content: ""; width: 6px; height: 6px; background: var(--brand); border-radius: 50%; }
+.hero-figure { min-width: 0; }
+.hero-figure figcaption { font-size: var(--step--1); color: var(--muted); text-align: center; margin-top: 8px; font-family: var(--f-mono); letter-spacing: 0.04em; }
+.eco-svg { width: 100%; max-width: 520px; height: auto; display: block; margin-inline: auto; }
+.eco-svg .ring { fill: none; stroke: var(--brand); stroke-width: 2; stroke-dasharray: 4 6; }
+.eco-svg .chev { fill: var(--brand); }
+.eco-svg .node { fill: var(--surface); stroke: var(--brand); stroke-width: 2; }
+.eco-svg .node.lab { stroke: var(--lab); }
+.eco-svg .num { font-family: var(--f-mono); font-size: 12px; fill: var(--muted); letter-spacing: 0.08em; }
+.eco-svg .name { font-family: var(--f-display); font-weight: 700; font-size: 19px; fill: var(--ink); }
+.eco-svg .sub { font-family: var(--f-body); font-size: 11px; fill: var(--muted); }
+.eco-svg .core { fill: var(--brand); }
+.eco-svg .core-t { font-family: var(--f-display); font-weight: 700; font-size: 21px; fill: var(--on-brand); }
+.eco-svg .core-s { font-family: var(--f-mono); font-size: 10.5px; fill: var(--on-brand); letter-spacing: 0.06em; opacity: 0.85; }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 48px; } .eco-svg { max-width: 440px; } }
+
+/* Proof strip */
+.proof { background: var(--surface); border-bottom: 1px solid var(--line); }
+.proof dl { margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.proof div { padding: 26px 20px; border-left: 1px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.proof div:first-child { border-left: 0; padding-left: 0; }
+.proof dt { font-family: var(--f-display); font-weight: 700; font-size: 2rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.proof dd { margin: 0; font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
+@media (max-width: 900px) {
+  .proof dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof div { border-left: 0; border-top: 1px solid var(--line); padding: 20px 0; }
+  .proof div:nth-child(-n+2) { border-top: 0; }
+  .proof div:last-child { grid-column: 1 / -1; }
+}
+
+/* Ecosystem */
+.eco-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.eco-item { padding: 30px 28px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 12px; align-content: start; background: var(--surface); min-width: 0; }
+.eco-item .tag { display: flex; justify-content: space-between; align-items: baseline; }
+.eco-item .tag .n { font-family: var(--f-mono); font-size: var(--step--1); color: var(--brand); letter-spacing: 0.06em; }
+.eco-item .tag .w { font-family: var(--f-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.eco-item h3 { font-size: var(--step-3); font-weight: 700; }
+.eco-item p { color: var(--muted); }
+.eco-item ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 0.9375rem; }
+.eco-item li { padding-left: 18px; position: relative; }
+.eco-item li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1.5px; background: var(--brand); }
+.eco-item.lab .tag .n { color: var(--lab); }
+.eco-item.lab li::before { background: var(--lab); }
+@media (max-width: 960px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .eco-grid { grid-template-columns: 1fr; } .eco-item { padding: 24px 20px; } }
+
+/* Systems */
+.systems { background: var(--surface); border-block: 1px solid var(--line); }
+.sys-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+.sys { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 18px; padding-block: 26px; border-top: 1px solid var(--line); }
+.sys svg { width: 44px; height: 44px; color: var(--brand); }
+.sys h3 { font-size: var(--step-2); font-weight: 700; margin-bottom: 6px; }
+.sys p { color: var(--muted); }
+.sys .terms { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.sys .terms span { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink); background: var(--brand-tint); padding: 3px 8px; border-radius: 3px; }
+@media (max-width: 820px) { .sys-list { grid-template-columns: 1fr; } }
+
+/* Ridgewater lab */
+.lab-band { background: var(--deep); color: var(--deep-ink); }
+.lab-band .eyebrow { color: var(--lab); }
+.lab-band .lead { color: var(--deep-muted); }
+.lab-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: end; margin-bottom: 52px; }
+.lab-name { display: grid; gap: 16px; }
+.lab-name h2 { font-size: clamp(2.6rem, 5.4vw, 4.2rem); font-weight: 700; }
+.lab-name h2 small { display: block; font-size: 0.42em; font-weight: 600; color: var(--deep-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 10px; }
+.lab-facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--deep-line); }
+.lab-facts li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--deep-line); font-size: 0.9375rem; }
+.lab-facts b { font-family: var(--f-mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-muted); padding-top: 3px; }
+.instruments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.inst { background: var(--deep-2); border: 1px solid var(--deep-line); border-radius: var(--radius); padding: 28px 26px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.inst .abbr { font-family: var(--f-display); font-weight: 700; font-size: 3rem; line-height: 1; color: var(--deep-ink); letter-spacing: 0.01em; }
+.inst .full { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lab); }
+.inst p { color: var(--deep-muted); font-size: 0.9375rem; }
+.inst ul { list-style: none; margin: 6px 0 0; padding: 14px 0 0; border-top: 1px solid var(--deep-line); display: grid; gap: 6px; font-size: 0.9375rem; }
+.inst li { padding-left: 18px; position: relative; }
+.inst li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1.5px; background: var(--lab); }
+.panel { margin-top: 52px; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+.panel-copy { display: grid; gap: 14px; }
+.panel-copy h3 { font-size: var(--step-3); font-weight: 700; }
+.panel-copy p { color: var(--deep-muted); }
+.table-scroll { overflow-x: auto; border: 1px solid var(--deep-line); border-radius: var(--radius); }
+table { color: inherit; width: 100%; border-collapse: collapse; font-size: 0.9375rem; min-width: 460px; }
+th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--deep-line); }
+th { font-family: var(--f-mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-muted); background: var(--deep-2); }
+tr:last-child td { border-bottom: 0; }
+td.m { font-family: var(--f-mono); font-size: 0.8125rem; color: var(--lab); }
+td.u { font-family: var(--f-mono); font-size: 0.8125rem; color: var(--deep-muted); }
+@media (max-width: 960px) {
+  .lab-top, .panel { grid-template-columns: 1fr; gap: 32px; }
+  .instruments { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .lab-facts li { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Service program */
+.svc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; }
+.steps li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps .when { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); padding-top: 4px; }
+.steps h3 { font-size: var(--step-2); font-weight: 700; margin-bottom: 4px; }
+.steps p { color: var(--muted); }
+.report {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(10, 30, 60, 0.08); overflow: hidden;
+}
+.report-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.report-head b { font-family: var(--f-display); font-size: 1.25rem; }
+.report-head .pill { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ok); border: 1px solid currentColor; border-radius: 999px; padding: 2px 10px; }
+.report-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+.report-meta div { padding: 12px 20px; border-left: 1px solid var(--line); min-width: 0; }
+.report-meta div:first-child { border-left: 0; }
+.report-meta span { display: block; font-family: var(--f-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.report-meta strong { font-weight: 600; font-size: 0.9375rem; }
+.report-rows { padding: 6px 20px 14px; display: grid; }
+.rrow { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 0.9375rem; align-items: center; }
+.rrow:last-child { border-bottom: 0; }
+.rrow .lim { font-family: var(--f-mono); font-size: 0.8125rem; color: var(--muted); }
+.rrow .st { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ok); }
+.report-foot { padding: 12px 20px; background: var(--brand-tint); font-size: 0.8125rem; color: var(--muted); }
+@media (max-width: 960px) { .svc { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .steps li { grid-template-columns: 1fr; gap: 6px; } .report-meta { grid-template-columns: 1fr; } .report-meta div { border-left: 0; border-top: 1px solid var(--line); } .report-meta div:first-child { border-top: 0; } }
+
+/* Training band */
+.training { background: var(--brand); color: var(--on-brand); }
+.training .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding-block: 48px; }
+.training h2 { font-size: var(--step-3); font-weight: 700; margin-bottom: 8px; }
+.training p { max-width: 64ch; opacity: 0.92; }
+.training .btn { background: var(--on-brand); color: var(--brand); }
+.training .btn:hover { opacity: 0.92; }
+@media (max-width: 760px) { .training .wrap { grid-template-columns: 1fr; } }
+
+/* Industries */
+.ind-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ind { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--surface); display: grid; gap: 6px; align-content: start; }
+.ind h3 { font-size: 1.25rem; font-weight: 700; }
+.ind p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+@media (max-width: 960px) { .ind-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .ind-grid { grid-template-columns: 1fr; } }
+
+/* About */
+.about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
+.about-mark { display: grid; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); }
+.about-mark .yr { font-family: var(--f-display); font-weight: 700; font-size: clamp(5rem, 11vw, 8.5rem); line-height: 0.85; color: var(--brand); letter-spacing: -0.02em; }
+.about-mark .yr-sub { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.about-copy { display: grid; gap: 20px; font-size: 1.0625rem; max-width: 64ch; }
+.about-copy h2 { font-size: var(--step-4); font-weight: 700; }
+.about-copy p { color: var(--ink); }
+.about-copy p + p { color: var(--muted); }
+.values { margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+.values div { border-top: 2px solid var(--brand); padding-top: 12px; }
+.values .mission { grid-column: 1 / -1; background: var(--brand-tint); padding: 16px 18px; }
+.values .mission p { color: var(--ink); font-size: 1rem; }
+.values h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+.values p { font-size: 0.9375rem; color: var(--muted); }
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } .about-mark { position: static; } }
+@media (max-width: 520px) { .values { grid-template-columns: 1fr; } }
+
+/* Procurement */
+.procure { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.procure div { padding: 26px 26px 28px; border-left: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+.procure div:first-child { border-left: 0; }
+.procure h3 { font-size: var(--step-2); font-weight: 700; }
+.procure p { color: var(--muted); font-size: 0.9375rem; }
+@media (max-width: 820px) { .procure { grid-template-columns: 1fr; } .procure div { border-left: 0; border-top: 1px solid var(--line); } .procure div:first-child { border-top: 0; } }
+
+/* Contact */
+.contact { background: var(--deep); color: var(--deep-ink); }
+.contact .eyebrow { color: var(--deep-accent); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; }
+.contact h2 { font-size: var(--step-4); font-weight: 700; margin: 14px 0 16px; }
+.contact .lead { color: var(--deep-muted); }
+.locs { margin-top: 32px; display: grid; gap: 0; border-top: 1px solid var(--deep-line); }
+.loc { padding: 18px 0; border-bottom: 1px solid var(--deep-line); display: grid; gap: 4px; }
+.loc b { font-family: var(--f-display); font-size: 1.375rem; }
+.loc span { color: var(--deep-muted); font-size: 0.9375rem; }
+.phone { font-family: var(--f-mono); font-size: 1.5rem; color: var(--deep-ink); user-select: all; letter-spacing: 0.02em; }
+form { background: var(--deep-2); border: 1px solid var(--deep-line); border-radius: var(--radius); padding: 28px; display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-muted); }
+input, select, textarea {
+  font: inherit; font-size: 0.9375rem; color: var(--deep-ink); background: var(--deep);
+  border: 1px solid var(--deep-line); border-radius: 4px; padding: 11px 12px; width: 100%;
+  color-scheme: dark;
+}
+textarea { min-height: 110px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--lab); outline-offset: 1px; }
+form .btn { justify-self: start; }
+.form-msg { grid-column: 1 / -1; font-size: 0.9375rem; color: var(--lab); }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 560px) { form { grid-template-columns: 1fr; padding: 20px; } }
+
+/* Footer */
+.footer { background: var(--deep); color: var(--deep-muted); border-top: 1px solid var(--deep-line); font-size: 0.875rem; }
+.footer .wrap { padding-block: 48px 32px; display: grid; gap: 36px; }
+.foot-top { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); gap: 32px; }
+.foot-brand img { height: 52px; width: auto; filter: brightness(0) invert(1); }
+.foot-brand p { margin-top: 14px; max-width: 34ch; }
+.foot-col h4 { font-family: var(--f-mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-ink); margin-bottom: 12px; }
+.foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.foot-col a { text-decoration: none; }
+.foot-col a:hover { color: var(--deep-ink); }
+.foot-bottom { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; border-top: 1px solid var(--deep-line); padding-top: 20px; font-size: 0.8125rem; }
+@media (max-width: 820px) { .foot-top { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-brand { grid-column: 1 / -1; } }
+@media (max-width: 420px) { .foot-top { grid-template-columns: 1fr; } }
+
+
+/* Photos */
+.photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; background: var(--line); }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.photo figcaption {
+  position: absolute; left: 12px; bottom: 12px; max-width: calc(100% - 24px);
+  background: rgba(8, 18, 33, 0.82); color: #EAF1FA; font-family: var(--f-mono); font-size: 0.6875rem;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;
+}
+.hero-photo { aspect-ratio: 4 / 3; max-width: 100%; box-shadow: 0 24px 50px rgba(10, 30, 60, 0.18); }
+.hero-photo .spec {
+  position: absolute; right: 12px; top: 12px; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; display: grid; gap: 2px; min-width: 150px;
+}
+.hero-photo .spec span { font-family: var(--f-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.hero-photo .spec b { font-family: var(--f-display); font-size: 1.125rem; }
+
+/* Ecosystem head with diagram */
+.eco-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 48px; align-items: center; margin-bottom: 48px; }
+.eco-head .section-head { margin-bottom: 0; }
+.eco-head figure { margin: 0; }
+@media (max-width: 900px) { .eco-head { grid-template-columns: 1fr; gap: 24px; } .eco-head .eco-svg { max-width: 380px; } }
+
+/* System photo row */
+.sys-photos { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-auto-rows: 300px; gap: 16px; margin-bottom: 40px; }
+.sys-photos .photo { height: 100%; }
+@media (max-width: 820px) { .sys-photos { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; } .sys-photos .photo:first-child { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .sys-photos { grid-template-columns: 1fr; } }
+
+/* Equipment */
+.equip-top { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 40px; }
+.equip-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.equip-card .photo { border-radius: 0; aspect-ratio: 4 / 3; max-width: 100%; }
+.equip-card .body { padding: 22px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.equip-card h3 { font-size: var(--step-2); font-weight: 700; }
+.equip-card p { color: var(--muted); font-size: 0.9375rem; }
+.equip-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.equip-group { padding: 22px 20px 4px 0; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.equip-group h4 { font-family: var(--f-mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); }
+.equip-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 0.9375rem; }
+.equip-group li { padding-left: 18px; position: relative; }
+.equip-group li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1.5px; background: var(--brand); }
+.equip-note { margin-top: 28px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--brand-tint); display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; }
+.equip-note p { color: var(--ink); max-width: 70ch; }
+@media (max-width: 960px) { .equip-top { grid-template-columns: 1fr 1fr; } .equip-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .equip-top, .equip-list { grid-template-columns: 1fr; } }
+
+/* Lab photos */
+.lab-photos { display: grid; grid-template-columns: 1.25fr 1fr; grid-auto-rows: 360px; gap: 20px; margin-bottom: 52px; }
+.lab-photos .photo { height: 100%; background: var(--deep-2); }
+@media (max-width: 760px) { .lab-photos { grid-template-columns: 1fr; grid-auto-rows: 260px; } }
+
+/* Memberships */
+.members { background: var(--surface); border-block: 1px solid var(--line); }
+.mem-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.mem { border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 28px; display: grid; gap: 16px; align-content: start; background: var(--bg); min-width: 0; }
+.mem-id { display: flex; align-items: center; gap: 16px; }
+.mem-badge { width: 64px; height: 64px; flex-shrink: 0; border-radius: 6px; display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 1.375rem; color: var(--on-brand); background: var(--brand); letter-spacing: 0.02em; }
+.mem-badge.al { background: var(--deep-2); color: var(--deep-ink); border: 1px solid var(--deep-line); }
+.mem-id h3 { font-size: var(--step-2); font-weight: 700; }
+.mem-id span { display: block; font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.mem > p { color: var(--muted); }
+.mem-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+.mem-stats div { padding: 14px 12px 14px 0; display: grid; gap: 2px; }
+.mem-stats b { font-family: var(--f-display); font-size: 1.75rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.mem-stats span { font-size: 0.8125rem; color: var(--muted); line-height: 1.35; }
+.mem h4 { font-family: var(--f-mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); }
+.mem ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 0.9375rem; }
+.mem li { padding-left: 18px; position: relative; }
+.mem li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1.5px; background: var(--brand); }
+.mem .ext { font-size: 0.875rem; color: var(--brand); text-decoration: none; font-weight: 500; }
+.mem .ext:hover { text-decoration: underline; }
+.mem-band { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 26px 28px; border-radius: var(--radius); background: var(--deep); color: var(--deep-ink); }
+.mem-band h3 { font-size: var(--step-2); font-weight: 700; margin-bottom: 6px; }
+.mem-band p { color: var(--deep-muted); font-size: 0.9375rem; }
+@media (max-width: 860px) { .mem-grid, .mem-band { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .mem-stats { grid-template-columns: 1fr 1fr; } }
+
+/* Brands + product lines */
+.brands { margin-top: 28px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 24px; align-items: center; padding-top: 22px; border-top: 1px solid var(--line); }
+.brands > span { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.brand-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.brand-row b { font-family: var(--f-display); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.02em; padding: 6px 14px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+.lines { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+.lines span { font-family: var(--f-mono); font-size: 0.75rem; background: var(--brand-tint); color: var(--ink); padding: 3px 8px; border-radius: 3px; }
+@media (max-width: 560px) { .brands { grid-template-columns: 1fr; } }
+
+/* Construction services */
+.build { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 56px; align-items: start; }
+.build-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.build-item { padding: 20px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.build-item h3 { font-size: 1.25rem; font-weight: 700; }
+.build-item p { color: var(--muted); font-size: 0.9375rem; }
+.depts { margin-top: 28px; display: grid; gap: 12px; }
+.dept { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: var(--surface); display: grid; gap: 4px; }
+.dept b { font-family: var(--f-display); font-size: 1.125rem; }
+.dept span { color: var(--muted); font-size: 0.9375rem; }
+@media (max-width: 900px) { .build { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 560px) { .build-list { grid-template-columns: 1fr; } }
+
+/* Training courses */
+.courses { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.courses span { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.04em; border: 1px solid currentColor; border-radius: 999px; padding: 3px 10px; }
+.training .actions { display: grid; gap: 10px; justify-items: start; }
+.training .actions small { opacity: 0.85; font-size: 0.8125rem; }
+
+/* Credits */
+.credits { font-size: 0.75rem; color: var(--deep-muted); }
+.credits summary { cursor: pointer; font-family: var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.credits ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+.credits a { color: var(--deep-ink); }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span class="anniv"><b>Celebrating 80 years</b> &middot; 1946&ndash;2026</span>
+    <span>AWT member &middot; Associated Labs member &middot; <strong>801.532.6972</strong></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Power Engineering home"><img src="data:image/png;base64,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" alt="Power Engineering" width="536" height="322"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#systems">Systems</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#ridgewater">Ridgewater Lab</a>
+      <a href="#service">Service</a>
+      <a href="#about">About</a>
+      <a class="btn btn-primary" href="#contact">Request a site survey</a>
+    </nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile">
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#systems">Systems we treat</a>
+        <a href="#equipment">Equipment and filtration</a>
+        <a href="#ridgewater">Ridgewater Analytical</a>
+        <a href="#service">Service program</a>
+        <a href="#construction">New construction</a>
+        <a href="#industries">Industries</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#about">About us</a>
+        <a href="#contact">Request a site survey</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Water treatment specialists since 1961 &middot; Founded 1946</p>
+      <h1>One ecosystem for <span>industrial water.</span></h1>
+      <p class="lead">We formulate our own chemistry, fabricate our own feed equipment, run our own analytical laboratory, and service every system with our own technicians. One accountable team protects your cooling towers, boilers and closed loops from start to finish.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Request a site survey
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#ecosystem">See how the ecosystem works</a>
+      </div>
+      <div class="hero-note">
+        <span>Chemistry made in Salt Lake City</span>
+        <span>In-house HPLC, ICP and IC lab</span>
+        <span>AWT &amp; Associated Labs member</span>
+      </div>
+    </div>
+
+    <figure class="photo hero-photo">
+      <img src="photos/tower-hospital.jpg" alt="Rooftop cooling tower with condenser water piping and valves" width="1500" height="1125">
+      <div class="spec"><span>Condenser water</span><b>Cooling tower program</b></div>
+      <figcaption>Cooling towers &middot; boilers &middot; closed loops</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="proof" aria-label="Company at a glance">
+  <div class="wrap">
+    <dl>
+      <div><dt>80 yrs</dt><dd>Continuous operation since 1946</dd></div>
+      <div><dt>22</dt><dd>Dedicated employees, one accountable team</dd></div>
+      <div><dt>PhD</dt><dd>Chemist leading QC, R&amp;D and analysis</dd></div>
+      <div><dt>2</dt><dd>Locations: Salt Lake City HQ and Idaho Falls</dd></div>
+      <div><dt>AWT + AL</dt><dd>Member of the Association of Water Technologies and Associated Labs</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="ecosystem">
+  <div class="wrap">
+    <div class="eco-head">
+      <div class="section-head">
+        <p class="eyebrow">The ecosystem</p>
+        <h2>Six capabilities, one closed loop.</h2>
+        <p class="lead">Most treatment programs stitch together a chemical supplier, an equipment vendor, an outside lab and a service contractor. We own every link. That means faster answers, tighter quality control and one phone number when something needs attention.</p>
+      </div>
+      <figure>
+        <svg class="eco-svg" viewBox="0 0 520 520" role="img" aria-labelledby="eco-title eco-desc">
+        <title id="eco-title">The Power Engineering water treatment ecosystem</title>
+        <desc id="eco-desc">A closed loop of six capabilities around your water system: formulate chemistry, fabricate equipment, deliver, monitor, service, and analyze in the Ridgewater lab, which feeds back into formulation.</desc>
+        <circle class="ring" cx="260" cy="260" r="185"/>
+        <g class="chev">
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(352.5 99.8) rotate(30)"/>
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(445 260) rotate(90)"/>
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(352.5 420.2) rotate(150)"/>
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(167.5 420.2) rotate(210)"/>
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(75 260) rotate(270)"/>
+          <path d="M-6,-6 L6,0 L-6,6Z" transform="translate(167.5 99.8) rotate(330)"/>
+        </g>
+        <circle class="core" cx="260" cy="260" r="86"/>
+        <text class="core-s" x="260" y="236" text-anchor="middle">YOUR</text>
+        <text class="core-t" x="260" y="264" text-anchor="middle">Water System</text>
+        <text class="core-s" x="260" y="290" text-anchor="middle">COOLING &#183; BOILER</text>
+        <text class="core-s" x="260" y="305" text-anchor="middle">CLOSED LOOP</text>
+
+        <g>
+          <circle class="node" cx="260" cy="75" r="58"/>
+          <text class="num" x="260" y="62" text-anchor="middle">01</text>
+          <text class="name" x="260" y="84" text-anchor="middle">Formulate</text>
+          <text class="sub" x="260" y="100" text-anchor="middle">our chemistry</text>
+        </g>
+        <g>
+          <circle class="node" cx="420.2" cy="167.5" r="58"/>
+          <text class="num" x="420.2" y="154.5" text-anchor="middle">02</text>
+          <text class="name" x="420.2" y="176.5" text-anchor="middle">Fabricate</text>
+          <text class="sub" x="420.2" y="192.5" text-anchor="middle">feed equipment</text>
+        </g>
+        <g>
+          <circle class="node" cx="420.2" cy="352.5" r="58"/>
+          <text class="num" x="420.2" y="339.5" text-anchor="middle">03</text>
+          <text class="name" x="420.2" y="361.5" text-anchor="middle">Deliver</text>
+          <text class="sub" x="420.2" y="377.5" text-anchor="middle">hands-free</text>
+        </g>
+        <g>
+          <circle class="node" cx="260" cy="445" r="58"/>
+          <text class="num" x="260" y="432" text-anchor="middle">04</text>
+          <text class="name" x="260" y="454" text-anchor="middle">Monitor</text>
+          <text class="sub" x="260" y="470" text-anchor="middle">real-time alarms</text>
+        </g>
+        <g>
+          <circle class="node" cx="99.8" cy="352.5" r="58"/>
+          <text class="num" x="99.8" y="339.5" text-anchor="middle">05</text>
+          <text class="name" x="99.8" y="361.5" text-anchor="middle">Service</text>
+          <text class="sub" x="99.8" y="377.5" text-anchor="middle">on-site testing</text>
+        </g>
+        <g>
+          <circle class="node lab" cx="99.8" cy="167.5" r="58"/>
+          <text class="num" x="99.8" y="154.5" text-anchor="middle">06</text>
+          <text class="name" x="99.8" y="176.5" text-anchor="middle">Analyze</text>
+          <text class="sub" x="99.8" y="192.5" text-anchor="middle">Ridgewater lab</text>
+        </g>
+      </svg>
+      </figure>
+    </div>
+
+    <div class="eco-grid">
+      <article class="eco-item">
+        <div class="tag"><span class="n">01</span><span class="w">Chemistry</span></div>
+        <h3>Formulate</h3>
+        <p>We manufacture our own chemical formulations in Salt Lake City, with direct oversight of consistency, performance and supply.</p>
+        <ul>
+          <li>Scale and corrosion inhibitors</li>
+          <li>Biocide and microbiological control</li>
+          <li>Boiler, closed loop and heat transfer fluids</li>
+          <li>Expedited production for short lead times</li>
+        </ul>
+        <div class="lines"><span>PECO cooling</span><span>PECO boiler</span><span>PECO closed loop</span><span>Antimicrobials</span></div>
+      </article>
+      <article class="eco-item">
+        <div class="tag"><span class="n">02</span><span class="w">Equipment</span></div>
+        <h3>Fabricate</h3>
+        <p>We supply, fabricate and install the equipment that feeds, controls and protects your water, built to each site's requirements.</p>
+        <ul>
+          <li>Chemical feed pumps and feed panels</li>
+          <li>Conductivity and pH controllers, probes and sensors</li>
+          <li>Glycol feeders, filtration and motorized valves</li>
+          <li>Parts stocked locally for fast repairs</li>
+        </ul>
+      </article>
+      <article class="eco-item">
+        <div class="tag"><span class="n">03</span><span class="w">Logistics</span></div>
+        <h3>Deliver</h3>
+        <p>Hands-free chemical delivery and transfer directly into your onsite storage tanks. Your staff never handles a drum.</p>
+        <ul>
+          <li>Production in Salt Lake City</li>
+          <li>Local inventory and storage in Idaho Falls</li>
+          <li>Reduced risk of shortages and emergencies</li>
+        </ul>
+      </article>
+      <article class="eco-item">
+        <div class="tag"><span class="n">04</span><span class="w">Data</span></div>
+        <h3>Monitor</h3>
+        <p>Remote monitoring integrated with your water treatment controller sends real-time alarms the moment a parameter leaves its control limits.</p>
+        <ul>
+          <li>Conductivity, pH, ORP and flow alarms</li>
+          <li>Our team notified alongside yours</li>
+          <li>Issues caught before they become failures</li>
+        </ul>
+      </article>
+      <article class="eco-item">
+        <div class="tag"><span class="n">05</span><span class="w">Field</span></div>
+        <h3>Service</h3>
+        <p>Scheduled testing and service visits keep every system operating efficiently and within specified limits.</p>
+        <ul>
+          <li>Bi-monthly on-site testing and service</li>
+          <li>Digital reports available the moment they are filed</li>
+          <li>Rapid response from local technicians</li>
+        </ul>
+      </article>
+      <article class="eco-item lab">
+        <div class="tag"><span class="n">06</span><span class="w">Laboratory</span></div>
+        <h3>Analyze</h3>
+        <p>Ridgewater Analytical, our in-house lab, verifies what is happening in your water and feeds the results back into your program.</p>
+        <ul>
+          <li>HPLC, ICP and IC instrumentation</li>
+          <li>Product QC and formulation R&amp;D</li>
+          <li>Led by our in-house PhD chemist</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section systems" id="systems">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Systems we treat</p>
+      <h2>Protection for every water-side asset in your plant.</h2>
+      <p class="lead">Each program is built from a baseline water analysis and tuned to your equipment, makeup water and operating goals.</p>
+    </div>
+    <div class="sys-photos">
+      <figure class="photo"><img src="photos/tower-office.jpg" alt="Packaged cooling towers on a commercial building roof" width="1000" height="750"><figcaption>Cooling towers</figcaption></figure>
+      <figure class="photo"><img src="photos/boiler-room.jpg" alt="Industrial fire-tube boiler with burner and gas train" width="1406" height="938"><figcaption>Boilers and steam</figcaption></figure>
+      <figure class="photo"><img src="photos/pumps-chilled.jpg" alt="Row of chilled water pumps in a central plant" width="800" height="600"><figcaption>Closed loops</figcaption></figure>
+    </div>
+    <div class="sys-list">
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 38h28M12 38l3-24h14l3 24M15 14c0-5 3-8 7-8s7 3 7 8"/><path d="M18 22v6M22 20v8M26 22v6"/></svg>
+        <div>
+          <h3>Cooling towers</h3>
+          <p>Scale, corrosion and biological control that lets towers run at higher cycles with less water and energy.</p>
+          <div class="terms"><span>Cycles of concentration</span><span>Bio-control</span><span>Water savings</span></div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="12" width="26" height="26" rx="3"/><path d="M15 6h14M22 6v6M15 25h14M15 31h14"/><circle cx="22" cy="19" r="2"/></svg>
+        <div>
+          <h3>Boilers and steam</h3>
+          <p>Internal treatment, oxygen control and condensate protection for hot water and steam boilers of every size.</p>
+          <div class="terms"><span>Oxygen scavenging</span><span>Condensate</span><span>Blowdown</span></div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 16a12 12 0 0 1 22-4M34 28a12 12 0 0 1-22 4"/><path d="M32 6v6h-6M12 38v-6h6"/></svg>
+        <div>
+          <h3>Closed loops</h3>
+          <p>Corrosion inhibition and lab-verified monitoring for chilled water, hot water and process loops.</p>
+          <div class="terms"><span>Chilled &amp; hot water</span><span>Process loops</span></div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 6v32M8 14l28 16M36 14L8 30"/><path d="M18 8l4 4 4-4M18 36l4-4 4 4"/></svg>
+        <div>
+          <h3>Heat transfer fluids and freeze protection</h3>
+          <p>Glycol supply, inhibitor maintenance and concentration testing so loops stay protected through Intermountain winters.</p>
+          <div class="terms"><span>Glycol</span><span>Freeze point</span></div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="13" y="6" width="18" height="32" rx="9"/><path d="M13 18h18M18 26h8M18 31h8"/></svg>
+        <div>
+          <h3>Filtration and pretreatment</h3>
+          <p>Side-stream filtration, cartridge and bag filters, water softeners, dealkalizers and reverse osmosis that keep solids, hardness and alkalinity out of towers, boilers and loops.</p>
+          <div class="terms"><span>Side-stream</span><span>Softeners</span><span>Dealkalizers</span><span>RO</span></div>
+        </div>
+      </div>
+      <div class="sys">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="8" width="30" height="22" rx="2"/><path d="M15 38h14M22 30v8M12 22l6-6 5 4 9-8"/></svg>
+        <div>
+          <h3>Controls and feed equipment</h3>
+          <p>Chemical feed pumps, conductivity and pH controllers, probes and feed systems installed and supported by the same team that treats your water.</p>
+          <div class="terms"><span>Feed pumps</span><span>Controllers</span><span>Probes</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="equipment">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Equipment and filtration</p>
+      <h2>Everything it takes to protect your equipment chemically.</h2>
+      <p class="lead">Chemistry only works when it is fed accurately, measured continuously and kept clean. We supply, install and service the full set of hardware behind every program, from the pump on the tank to the probe in the line.</p>
+    </div>
+
+    <div class="equip-top">
+      <article class="equip-card">
+        <figure class="photo"><img src="photos/pump-meter.jpg" alt="Electronic chemical metering pump with digital display" width="800" height="600"><figcaption>Chemical feed</figcaption></figure>
+        <div class="body">
+          <h3>Chemical feed pumps</h3>
+          <p>LMI Roytronic and Walchem EHE and EZ series metering pumps sized to your dosage, plus feed stations, transfer pumps and tubing set up for accurate, repeatable feed.</p>
+        </div>
+      </article>
+      <article class="equip-card">
+        <figure class="photo"><img src="photos/loop-piping.jpg" alt="Insulated hydronic loop piping with gauges, pumps and valve actuators" width="800" height="600"><figcaption>Controls and closed loops</figcaption></figure>
+        <div class="body">
+          <h3>Controllers, probes and glycol feed</h3>
+          <p>Walchem and LMI controllers that automate blowdown and feed from conductivity, pH, ORP or fluorescence probes, and GC7 and GC8 glycol feeders that hold loop pressure and freeze protection.</p>
+        </div>
+      </article>
+      <article class="equip-card">
+        <figure class="photo"><img src="photos/pumps-condenser.jpg" alt="Condenser water pumps and piping in a commercial mechanical room" width="800" height="600"><figcaption>Condenser water</figcaption></figure>
+        <div class="body">
+          <h3>Filtration</h3>
+          <p>Side-stream and full-flow filtration that removes the dirt, debris and suspended solids that drive fouling, under-deposit corrosion and biological growth.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="equip-list">
+      <div class="equip-group">
+        <h4>Feed and dosing</h4>
+        <ul>
+          <li>LMI and Walchem chemical metering pumps</li>
+          <li>Chemical feed stations and panels</li>
+          <li>Pot feeders for closed loops</li>
+          <li>High-pressure transfer pumps, permanent or portable</li>
+          <li>PECO chemical tanks and containment</li>
+        </ul>
+      </div>
+      <div class="equip-group">
+        <h4>Control and monitoring</h4>
+        <ul>
+          <li>Walchem and LMI cooling tower and boiler controllers</li>
+          <li>Conductivity, pH, ORP and fluorescence sensors</li>
+          <li>Mass balance control with web-based reporting and trending</li>
+          <li>Belimo and Bi-torq motorized valves</li>
+          <li>Corrosion coupon racks and hand-held test kits</li>
+        </ul>
+      </div>
+      <div class="equip-group">
+        <h4>Glycol and closed loops</h4>
+        <ul>
+          <li>GC7 and GC8 glycol feeders</li>
+          <li>Glycol recovery systems</li>
+          <li>Heat transfer fluids and freeze protection</li>
+          <li>Freeze point and inhibitor testing</li>
+          <li>Loop flushing, cleaning and passivation</li>
+        </ul>
+      </div>
+      <div class="equip-group">
+        <h4>Filtration and pretreatment</h4>
+        <ul>
+          <li>Side-stream filtration for cooling towers</li>
+          <li>Cartridge and bag filter housings</li>
+          <li>Closed loop filtration</li>
+          <li>Water softeners and dealkalizers</li>
+          <li>Reverse osmosis and RO re-pressure pumps</li>
+          <li>Filter elements, media and spare parts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="equip-note">
+      <p><strong>Sized, installed and serviced by our own team.</strong> We match every pump, controller and filter to your system, install it, calibrate it and keep replacement parts on the shelf in Salt Lake City and Idaho Falls.</p>
+      <a class="btn btn-ghost" href="#contact">Ask about equipment</a>
+    </div>
+
+    <div class="brands">
+      <span>Brands we install and service</span>
+      <div class="brand-row"><b>Walchem</b><b>LMI</b><b>Belimo</b><b>Bi-torq</b><b>PECO</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="section lab-band" id="ridgewater">
+  <div class="wrap">
+    <div class="lab-top">
+      <div class="lab-name">
+        <p class="eyebrow">Our in-house laboratory</p>
+        <h2>Ridgewater Analytical<small>Full-capability water and chemistry lab</small></h2>
+        <p class="lead">Most treatment companies send samples out and wait. Our expanded analytical laboratory, Ridgewater Analytical, gives Power Engineering on-site support to identify, define and fix problems quickly. We can quantify what is in your water, confirm that our products perform, and act on the data without delay.</p>
+      </div>
+      <ul class="lab-facts">
+        <li><b>Leadership</b><span>In-house PhD chemist</span></li>
+        <li><b>Instruments</b><span>HPLC, ICP and IC: a complete in-house analytical suite for every analysis we run</span></li>
+        <li><b>Functions</b><span>Quality control, research and development, advanced analytical testing</span></li>
+        <li><b>Location</b><span>Salt Lake City, alongside our chemical production</span></li>
+      </ul>
+    </div>
+
+    <div class="lab-photos">
+      <figure class="photo"><img src="photos/lab-hplc-icp.jpg" alt="ICP spectrometer with HPLC modules on an adjacent bench" width="800" height="600"><figcaption>HPLC and ICP instrumentation</figcaption></figure>
+      <figure class="photo"><img src="photos/lab-ic.jpg" alt="Ion chromatography system with eluent bottles and data workstation" width="800" height="600"><figcaption>Ion chromatography</figcaption></figure>
+    </div>
+    <div class="instruments">
+      <article class="inst">
+        <span class="full">High-performance liquid chromatography</span>
+        <span class="abbr">HPLC</span>
+        <p>Separates and quantifies organic compounds, so we can measure the active ingredients that protect your system.</p>
+        <ul>
+          <li>Product QC and active-ingredient verification</li>
+          <li>Azole copper-corrosion inhibitors</li>
+          <li>Formulation research and development</li>
+        </ul>
+      </article>
+      <article class="inst">
+        <span class="full">Inductively coupled plasma</span>
+        <span class="abbr">ICP</span>
+        <p>Multi-element metals analysis down to trace levels, the clearest view of scaling and corrosion activity.</p>
+        <ul>
+          <li>Calcium and magnesium hardness</li>
+          <li>Iron, copper and zinc corrosion indicators</li>
+          <li>Silica, molybdenum and total phosphorus</li>
+        </ul>
+      </article>
+      <article class="inst">
+        <span class="full">Ion chromatography</span>
+        <span class="abbr">IC</span>
+        <p>Precise anion and cation profiling for makeup water characterization and cycles verification.</p>
+        <ul>
+          <li>Chloride, sulfate and nitrate</li>
+          <li>Orthophosphate and fluoride</li>
+          <li>Nitrite levels in closed loops</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="panel">
+      <div class="panel-copy">
+        <p class="eyebrow">Inside a cooling water panel</p>
+        <h3>Every analyte matched to the right instrument.</h3>
+        <p>A typical cooling water analysis draws on all three instruments. Results are reported in the units your engineers and auditors expect, and they flow into the same digital record as your service reports.</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Analyte</th><th scope="col">Instrument</th><th scope="col">Reported as</th></tr></thead>
+          <tbody>
+            <tr><td>Calcium hardness</td><td class="m">ICP</td><td class="u">mg/L as CaCO&#8323;</td></tr>
+            <tr><td>Magnesium hardness</td><td class="m">ICP</td><td class="u">mg/L as CaCO&#8323;</td></tr>
+            <tr><td>Total iron</td><td class="m">ICP</td><td class="u">mg/L Fe</td></tr>
+            <tr><td>Copper</td><td class="m">ICP</td><td class="u">mg/L Cu</td></tr>
+            <tr><td>Silica</td><td class="m">ICP</td><td class="u">mg/L SiO&#8322;</td></tr>
+            <tr><td>Chloride</td><td class="m">IC</td><td class="u">mg/L Cl&#8315;</td></tr>
+            <tr><td>Sulfate</td><td class="m">IC</td><td class="u">mg/L SO&#8324;&#178;&#8315;</td></tr>
+            <tr><td>Orthophosphate</td><td class="m">IC</td><td class="u">mg/L PO&#8324;&#179;&#8315;</td></tr>
+            <tr><td>Tolyltriazole</td><td class="m">HPLC</td><td class="u">mg/L TTA</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="service">
+  <div class="wrap svc">
+    <div>
+      <div class="section-head" style="margin-bottom:32px">
+        <p class="eyebrow">Service program</p>
+        <h2>Proactive service you can verify.</h2>
+        <p class="lead">Our program is built on proactive communication, rapid response and measurable performance. You see what we did, when we did it and what we found.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="when">Continuous</span><div><h3>Remote monitoring</h3><p>Controller-integrated alarms reach our team in real time when operating parameters drift outside established limits.</p></div></li>
+        <li><span class="when">Bi-monthly</span><div><h3>On-site testing and service</h3><p>Technicians test, adjust and document every system to keep it efficient and within control limits.</p></div></li>
+        <li><span class="when">Same visit</span><div><h3>Digital service reports</h3><p>Reports are available to you the moment the technician submits them onsite, with test results, corrective actions and recommendations.</p></div></li>
+        <li><span class="when">Any time</span><div><h3>Online service history</h3><p>Review past reports, lab results and system performance data whenever you need them, including for audits.</p></div></li>
+      </ol>
+    </div>
+
+    <aside class="report" aria-label="Example digital service report">
+      <div class="report-head"><b>Service Report</b><span class="pill">Within limits</span></div>
+      <div class="report-meta">
+        <div><span>System</span><strong>Cooling Tower 1</strong></div>
+        <div><span>Visit</span><strong>Bi-monthly</strong></div>
+        <div><span>Status</span><strong>Submitted onsite</strong></div>
+      </div>
+      <div class="report-rows">
+        <div class="rrow"><span>Conductivity</span><span class="lim">within control range</span><span class="st">OK</span></div>
+        <div class="rrow"><span>pH</span><span class="lim">within control range</span><span class="st">OK</span></div>
+        <div class="rrow"><span>Inhibitor residual</span><span class="lim">within control range</span><span class="st">OK</span></div>
+        <div class="rrow"><span>Microbiological check</span><span class="lim">within control range</span><span class="st">OK</span></div>
+        <div class="rrow"><span>Corrective actions</span><span class="lim">documented</span><span class="st">LOGGED</span></div>
+      </div>
+      <p class="report-foot">Illustration of the report layout. Your reports include your own systems, limits and results.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="construction">
+  <div class="wrap build">
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow">New construction and project services</p>
+        <h2>From design review to startup.</h2>
+        <p class="lead">We work with design engineers during planning and with contractors after award, so new systems start clean, protected and properly instrumented.</p>
+      </div>
+      <div class="depts">
+        <div class="dept"><b>Construction Service Department</b><span>Cleans and flushes new systems, disinfects domestic water lines, charges closed loops and oversees control and feed equipment installation.</span></div>
+        <div class="dept"><b>Equipment Service Department</b><span>Solves treatment and equipment problems, distributes parts from Salt Lake City and gets systems back in operation quickly.</span></div>
+      </div>
+    </div>
+    <div class="build-list">
+      <div class="build-item"><h3>Engineering consultation</h3><p>Guidance on treatment equipment and applications while systems are still on the drawings.</p></div>
+      <div class="build-item"><h3>System cleaning and flushing</h3><p>Pre-commissioning cleanouts that remove mill scale, oils and construction debris.</p></div>
+      <div class="build-item"><h3>Domestic water disinfection</h3><p>Sterilization of new domestic water piping before occupancy.</p></div>
+      <div class="build-item"><h3>Closed loop charging</h3><p>Loops charged with corrosion inhibitor or glycol and verified by lab test.</p></div>
+      <div class="build-item"><h3>Freeze protection</h3><p>Glycol concentration sized and tested for Mountain West winters.</p></div>
+      <div class="build-item"><h3>Corrosion protection systems</h3><p>Feed equipment, controls and coupon racks installed and commissioned.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="training">
+  <div class="wrap">
+    <div>
+      <h2>Water Treatment 101 and seasonal courses</h2>
+      <p>Training for operations personnel, maintenance staff and facility managers, held at your site, at a local facility or at our Salt Lake City training center. On-site sessions are tailored to your facility's own equipment and conditions.</p>
+      <div class="courses"><span>Cooling water treatment</span><span>Boiler water treatment</span><span>Boiler maintenance</span></div>
+    </div>
+    <div class="actions"><a class="btn" href="#contact">Schedule a training</a><small>One-day seasonal courses</small></div>
+  </div>
+</section>
+
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Who we serve</p>
+      <h2>Facilities that cannot afford downtime.</h2>
+    </div>
+    <div class="ind-grid">
+      <div class="ind"><h3>Commercial buildings</h3><p>Office towers, campuses and property portfolios with central plants.</p></div>
+      <div class="ind"><h3>Government and federal</h3><p>Public facilities served through State and GSA contract vehicles.</p></div>
+      <div class="ind"><h3>Healthcare</h3><p>Hospitals and clinics where system reliability protects patients.</p></div>
+      <div class="ind"><h3>Education</h3><p>Universities and school districts with boilers, towers and loops.</p></div>
+      <div class="ind"><h3>Data centers</h3><p>High-load cooling where water and energy efficiency matter most.</p></div>
+      <div class="ind"><h3>Manufacturing</h3><p>Process cooling, steam and industrial water across the plant.</p></div>
+      <div class="ind"><h3>Food and beverage</h3><p>Boilers and cooling systems supporting production lines.</p></div>
+      <div class="ind"><h3>Hospitality</h3><p>Hotels and resorts with year-round heating and cooling demand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section members" id="memberships">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Memberships</p>
+      <h2>Backed by two industry networks.</h2>
+      <p class="lead">Power Engineering belongs to the Association of Water Technologies and Associated Labs. Both connect our team to training, technical research and peers who solve the same problems every day, and that knowledge goes straight into your program.</p>
+    </div>
+
+    <div class="mem-grid">
+      <article class="mem">
+        <div class="mem-id">
+          <div class="mem-badge" aria-hidden="true">AWT</div>
+          <div><h3>Association of Water Technologies</h3><span>Member company</span></div>
+        </div>
+        <p>AWT is the international association for water treatment companies that serve industrial and commercial cooling and heating systems. It sets the bar for training and professional certification in our industry.</p>
+        <div class="mem-stats">
+          <div><b>500+</b><span>Member companies</span></div>
+          <div><b>CWT</b><span>Certified Water Technologist credential</span></div>
+          <div><b>Intl.</b><span>Industry association</span></div>
+        </div>
+        <h4>What it means for you</h4>
+        <ul>
+          <li>Technicians trained through AWT technical seminars, webinars and safety courses</li>
+          <li>A path to the Certified Water Technologist (CWT) credential, which requires five years of field experience and a proctored exam</li>
+          <li>Current technical papers and AWT's industry publication, <em>The Analyst</em></li>
+          <li>Legionella guidance and water management resources from the association</li>
+        </ul>
+        <a class="ext" href="https://awt.org/" rel="noopener">awt.org &rarr;</a>
+      </article>
+
+      <article class="mem">
+        <div class="mem-id">
+          <div class="mem-badge al" aria-hidden="true">AL</div>
+          <div><h3>Associated Labs</h3><span>Member company</span></div>
+        </div>
+        <p>Associated Labs is an alliance of privately held, independent water treatment companies, each owner-operated. Members work in different regional markets, so they share technical knowledge, case studies and best practices openly.</p>
+        <div class="mem-stats">
+          <div><b>9</b><span>Member companies</span></div>
+          <div><b>9</b><span>Manufacturing and distribution sites</span></div>
+          <div><b>6</b><span>Labs and R&amp;D facilities</span></div>
+        </div>
+        <h4>What it means for you</h4>
+        <ul>
+          <li>Collective expertise across boiler, cooling, closed loop, wastewater and potable treatment</li>
+          <li>Shared case work on high-silica towers, data center cooling, tagged polymer monitoring and Legionella control</li>
+          <li>Formulation testing on corrosion, scale loops and pilot towers across the member network</li>
+          <li>Support for customers with sites outside Utah and Idaho through shared products and services</li>
+        </ul>
+        <a class="ext" href="https://associatedlabs.org/" rel="noopener">associatedlabs.org &rarr;</a>
+      </article>
+    </div>
+
+    <div class="mem-band">
+      <div>
+        <h3>Independent, with national reach.</h3>
+        <p>Private equity is consolidating the water treatment industry. Power Engineering remains privately held and locally run, so decisions about your program are made in Salt Lake City by people who know your site.</p>
+      </div>
+      <div>
+        <h3>Someone has already solved it.</h3>
+        <p>When a system behaves in an unusual way, our team can draw on peers across two countries and dozens of labs and plants. You get a local team with the knowledge base of a much larger organization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-mark">
+      <span class="yr">1946</span>
+      <span class="yr-sub">Founded in Salt Lake City &middot; Water treatment specialists since 1961</span>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">About us</p>
+      <h2>Eighty years of keeping water working.</h2>
+      <p>Power Engineering began in 1946 as a design-build firm for steam generating plants. In 1961 we turned that plant-side experience to water treatment, and we have designed, installed and maintained treatment systems and programs across the Mountain West ever since.</p>
+      <p>Over the decades we have grown into a complete industrial water ecosystem. We consult with design engineers during planning, track regional water supply patterns to customize each program, and work with a university metallurgical department on corrosion questions. We manufacture our own chemical formulations, fabricate our own feed equipment, operate our own analytical laboratory through Ridgewater Analytical, and deliver and service every program with our own team. When each part of the program comes from one place, quality is easier to control and problems are faster to solve.</p>
+      <p>Our 22 employees work from our Salt Lake City headquarters and our Idaho Falls location, which keeps a local representative and chemical inventory close to customers in Idaho. We remain privately held and independent, and we are active members of the Association of Water Technologies and Associated Labs, which keep our equipment, chemistry and best practices aligned with current industry standards.</p>
+      <div class="values">
+        <div class="mission"><h3>Our mission</h3><p>To always provide the highest quality products and equipment with the highest value to our clients, to keep a positive working environment for customers and employees, and to honor our commitments.</p></div>
+        <div><h3>Built in-house</h3><p>Chemistry, equipment, filtration and lab work under our own quality control.</p></div>
+        <div><h3>Accountable</h3><p>Digital reports document every visit, test and corrective action.</p></div>
+        <div><h3>Local and responsive</h3><p>Short lead times and fast response from Salt Lake City and Idaho Falls.</p></div>
+        <div><h3>Committed to education</h3><p>Water Treatment 101 and seasonal courses at our Salt Lake City training center.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Working with us</p>
+      <h2>Simple to start, simple to buy.</h2>
+    </div>
+    <div class="procure">
+      <div><h3>State and GSA contracts</h3><p>Purchase approved products and services through State contracts or our FSS contract for GSA-qualified purchases.</p></div>
+      <div><h3>Equipment in stock</h3><p>Feed pumps, controllers, probes, filters and parts stocked locally to keep your systems running.</p></div>
+      <div><h3>Free site survey</h3><p>We assess your systems, test your water and recommend a program tailored to your operation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Talk with a water treatment specialist.</h2>
+      <p class="lead">Tell us about your cooling towers, boilers or closed loops. We will follow up to schedule a site survey and baseline water analysis.</p>
+      <div class="locs">
+        <div class="loc"><span>Call us</span><span class="phone">801.532.6972</span></div>
+        <div class="loc"><b>Salt Lake City, Utah</b><span>Headquarters, chemical production, fabrication shop and Ridgewater Analytical</span></div>
+        <div class="loc"><b>Idaho Falls, Idaho</b><span>Local representative and chemical storage</span></div>
+      </div>
+    </div>
+    <form id="survey-form" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field full">
+        <label for="f-system">Primary system</label>
+        <select id="f-system" name="system">
+          <option>Cooling tower</option>
+          <option>Boiler or steam</option>
+          <option>Closed loop</option>
+          <option>Heat transfer fluid or glycol</option>
+          <option>Filtration, softener or pretreatment</option>
+          <option>Feed pumps, controllers or probes</option>
+          <option>Lab analysis through Ridgewater</option>
+          <option>New construction or system cleaning</option>
+          <option>Training or seasonal courses</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message"></textarea></div>
+      <button class="btn btn-primary" type="submit">Request a site survey</button>
+      <p class="form-msg" id="form-msg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="data:image/png;base64,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" alt="Power Engineering" width="536" height="322">
+        <p>Founded in 1946. Water treatment specialists since 1961. Chemistry, equipment, laboratory and service from one team.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Ecosystem</h4>
+        <ul>
+          <li><a href="#ecosystem">Chemistry</a></li>
+          <li><a href="#equipment">Equipment and filtration</a></li>
+          <li><a href="#service">Monitoring and service</a></li>
+          <li><a href="#ridgewater">Ridgewater Analytical</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#memberships">Memberships</a></li>
+          <li><a href="#construction">New construction</a></li>
+          <li><a href="#service">Training</a></li>
+          <li><a href="#contact">Site survey</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>801.532.6972</li>
+          <li>PecoWater.com</li>
+          <li>Salt Lake City, UT</li>
+          <li>Idaho Falls, ID</li>
+        </ul>
+      </div>
+    </div>
+    <details class="credits">
+      <summary>Photo credits</summary>
+      <ul>
+        <li>Cooling towers at Queensland hospital, Kgbo, <a href="https://commons.wikimedia.org/wiki/File:Cooling_towers_at_Queensland%E2%80%99_hospital_02.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>Cooling towers, Brisbane office building, Chris Olszewski, <a href="https://commons.wikimedia.org/wiki/File:Cooling_Towers_at_the_office_building_in_Brisbane,_Queensland_02.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>Boiler room in Tula Oblast, Press Service of the Governor of Tula Oblast, <a href="https://commons.wikimedia.org/wiki/File:Boiler_room_in_Tula_Oblast_04.jpg" rel="noopener">CC BY 4.0</a></li>
+        <li>Chilled water pumps, Kgbo, <a href="https://commons.wikimedia.org/wiki/File:Chilled_water_pumps_at_Queensland%E2%80%99_hospital.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>Chemical metering pump, LaurelBloch, <a href="https://commons.wikimedia.org/wiki/File:LMI%27s_EXCEL_XR,_Chemical_Metering_Pump.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>Mechanical room piping, Wolfmann, <a href="https://commons.wikimedia.org/wiki/File:Teknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_varmtvann_isolerte_r%C3%B8r_m%C3%A5lere_termometere_sirkulasjonspumpe_strupeventil_radiatorer_gulvvarme_elkabler_etc_IMG_0350.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>Condenser water pumps, Kgbo, <a href="https://commons.wikimedia.org/wiki/File:Condenser_water_pumps_in_large_commercial_building,_Brisbane.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+        <li>HPLC-ICP instrumentation, Superchilum, <a href="https://commons.wikimedia.org/wiki/File:HPLC-ICPMS_TISIS_01.JPG" rel="noopener">CC BY-SA 3.0</a></li>
+        <li>Ion chromatography system, LukaszKatlewa, <a href="https://commons.wikimedia.org/wiki/File:Dionex_ICS-3000_ion_chromatography_system.jpg" rel="noopener">CC BY-SA 4.0</a></li>
+      </ul>
+    </details>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Power Engineering Company, Inc.</span>
+      <span>Ridgewater Analytical is the in-house laboratory of Power Engineering. Member of AWT and Associated Labs.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('survey-form');
+  var msg = document.getElementById('form-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    if (!name || !email) {
+      msg.textContent = 'Please add your name and email so we can follow up.';
+      msg.hidden = false;
+      return;
+    }
+    msg.textContent = 'Thanks, ' + name + '. This is a preview of the new site, so the form is not connected yet. Call 801.532.6972 to schedule now.';
+    msg.hidden = false;
+  });
+  // Close the mobile menu after choosing a section
+  var menu = document.querySelector('.menu');
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { menu.removeAttribute('open'); });
+  });
+})();
+</script>
+
+</body>
+</html>
