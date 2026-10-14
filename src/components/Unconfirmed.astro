@@ -44,4 +44,8 @@ const { note, as: Tag = 'span' } = Astro.props;
     pointer-events: none;
     white-space: nowrap;
   }
+  /* Inline markers wrap across lines, where the tag would cover the line above. Outline only. */
+  span.unconfirmed::after {
+    display: none;
+  }
 </style>

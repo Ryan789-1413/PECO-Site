@@ -31,6 +31,19 @@ const facts = [
     background: var(--surface);
     border-bottom: 1px solid var(--line);
   }
+  /*
+   * The prototype's `.proof div` rule also matched the .wrap, adding vertical padding to the
+   * strip (and removing its side gutters). The padding is kept; the gutters are not, so text
+   * never touches the screen edge on phones.
+   */
+  .proof .wrap {
+    padding-block: 26px;
+  }
+  @media (max-width: 900px) {
+    .proof .wrap {
+      padding-block: 20px;
+    }
+  }
   dl {
     margin: 0;
     display: grid;

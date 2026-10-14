@@ -82,10 +82,14 @@ const SLC_NOTE = "'Fabrication shop' is not in PROJECT_CONTEXT; Ridgewater locat
     color: var(--deep-muted);
     font-size: 0.9375rem;
   }
+  /*
+   * Matches what the prototype renders: its `.loc span` rule outranks `.phone`, so the
+   * intended 1.5rem / --deep-ink never applied. Ask Ryan whether to use the larger style.
+   */
   .phone {
     font-family: var(--f-mono);
-    font-size: 1.5rem;
-    color: var(--deep-ink);
+    font-size: 0.9375rem;
+    color: var(--deep-muted);
     user-select: all;
     letter-spacing: 0.02em;
     text-decoration: none;
