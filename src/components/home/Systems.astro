@@ -1,11 +1,8 @@
 ---
 import PhotoFigure from '../PhotoFigure.astro';
-import Unconfirmed from '../Unconfirmed.astro';
 import towerOffice from '../../assets/photos/tower-office.jpg';
 import boilerRoom from '../../assets/photos/boiler-room.jpg';
 import pumpsChilled from '../../assets/photos/pumps-chilled.jpg';
-
-const FILTRATION_NOTE = 'PROJECT_CONTEXT §2 Filtration: product lines/brands not confirmed';
 ---
 
 <section class="section systems" id="systems">
@@ -148,14 +145,12 @@ const FILTRATION_NOTE = 'PROJECT_CONTEXT §2 Filtration: product lines/brands no
         <div>
           <h3>Filtration and pretreatment</h3>
           <p>
-            <Unconfirmed note={FILTRATION_NOTE}>
-              {'Side-stream filtration, cartridge and bag filters,'}
-            </Unconfirmed>{' '}
-            water softeners, dealkalizers and reverse osmosis that keep solids, hardness and
-            alkalinity out of towers, boilers and loops.
+            Side-stream filtration, cartridge and bag filters, water softeners, dealkalizers and
+            reverse osmosis that keep solids, hardness and alkalinity out of towers, boilers and
+            loops.
           </p>
           <div class="terms">
-            <Unconfirmed note={FILTRATION_NOTE}>Side-stream</Unconfirmed>
+            <span>Side-stream</span>
             <span>Softeners</span>
             <span>Dealkalizers</span>
             <span>RO</span>

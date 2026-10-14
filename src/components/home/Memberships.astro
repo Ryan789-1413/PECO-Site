@@ -1,6 +1,7 @@
 ---
-import Unconfirmed from '../Unconfirmed.astro';
 // Text badges instead of the AWT and AL logos until logo use is approved (PROJECT_CONTEXT §2).
+// "A network of labs and plants" replaces the prototype's "dozens": AL has 6 labs and 9 sites
+// (Ryan, Oct 14, 2026).
 ---
 
 <section class="section members" id="memberships">
@@ -77,25 +78,20 @@ import Unconfirmed from '../Unconfirmed.astro';
           each owner-operated. Members work in different regional markets, so they share technical
           knowledge, case studies and best practices openly.
         </p>
-        <Unconfirmed
-          as="div"
-          note="PROJECT_CONTEXT §2 Associated Labs: figures 9 / 9 / 6 not cleared for publication (§9 q4)"
-        >
-          <div class="mem-stats">
-            <div>
-              <b>9</b>
-              <span>Member companies</span>
-            </div>
-            <div>
-              <b>9</b>
-              <span>Manufacturing and distribution sites</span>
-            </div>
-            <div>
-              <b>6</b>
-              <span>Labs and R&amp;D facilities</span>
-            </div>
+        <div class="mem-stats">
+          <div>
+            <b>9</b>
+            <span>Member companies</span>
           </div>
-        </Unconfirmed>
+          <div>
+            <b>9</b>
+            <span>Manufacturing and distribution sites</span>
+          </div>
+          <div>
+            <b>6</b>
+            <span>Labs and R&amp;D facilities</span>
+          </div>
+        </div>
         <h4>What it means for you</h4>
         <ul>
           <li>
@@ -121,26 +117,20 @@ import Unconfirmed from '../Unconfirmed.astro';
     </div>
 
     <div class="mem-band">
-      <Unconfirmed
-        as="div"
-        note="PROJECT_CONTEXT §2 Identity: 'privately held and independent' wording"
-      >
+      <div>
         <h3>Independent, with national reach.</h3>
         <p>
           Private equity is consolidating the water treatment industry. Power Engineering remains
           privately held and locally run, so decisions about your program are made in Salt Lake City
           by people who know your site.
         </p>
-      </Unconfirmed>
+      </div>
       <div>
         <h3>Someone has already solved it.</h3>
         <p>
-          <Unconfirmed note="AL figures not cleared (§9 q4); 'dozens of labs and plants' overstates 6 labs + 9 sites">
-            {
-              'When a system behaves in an unusual way, our team can draw on peers across two countries and dozens of labs and plants.'
-            }
-          </Unconfirmed>{' '}
-          You get a local team with the knowledge base of a much larger organization.
+          When a system behaves in an unusual way, our team can draw on peers across two countries
+          and a network of labs and plants. You get a local team with the knowledge base of a much
+          larger organization.
         </p>
       </div>
     </div>

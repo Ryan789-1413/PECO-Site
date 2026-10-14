@@ -1,18 +1,11 @@
 ---
-import Unconfirmed from '../Unconfirmed.astro';
-
-// Analyte-to-instrument mapping from PROJECT_CONTEXT §2 (to be reviewed by the chemist).
+// Analyte-to-instrument mapping from PROJECT_CONTEXT §2 (confirmed by Ryan, Oct 14, 2026).
 const rows = [
   { analyte: 'Calcium hardness', inst: 'ICP', unit: 'mg/L as CaCO₃' },
   { analyte: 'Magnesium hardness', inst: 'ICP', unit: 'mg/L as CaCO₃' },
   { analyte: 'Total iron', inst: 'ICP', unit: 'mg/L Fe' },
   { analyte: 'Copper', inst: 'ICP', unit: 'mg/L Cu' },
-  {
-    analyte: 'Silica',
-    inst: 'ICP',
-    unit: 'mg/L SiO₂',
-    confirm: "PROJECT_CONTEXT §2 lists silica as 'mg/L'; the prototype says 'mg/L SiO₂'",
-  },
+  { analyte: 'Silica', inst: 'ICP', unit: 'mg/L SiO₂' },
   { analyte: 'Chloride', inst: 'IC', unit: 'mg/L Cl⁻' },
   { analyte: 'Sulfate', inst: 'IC', unit: 'mg/L SO₄²⁻' },
   { analyte: 'Orthophosphate', inst: 'IC', unit: 'mg/L PO₄³⁻' },
@@ -35,9 +28,7 @@ const rows = [
         <tr>
           <td>{r.analyte}</td>
           <td class="m">{r.inst}</td>
-          <td class="u">
-            {r.confirm ? <Unconfirmed note={r.confirm}>{r.unit}</Unconfirmed> : r.unit}
-          </td>
+          <td class="u">{r.unit}</td>
         </tr>
       ))}
     </tbody>

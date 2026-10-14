@@ -1,9 +1,6 @@
 ---
-import Unconfirmed from '../Unconfirmed.astro';
 import ContactForm from './ContactForm.astro';
 import { PHONE_DISPLAY, PHONE_TEL } from '../../data/company';
-
-const SLC_NOTE = "'Fabrication shop' is not in PROJECT_CONTEXT; Ridgewater location is [CONFIRM]";
 ---
 
 <section class="section contact" id="contact">
@@ -24,12 +21,7 @@ const SLC_NOTE = "'Fabrication shop' is not in PROJECT_CONTEXT; Ridgewater locat
         </div>
         <div class="loc">
           <b>Salt Lake City, Utah</b>
-          <span>
-            {'Headquarters, chemical production'}
-            <Unconfirmed note={SLC_NOTE}>
-              {', fabrication shop and Ridgewater Analytical'}
-            </Unconfirmed>
-          </span>
+          <span>Headquarters, chemical production, fabrication shop and Ridgewater Analytical</span>
         </div>
         <div class="loc">
           <b>Idaho Falls, Idaho</b>

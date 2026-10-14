@@ -1,6 +1,4 @@
 ---
-import Unconfirmed from '../Unconfirmed.astro';
-
 const industries = [
   {
     title: 'Commercial buildings',
@@ -31,19 +29,14 @@ const industries = [
       <p class="eyebrow">Who we serve</p>
       <h2>Facilities that cannot afford downtime.</h2>
     </div>
-    <Unconfirmed
-      as="div"
-      note="PROJECT_CONTEXT §2 Industries: remove any PECO doesn't serve (§9 q11)"
-    >
-      <div class="ind-grid">
-        {industries.map((ind) => (
-          <div class="ind">
-            <h3>{ind.title}</h3>
-            <p>{ind.text}</p>
-          </div>
-        ))}
-      </div>
-    </Unconfirmed>
+    <div class="ind-grid">
+      {industries.map((ind) => (
+        <div class="ind">
+          <h3>{ind.title}</h3>
+          <p>{ind.text}</p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 

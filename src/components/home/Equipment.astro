@@ -1,17 +1,12 @@
 ---
 import PhotoFigure from '../PhotoFigure.astro';
-import Unconfirmed from '../Unconfirmed.astro';
 import pumpMeter from '../../assets/photos/pump-meter.jpg';
 import loopPiping from '../../assets/photos/loop-piping.jpg';
 import pumpsCondenser from '../../assets/photos/pumps-condenser.jpg';
 
-const FILTRATION_NOTE = 'PROJECT_CONTEXT §2 Filtration: product lines/brands not confirmed';
-const IDAHO_FALLS_NOTE =
-  'PROJECT_CONTEXT §2: Idaho Falls is sourced for chemical storage only, not parts';
 const cardSizes = '(max-width: 600px) calc(100vw - 36px), (max-width: 960px) 50vw, 380px';
 
-type Item = string | { text: string; confirm: string };
-const groups: { title: string; items: Item[] }[] = [
+const groups: { title: string; items: string[] }[] = [
   {
     title: 'Feed and dosing',
     items: [
@@ -45,12 +40,12 @@ const groups: { title: string; items: Item[] }[] = [
   {
     title: 'Filtration and pretreatment',
     items: [
-      { text: 'Side-stream filtration for cooling towers', confirm: FILTRATION_NOTE },
-      { text: 'Cartridge and bag filter housings', confirm: FILTRATION_NOTE },
-      { text: 'Closed loop filtration', confirm: FILTRATION_NOTE },
+      'Side-stream filtration for cooling towers',
+      'Cartridge and bag filter housings',
+      'Closed loop filtration',
       'Water softeners and dealkalizers',
       'Reverse osmosis and RO re-pressure pumps',
-      { text: 'Filter elements, media and spare parts', confirm: FILTRATION_NOTE },
+      'Filter elements, media and spare parts',
     ],
   },
 ];
@@ -111,10 +106,10 @@ const brands = ['Walchem', 'LMI', 'Belimo', 'Bi-torq', 'PECO'];
         />
         <div class="body">
           <h3>Filtration</h3>
-          <Unconfirmed as="p" note={FILTRATION_NOTE}>
+          <p>
             Side-stream and full-flow filtration that removes the dirt, debris and suspended solids
             that drive fouling, under-deposit corrosion and biological growth.
-          </Unconfirmed>
+          </p>
         </div>
       </article>
     </div>
@@ -124,15 +119,9 @@ const brands = ['Walchem', 'LMI', 'Belimo', 'Bi-torq', 'PECO'];
         <div class="equip-group">
           <h4>{group.title}</h4>
           <ul>
-            {group.items.map((item) =>
-              typeof item === 'string' ? (
-                <li>{item}</li>
-              ) : (
-                <Unconfirmed as="li" note={item.confirm}>
-                  {item.text}
-                </Unconfirmed>
-              ),
-            )}
+            {group.items.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
         </div>
       ))}
@@ -142,9 +131,7 @@ const brands = ['Walchem', 'LMI', 'Belimo', 'Bi-torq', 'PECO'];
       <p>
         <strong>Sized, installed and serviced by our own team.</strong> We match every pump,
         controller and filter to your system, install it, calibrate it and keep replacement parts on
-        the shelf in {'Salt Lake City'}
-        <Unconfirmed note={IDAHO_FALLS_NOTE}>{' and Idaho Falls'}</Unconfirmed>
-        {'.'}
+        the shelf in Salt Lake City and Idaho Falls.
       </p>
       <a class="btn btn-ghost" href="#contact">
         Ask about equipment
