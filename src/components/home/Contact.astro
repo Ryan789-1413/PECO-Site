@@ -75,13 +75,13 @@ import { PHONE_DISPLAY, PHONE_TEL } from '../../data/company';
     font-size: 0.9375rem;
   }
   /*
-   * Matches what the prototype renders: its `.loc span` rule outranks `.phone`, so the
-   * intended 1.5rem / --deep-ink never applied. Ask Ryan whether to use the larger style.
+   * The prototype's CSS intent (1.5rem, --deep-ink). Its `.loc span` rule outranked this, so
+   * the prototype rendered the phone small and muted; Ryan chose the larger style (Oct 14, 2026).
    */
   .phone {
     font-family: var(--f-mono);
-    font-size: 0.9375rem;
-    color: var(--deep-muted);
+    font-size: 1.5rem;
+    color: var(--deep-ink);
     user-select: all;
     letter-spacing: 0.02em;
     text-decoration: none;
