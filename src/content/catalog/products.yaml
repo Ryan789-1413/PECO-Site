@@ -236,7 +236,7 @@
   category: feeders/pot-feeder
   order: 1
   summary: Pot feeder for closed loops.
-  gaps: [Pot feeder description, sizes and pressure rating]
+  gaps: ['Pot feeder description, sizes and pressure rating']
 - id: chemical-feed-stations
   name: Chemical feed stations and panels
   category: feeders/feed-stations
