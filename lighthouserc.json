@@ -2,7 +2,15 @@
   "ci": {
     "collect": {
       "staticDistDir": "./dist",
-      "numberOfRuns": 3
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/404.html",
+        "http://localhost/products/index.html",
+        "http://localhost/products/pumps/index.html",
+        "http://localhost/products/chemistry/4000-series/index.html",
+        "http://localhost/products/tanks/gemini-dual-containment-tanks/index.html"
+      ],
+      "numberOfRuns": 5
     },
     "assert": {
       "assertions": {

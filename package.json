@@ -17,7 +17,8 @@
     "lhci": "npx --yes @lhci/cli@0.15.1 autorun",
     "check:launch": "node scripts/check-launch.mjs",
     "test:e2e": "playwright test",
-    "visual": "node scripts/visual-compare.mjs"
+    "visual": "node scripts/visual-compare.mjs",
+    "screenshots": "node scripts/page-screenshots.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

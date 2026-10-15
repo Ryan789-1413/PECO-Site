@@ -29,6 +29,7 @@ This is the production rebuild of pecowater.com for Power Engineering Company, I
 - Commits: small and descriptive. Open PRs for each phase. Don't push to `main` without review once CI exists.
 - Never commit secrets. Use environment variables on the host.
 - `[CONFIRM]` copy: wrap it in `<Unconfirmed note="...">` (`src/components/Unconfirmed.astro`). Drafts show a dashed orange outline; `npm run check:launch` fails while any remain. Pass inline text as `{'...'}` so no stray whitespace lands inside the marker. When Ryan confirms an item, remove the wrapper; if he rejects it, remove the content.
+- Product catalog: data lives in `src/content/catalog/categories.yaml` and `products.yaml` (schemas in `src/content.config.ts`). A category's id is its URL path under `/products/`. Put missing content in a `gaps` list: each gap renders as a draft marker and blocks `check:launch`. **No PDS or SDS downloads on the site**: pages say to request them (`DataSheetNote.astro`). Never list RO re-pressure pumps.
 - Phone number: use `PHONE_DISPLAY` / `PHONE_TEL` from `src/data/company.ts` (format `801-532-6972`, always a `tel:` link).
 - Fonts: import Fontsource **Latin** subset files only (`latin-400.css`). Per-subset files have no `unicode-range`, so adding `latin-ext` doubles every download.
 
@@ -40,12 +41,13 @@ Node 22 (exact version in `.node-version`). Install with `npm ci`.
 - `npm run check`: `astro check` + `tsc --noEmit` + `npm run lint`. Run before every commit; CI runs the same command.
 - `npm run lint`: ESLint (TypeScript, Astro, jsx-a11y-x) + `prettier --check`
 - `npm run format`: `prettier --write .` (`prototype/`, `docs/`, `brand/` and Markdown are ignored)
-- `npm run lhci`: Lighthouse CI against `dist/` (run `npm run build` first). Asserts performance ≥ 0.95 and accessibility = 1.00.
+- `npm run lhci`: Lighthouse CI against `dist/` (run `npm run build` first). Asserts performance ≥ 0.95 and accessibility = 1.00, median of 5 runs, on the pages listed in `lighthouserc.json` (home, 404, catalog index, a category, a series, a product). Add a page there whenever a new page template is introduced.
   - **Never lower these gates** (Ryan, Oct 14, 2026). If performance fails, investigate and optimize. The home page sits at about 0.95–0.96 (mobile): its LCP is the hero paragraph text, and most of the cost is style and layout of the long page under 4× CPU throttling.
   - Already tried, so don't repeat: `content-visibility: auto` on sections gives 0.98 performance but makes Lighthouse report false contrast failures (accessibility 0.97). Removing `text-wrap: balance` changes heading wraps. Lowering the hero image's `fetchpriority` made no difference.
-- `npm run test:e2e`: Playwright against the build (run `npm run build` first; one-time `npx playwright install chromium`). Smoke tests, axe WCAG 2.2 AA scan and `_redirects` checks at 1280 px and 390 px.
+- `npm run test:e2e`: Playwright against the build (run `npm run build` first; one-time `npx playwright install chromium`). Smoke tests, axe WCAG 2.2 AA scans (home and 8 catalog pages), catalog checks, and `_redirects` checks (well formed, and every target is a built page; Phase 3 targets are listed in `PENDING_PAGES`) at 1280 px and 390 px.
 - `npm run visual`: prototype vs build screenshots at 1280 px and 390 px, per section, with pixel diffs. Writes `screenshots/phase-1/` (gitignored) including `report.md`.
-- `npm run check:launch`: fails if any `[CONFIRM]` marker is left in `dist/`. Must pass before launch.
+- `npm run screenshots -- <dir> <path> [<path> ...]`: full-page screenshots of built pages at 1280, 1000 and 390 px into `screenshots/<dir>/` (gitignored), reporting horizontal overflow and whether the header nav fits.
+- `npm run check:launch`: fails if any `[CONFIRM]` marker or catalog content gap is left in `dist/`. Must pass before launch.
 
 CI (`.github/workflows/ci.yml`) runs on every PR: check + build + Playwright, lychee link check on `dist/`, and Lighthouse CI.
 
