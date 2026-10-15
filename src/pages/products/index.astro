@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CatalogHero from '../../components/catalog/CatalogHero.astro';
+import CategoryCard from '../../components/catalog/CategoryCard.astro';
+import DataSheetNote from '../../components/catalog/DataSheetNote.astro';
+import { loadCatalog } from '../../lib/catalog';
+
+const { byId, childrenOf, countUnder } = await loadCatalog();
+const chemistry = byId.get('chemistry')!;
+const series = childrenOf('chemistry');
+const equipment = childrenOf(undefined).filter((c) => c.data.group === 'equipment');
+---
+
+<BaseLayout
+  title="Products | Power Engineering"
+  description="PECO water treatment chemistry made in Salt Lake City, plus the pumps, controllers, feeders, tanks, valves, test kits and filtration we supply, install and service."
+>
+  <CatalogHero
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Products' }]}
+    eyebrow="Product catalog"
+    title="Chemistry and equipment"
+    lead="Our own chemistry, made in Salt Lake City, and the equipment we supply, install and service behind every program."
+  />
+
+  <section class="section" aria-labelledby="chemistry-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">PECO chemistry</p>
+        <h2 id="chemistry-title">Our product blends, by series.</h2>
+        <p class="lead">{chemistry.data.intro}</p>
+      </div>
+      <ul class="grid">
+        {series.map((c) => (
+          <li>
+            <CategoryCard category={c} count={countUnder(c.id)} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section equipment" aria-labelledby="equipment-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Equipment and filtration</p>
+        <h2 id="equipment-title">Everything it takes to protect your equipment chemically.</h2>
+        <p class="lead">
+          We supply, install and service the full set of hardware behind every program, from the
+          pump on the tank to the probe in the line.
+        </p>
+      </div>
+      <ul class="grid">
+        {equipment.map((c) => (
+          <li>
+            <CategoryCard category={c} count={countUnder(c.id)} />
+          </li>
+        ))}
+      </ul>
+      <div class="note">
+        <DataSheetNote />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .equipment {
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+  }
+  .note {
+    margin-top: 32px;
+  }
+  @media (max-width: 1040px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 520px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+// Label/value specification list for a product page.
+interface Props {
+  specs: { label: string; value: string }[];
+}
+
+const { specs } = Astro.props;
+---
+
+<dl class="specs">
+  {specs.map((s) => (
+    <div>
+      <dt>{s.label}</dt>
+      <dd>{s.value}</dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .specs {
+    margin: 0;
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
+  .specs div {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9375rem;
+  }
+  dt {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  dd {
+    margin: 0;
+  }
+  @media (max-width: 480px) {
+    .specs div {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

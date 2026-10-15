@@ -1,0 +1,96 @@
+---
+// Link card for a product on a category page.
+import { productHref, type Product } from '../../lib/catalog';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const { name, brand, summary, specs } = product.data;
+---
+
+<a class="card" href={productHref(product)}>
+  {brand && <span class="brand">{brand}</span>}
+  <h3>{name}</h3>
+  <p class="summary">{summary}</p>
+  {specs.length > 0 && (
+    <dl>
+      {specs.slice(0, 3).map((s) => (
+        <div>
+          <dt>{s.label}</dt>
+          <dd>{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
+  <span class="go" aria-hidden="true">
+    Details &rarr;
+  </span>
+</a>
+
+<style>
+  .card {
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    height: 100%;
+    padding: 22px 22px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .card:hover {
+    border-color: var(--brand);
+  }
+  .card:hover h3 {
+    color: var(--brand);
+  }
+  .brand {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .summary {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  dl {
+    margin: 4px 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+  }
+  dl div {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.875rem;
+  }
+  dt {
+    font-family: var(--f-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+  dd {
+    margin: 0;
+  }
+  .go {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--brand);
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+// Product data sheets and SDS are not published on the site; customers request them
+// (Ryan, Oct 15, 2026). Phone only until a general inbox exists (PROJECT_CONTEXT §9 q1).
+import { PHONE_DISPLAY, PHONE_TEL } from '../../data/company';
+
+interface Props {
+  /** Product name, when shown on a product page. */
+  product?: string;
+}
+
+const { product } = Astro.props;
+---
+
+<aside class="note" aria-label="Product data sheets">
+  <p>
+    <strong>Product data sheets and safety data sheets (SDS) are available on request.</strong>
+    {product ? ` To request them for ${product}, call ` : ' Call '}
+    <a href={PHONE_TEL}>{PHONE_DISPLAY}</a> and we will send them to you.
+  </p>
+  <a class="btn btn-ghost" href="/#contact">
+    Talk with a specialist
+  </a>
+</aside>
+
+<style>
+  .note {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--brand-tint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  p {
+    color: var(--ink);
+    max-width: 70ch;
+  }
+  p a {
+    white-space: nowrap;
+  }
+</style>

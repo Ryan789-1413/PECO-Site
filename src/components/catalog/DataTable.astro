@@ -1,0 +1,68 @@
+---
+// Light-theme data table (e.g. tank sizes). Scrolls horizontally on narrow screens.
+interface Props {
+  caption: string;
+  columns: string[];
+  rows: string[][];
+}
+
+const { caption, columns, rows } = Astro.props;
+---
+
+<!-- Focusable so keyboard users can scroll the table on narrow screens. -->
+<div class="table-scroll" role="region" aria-label={caption} tabindex="0">
+  <table>
+    <caption class="visually-hidden">{caption}</caption>
+    <thead>
+      <tr>
+        {columns.map((c) => (
+          <th scope="col">{c}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>{r.map((cell, i) => (i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>))}</tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    min-width: 480px;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  thead th {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--bg);
+  }
+  tbody th {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.0625rem;
+  }
+  tr:last-child th,
+  tr:last-child td {
+    border-bottom: 0;
+  }
+</style>
