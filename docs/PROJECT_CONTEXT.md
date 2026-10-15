@@ -264,22 +264,22 @@ Logo: `brand/logo-power-engineering.png` (536×322, transparent, single color #2
 
 ## 6. Current site: URL inventory (for 301 redirects)
 
-The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL:
+The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL: The chemistry series targets and the old-category mapping below were approved by Ryan on Oct 15, 2026. The live rules are in `public/_redirects`.
 
 ```
 /                                         → /
-/all-products/                            → /equipment  (or /products)
+/all-products/                            → /products/
 /services/                                → /services
 /about-us/                                → /about
 /contact-us/                              → /contact
 /category/treatments/                     → /products/chemistry
-/category/treatments/cooling/             → /products/chemistry/cooling
-/category/treatments/boiler/              → /products/chemistry/boiler
-/category/treatments/closed-loop/         → /products/chemistry/closed-loop
-/category/treatments/antimicrobial/       → /products/chemistry/antimicrobial
-/category/treatments/calcium-chloride/    → /products/chemistry/calcium-chloride
+/category/treatments/cooling/             → /products/chemistry/4000-series/
+/category/treatments/boiler/              → /products/chemistry/2000-series/
+/category/treatments/closed-loop/         → /products/chemistry/8000-series/
+/category/treatments/antimicrobial/       → /products/chemistry/7000-series/
+/category/treatments/calcium-chloride/    → /products/chemistry/o-series/
 /category/controllers/                    → /products/controllers
-/category/controllers/walchem-controllers/→ /products/controllers?brand=walchem (or /products/controllers/walchem)
+/category/controllers/walchem-controllers/→ /products/controllers/walchem/
 /category/controllers/lmi-controllers/    → /products/controllers/lmi
 /category/pumps/                          → /products/pumps
 /category/pumps/lmi-pumps/                → /products/pumps/lmi
@@ -293,7 +293,7 @@ The current site is WordPress (Gravity Forms contact form, `/category/...` taxon
 /category/misc/coupon-rack/               → /products/monitoring/coupon-racks
 /category/misc/test-kit/                  → /products/monitoring/test-kits
 /category/miscellaneous/                  → /products
-Product bulletin pages (e.g. cooling-treatment-2 … -8, a-multi-duty-cooling-water-treatment-3 … -5) → /products/chemistry/<peco-number>
+Product bulletin pages (e.g. cooling-treatment-2 … -8, a-multi-duty-cooling-water-treatment-3 … -5) → /products/chemistry/4000-series/peco-<number>/ (which page is which product is still open)
 ```
 Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and export Google Search Console coverage to catch every indexed URL, especially bulletin PDFs and the `/wp-content/uploads/` files linked externally.
 
