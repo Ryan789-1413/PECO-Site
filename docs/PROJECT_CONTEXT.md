@@ -167,8 +167,10 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - **Test kits**: PECO **builds its own drop test kits** for field tests, such as total hardness, nitrite and sulfite. `[RYAN, Oct 15, 2026]` (A full list of the kits is still needed.)
 - **Corrosion coupon racks**: offered `[SITE]`; a real description is still needed.
 - **Filtration** `[RYAN]`: product lines confirmed Oct 14, 2026: side-stream and full-flow filtration for towers, cartridge and bag housings, closed loop filtration, filter elements/media/spare parts. **The filtration supplier is Quantrol** (quantrol.com). `[RYAN, Oct 15, 2026]`
-  - Quantrol, Inc. (Elburn, Illinois, est. 1988) is a manufacturer's representative carrying about 30 brands. Its own filtration lines are **Quantrol Cartridge Filtration** (stainless and jumbo cartridge housings; string-wound, meltblown and high-purity polypropylene cartridges; oil removal; pressure gauge kit; side-stream filtration guidelines) and **Quantrol Bag Filtration** (bag housings, bag filters, oil removal). It also carries Harmsco, Hydronix, Shelco, Global Filter and Watts commercial/industrial filtration.
-  - `[CONFIRM]` Which Quantrol products to list: only Quantrol's own cartridge and bag filtration, all filtration brands it carries, or everything it sells. Ryan said to "add it all". Quantrol also sells other pump and controller lines, RO membranes, residential water and kitchen hygiene products, which would conflict with the pump list above and the RO rule.
+  - **List only Quantrol's own filtration** `[RYAN, Oct 15, 2026]`:
+    - **Quantrol Cartridge Filtration**: stainless cartridge housings, jumbo cartridge housings and filters, string-wound cartridge filters, meltblown cartridge filters, high-purity polypropylene cartridge filters, oil removal, pressure gauge kit. Quantrol also publishes side-stream filtration guidelines.
+    - **Quantrol Bag Filtration**: bag housings, bag filters, oil removal.
+  - Not listed: the other brands Quantrol carries (Harmsco, Hydronix, Shelco, Global Filter, Watts and its non-filtration lines). Quantrol, Inc. (Elburn, Illinois, est. 1988) is a manufacturer's representative. Describe its products in PECO's own words; don't copy Quantrol's text.
 - **Probes/sensors** `[RYAN]`: conductivity, pH (plus ORP and fluorescence per the controllers page).
 
 ### Systems served
@@ -396,7 +398,7 @@ peco-website/
 5. How many staff are AWT **CWT**-certified?
 6. ~~Is the site survey free? What does "bi-monthly" mean?~~ Resolved Oct 14, 2026: the survey is free, and on-site service visits are monthly.
 7. Customer portal: is there a customer-facing service report portal (Ryan's files mention "AquaCore Hub" implementation/exclusivity docs and "Aquassist" licenses)? If so, add a "Customer login" link and feature smart testing on the site.
-8. Filtration: the supplier is Quantrol (Oct 15, 2026). Which Quantrol products should be listed: only Quantrol's own cartridge and bag filtration, all filtration brands it carries, or everything it sells?
+8. ~~Filtration brands?~~ Resolved Oct 15, 2026: list only Quantrol's own cartridge and bag filtration.
 9. Real descriptions and specs for the feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations) and coupon racks, and the full list of PECO's drop test kits. (The feeder list and custom manufacturing were confirmed Oct 15, 2026.)
 10. Product numbers and names in each chemistry series (2000, 3000, 4000, 5000, 7000, 8000, 9000, O), with a one-line description of each. (Resolved Oct 15, 2026: no PDS or SDS on the website; customers request them.) Also needed: ProMinent pump models, and confirmation of the 40 gal Gemini tank's weight and material.
 11. Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)? (The industries list was confirmed Oct 14, 2026.)
