@@ -244,11 +244,11 @@
   summary: Chemical feed stations and panels, including custom builds.
   gaps: [Feed station description and typical configurations]
 
-# ── Tanks (Peabody submittal drawings, Ryan, Oct 15, 2026) ──────────────────────
-- id: gemini-dual-containment-tanks
-  name: Gemini² dual containment tanks
+# ── Tanks (specs from supplier submittals, Ryan, Oct 15, 2026). On the site they are
+# "PECO dual containment tanks": never name the manufacturer or its product line.
+- id: dual-containment-tanks
+  name: PECO dual containment tanks
   category: tanks
-  brand: Peabody Engineering
   order: 1
   summary: Dual containment chemical tanks in 20, 40, 70 and 120 gallon sizes.
   description:
@@ -265,7 +265,7 @@
     - Pump suction connection
     - Interstitial leak detection port
   table:
-    caption: Gemini² tank sizes
+    caption: Tank sizes
     columns: [Capacity, Footprint, Overall height, Material]
     rows:
       - [20 gal, 18 × 18 in., About 23⅝ in., HDPE]

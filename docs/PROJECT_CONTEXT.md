@@ -151,7 +151,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
   - Glycol feed systems, high-pressure transfer pumps (permanent or portable).
   - **Do not list RO re-pressure pumps anywhere on the site.** `[RYAN, Oct 15, 2026]`
 - **Feeders**: chemical feed stations, **GC7-22 glycol feeder**, **GC7-GC8 glycol feeder**, **GC8 glycol feeder**, **glycol recovery**, **pot feeder**. This list is correct. `[RYAN, Oct 15, 2026]` PECO also does **custom orders and custom manufacturing** of feeders. `[RYAN, Oct 15, 2026]` (The current site has lorem ipsum on these pages. Real descriptions and specs are still needed.)
-- **Tanks: dual containment chemical tanks** `[RYAN, Oct 15, 2026]`: Peabody Engineering **Gemini²** tanks. Each has an inner (primary) tank inside an outer (secondary) tank, for atmospheric service. Source: the Peabody submittal drawings Ryan shared (`Y:\Job Documents & Correspondence\PECO Submittals & O & Ms\Gemini Tanks\`). The drawings are marked proprietary to Peabody: use them for specs only, and never publish or commit them.
+- **Tanks: dual containment chemical tanks** `[RYAN, Oct 15, 2026]`. **On the website they are "PECO dual containment tanks": never name the manufacturer (Peabody Engineering) or its product line (Gemini²).** `[RYAN, Oct 15, 2026]` Internally they are Peabody Engineering Gemini² tanks. Each has an inner (primary) tank inside an outer (secondary) tank, for atmospheric service. Source: the Peabody submittal drawings Ryan shared (`Y:\Job Documents & Correspondence\PECO Submittals & O & Ms\Gemini Tanks\`). The drawings are marked proprietary to Peabody: use them for specs only, and never publish or commit them.
 
   | Size | Footprint | Overall height | Material | Notes |
   |---|---|---|---|---|

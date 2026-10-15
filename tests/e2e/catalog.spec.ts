@@ -8,7 +8,7 @@ const PAGES = [
   '/products/chemistry/4000-series/peco-4990/',
   '/products/pumps/',
   '/products/pumps/walchem/walchem-ehe/',
-  '/products/tanks/gemini-dual-containment-tanks/',
+  '/products/tanks/dual-containment-tanks/',
   '/products/filtration/quantrol-cartridge-filtration/',
 ];
 
@@ -77,6 +77,18 @@ test.describe('product catalog', () => {
       await page.goto(path);
       await expect(page.locator('body'), path).not.toContainText(/re-?pressure/i);
     }
+  });
+
+  test('tanks are PECO dual containment tanks, with no manufacturer named', async ({ page }) => {
+    for (const path of [
+      '/products/',
+      '/products/tanks/',
+      '/products/tanks/dual-containment-tanks/',
+    ]) {
+      await page.goto(path);
+      await expect(page.locator('body'), path).not.toContainText(/peabody|gemini/i);
+    }
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('PECO dual containment tanks');
   });
 
   test('missing content is marked for drafts', async ({ page }) => {
