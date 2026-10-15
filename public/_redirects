@@ -25,16 +25,16 @@
 # Treatments (PECO chemistry)
 /category/treatments/                        /products/chemistry/                     301
 /category/treatments                         /products/chemistry/                     301
-/category/treatments/cooling/                /products/chemistry/cooling/             301
-/category/treatments/cooling                 /products/chemistry/cooling/             301
-/category/treatments/boiler/                 /products/chemistry/boiler/              301
-/category/treatments/boiler                  /products/chemistry/boiler/              301
-/category/treatments/closed-loop/            /products/chemistry/closed-loop/         301
-/category/treatments/closed-loop             /products/chemistry/closed-loop/         301
-/category/treatments/antimicrobial/          /products/chemistry/antimicrobial/       301
-/category/treatments/antimicrobial           /products/chemistry/antimicrobial/       301
-/category/treatments/calcium-chloride/       /products/chemistry/calcium-chloride/    301
-/category/treatments/calcium-chloride        /products/chemistry/calcium-chloride/    301
+/category/treatments/cooling/                /products/chemistry/4000-series/          301
+/category/treatments/cooling                 /products/chemistry/4000-series/          301
+/category/treatments/boiler/                 /products/chemistry/2000-series/          301
+/category/treatments/boiler                  /products/chemistry/2000-series/          301
+/category/treatments/closed-loop/            /products/chemistry/8000-series/         301
+/category/treatments/closed-loop             /products/chemistry/8000-series/         301
+/category/treatments/antimicrobial/          /products/chemistry/7000-series/         301
+/category/treatments/antimicrobial           /products/chemistry/7000-series/         301
+/category/treatments/calcium-chloride/       /products/chemistry/o-series/          301
+/category/treatments/calcium-chloride        /products/chemistry/o-series/          301
 
 # Controllers
 /category/controllers/                       /products/controllers/                   301
