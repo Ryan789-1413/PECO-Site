@@ -33,7 +33,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
   - The Salt Lake City site houses the headquarters, chemical production, a fabrication shop and Ridgewater Analytical. `[RYAN, confirmed Oct 14, 2026]`
 - Second location: **Idaho Falls, Idaho**, with a local representative and chemical storage/inventory. `[SCOPE]`
 - Phone: **801-532-6972**. `[SITE]`
-- Email: none published on the current site. `[CONFIRM]` (ryan@pecowater.com is Ryan's own address, not a general inbox.)
+- Email: none published on the current site. **orders@pecowater.com** is the address for product data sheet and SDS requests. `[RYAN, Oct 16, 2026]` A general inbox for form leads is still `[CONFIRM]` (ryan@pecowater.com is Ryan's own address, not a general inbox).
 - Hours: not published. `[CONFIRM]`
 - Service area: Utah, Idaho and the **Mountain West / Intermountain West**. `[SITE]`
 - Employees: **22**. `[SCOPE]`
@@ -123,7 +123,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - Public record: PECO holds FAA Air Route Traffic Control Center (ZLC ARTCC, Salt Lake City) water treatment awards, FY2024 and FY2025 (govconinabox). Possible case study or "who we serve" logo. `[CONFIRM]`
 
 ### Products and brands (from current site catalog) `[SITE]`, updated by Ryan Oct 15, 2026 `[RYAN]`
-- **Product literature: no product data sheets (PDS) or safety data sheets (SDS) on the website.** `[RYAN, Oct 15, 2026]` Customers request them by phone or email and PECO sends them. Product pages say how to request them; there are no PDF downloads. (Which email address to show is still open, §9 q1. Until then, show the phone number.)
+- **Product literature: no product data sheets (PDS) or safety data sheets (SDS) on the website.** `[RYAN, Oct 15, 2026]` Customers request them by phone (801-532-6972) or email (**orders@pecowater.com**, Ryan, Oct 16, 2026) and PECO sends them. Product pages say how to request them; there are no PDF downloads.
 - **Treatments: PECO chemistry, organized as PECO's own product blends and series.** `[RYAN, Oct 15, 2026]` The catalog groups chemistry by these series:
 
   | Series | Products | For |
@@ -313,7 +313,7 @@ Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and expo
 - Optional CMS later, so non-developers can edit: Decap CMS (git-based, free), TinaCMS, or Keystatic. Keystatic or Decap fits the "edit products and bulletins without a developer" need.
 - Hosting: **Cloudflare Pages**, **Netlify** or **Vercel** (all free or cheap for a static site). Netlify gives built-in form handling (Netlify Forms) without a backend. With Cloudflare, use a Pages Function or Turnstile plus an email API (Resend/Postmark/SendGrid) for the forms.
 - Forms: site survey request, training sign-up, lab/sample inquiry, general contact. Requirements: spam protection (Turnstile or hCaptcha, plus a honeypot), routing to a shared inbox (needs a general address such as info@ or sales@ `[CONFIRM]`), an auto-reply, and optional CRM push.
-- Product bulletins and SDS: **not on the website** (Ryan, Oct 15, 2026). Product pages tell customers to request a product data sheet or SDS by phone or email. No PDF downloads.
+- Product bulletins and SDS: **not on the website** (Ryan, Oct 15, 2026). Product pages tell customers to request a product data sheet or SDS by phone or at orders@pecowater.com. No PDF downloads.
 - Analytics: privacy-friendly (Plausible or Cloudflare Web Analytics) or GA4 `[CONFIRM preference]`. If GA4 is used, a cookie consent banner may be needed.
 - SEO:
   - Per-page title and description; Open Graph images.
@@ -394,7 +394,7 @@ peco-website/
 
 ## 9. Open questions for Ryan (blockers marked ★)
 
-1. ★ Street addresses for Salt Lake City and Idaho Falls, a general email inbox for form leads and PDS/SDS requests, and business hours.
+1. ★ Street addresses for Salt Lake City and Idaho Falls, a general email inbox for form leads, and business hours. (PDS/SDS requests go to orders@pecowater.com: confirmed Oct 16, 2026.)
 2. ★ Who controls DNS and hosting for pecowater.com today? Which hosting platform do we want (Netlify / Cloudflare Pages / Vercel / the existing host)?
 3. ★ Confirm the Ridgewater instrument models (iCAP PRO XP Duo, Vanquish Flex, Metrohm IC), whether to name them, and whether Ridgewater takes outside samples. (Lab location confirmed Oct 14, 2026.)
 4. ★ Get logo-use permission for AWT and AL. (The Associated Labs figures were confirmed for publication Oct 14, 2026.)

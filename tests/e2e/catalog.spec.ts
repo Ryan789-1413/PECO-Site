@@ -65,11 +65,19 @@ test.describe('product catalog', () => {
   }) => {
     for (const path of PAGES) {
       await page.goto(path);
-      await expect(page.getByRole('complementary', { name: 'Product data sheets' })).toContainText(
-        'available on request',
-      );
+      const note = page.getByRole('complementary', { name: 'Product data sheets' });
+      await expect(note).toContainText('available on request');
+      await expect(note.locator('a[href="tel:+18015326972"]')).toHaveCount(1);
+      const email = note.locator('a[href^="mailto:orders@pecowater.com?subject="]');
+      await expect(email, path).toHaveText('orders@pecowater.com');
       expect(await page.locator('a[href$=".pdf" i]').count(), path).toBe(0);
     }
+    // On a product page the email subject names the product.
+    await page.goto('/products/pumps/walchem/walchem-ehe/');
+    await expect(page.locator('a[href^="mailto:orders@pecowater.com"]')).toHaveAttribute(
+      'href',
+      'mailto:orders@pecowater.com?subject=Data%20sheet%20request%3A%20Walchem%20EHE%20Series%20metering%20pumps',
+    );
   });
 
   test('never lists RO re-pressure pumps', async ({ page }) => {
