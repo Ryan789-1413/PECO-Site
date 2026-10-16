@@ -34,3 +34,19 @@ test('every redirect target is a built page', () => {
   );
   expect(missing).toEqual([]);
 });
+
+test('old product bulletin pages land on the 4000 Series page', () => {
+  const targets = new Map(rules.map(([from, to]) => [from, to]));
+  const slugs = [
+    'cooling-treatment',
+    ...[2, 3, 4, 5, 6, 7, 8].map((n) => `cooling-treatment-${n}`),
+    'a-multi-duty-cooling-water-treatment',
+    ...[2, 3, 4, 5].map((n) => `a-multi-duty-cooling-water-treatment-${n}`),
+  ];
+  for (const slug of slugs) {
+    for (const from of [`/treatments/${slug}/`, `/treatments/${slug}`]) {
+      expect(targets.get(from), from).toBe('/products/chemistry/4000-series/');
+    }
+  }
+  expect(targets.get('/treatments/')).toBe('/products/chemistry/');
+});

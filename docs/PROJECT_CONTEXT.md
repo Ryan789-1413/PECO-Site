@@ -293,7 +293,10 @@ The current site is WordPress (Gravity Forms contact form, `/category/...` taxon
 /category/misc/coupon-rack/               → /products/monitoring/coupon-racks
 /category/misc/test-kit/                  → /products/monitoring/test-kits
 /category/miscellaneous/                  → /products
-Product bulletin pages (e.g. cooling-treatment-2 … -8, a-multi-duty-cooling-water-treatment-3 … -5) → /products/chemistry/4000-series/peco-<number>/ (which page is which product is still open)
+/treatments/                              → /products/chemistry/
+/treatments/cooling-treatment/, -2 … -8 and
+/treatments/a-multi-duty-cooling-water-treatment/, -2 … -5
+                                          → /products/chemistry/4000-series/  (Ryan, Oct 16, 2026: no per-product mapping)
 ```
 Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and export Google Search Console coverage to catch every indexed URL, especially bulletin PDFs and the `/wp-content/uploads/` files linked externally.
 
