@@ -21,7 +21,11 @@ import {
 export async function getStaticPaths() {
   const { categories, products, hasPage } = await loadCatalog();
   return [
-    ...categories.map((c) => ({ params: { path: c.id }, props: { categoryId: c.id } })),
+    // Chemistry series have no pages: they appear only as cards on /products/ and
+    // /products/chemistry/ (Ryan, Oct 16, 2026).
+    ...categories
+      .filter((c) => !c.data.series)
+      .map((c) => ({ params: { path: c.id }, props: { categoryId: c.id } })),
     ...products.filter(hasPage).map((p) => ({
       params: { path: `${p.data.category.id}/${p.id}` },
       props: { productId: p.id },
@@ -180,7 +184,7 @@ const siblings = product ? items.filter((p) => p.id !== product.id) : [];
     )}
     <section class="section note-section">
       <div class="wrap">
-        <DataSheetNote series={category.data.series ? labelOf(category) : undefined} />
+        <DataSheetNote chemistry={category.data.group === 'chemistry'} />
       </div>
     </section>
   </BaseLayout>

@@ -4,7 +4,6 @@ import AxeBuilder from '@axe-core/playwright';
 const PAGES = [
   '/products/',
   '/products/chemistry/',
-  '/products/chemistry/4000-series/',
   '/products/pumps/',
   '/products/pumps/walchem/walchem-ehe/',
   '/products/tanks/dual-containment-tanks/',
@@ -12,14 +11,9 @@ const PAGES = [
 ];
 
 test.describe('product catalog', () => {
-  test('catalog index lists every series and equipment category', async ({ page }) => {
+  test('catalog index lists the equipment categories', async ({ page }) => {
     await page.goto('/products/');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Chemistry and equipment');
-    for (const code of ['2000', '3000', '4000', '5000', '7000', '8000', '9000', 'O']) {
-      await expect(
-        page.locator(`a[href="/products/chemistry/${code.toLowerCase()}-series/"]`),
-      ).toHaveCount(1);
-    }
     for (const id of [
       'controllers',
       'pumps',
@@ -64,7 +58,7 @@ test.describe('product catalog', () => {
   }) => {
     for (const path of PAGES) {
       await page.goto(path);
-      const note = page.getByRole('complementary', { name: 'Product data sheets' });
+      const note = page.getByRole('complementary', { name: 'Product data sheets' }).last();
       await expect(note).toContainText('available on request');
       await expect(note.locator('a[href="tel:+18015326972"]')).toHaveCount(1);
       const email = note.locator('a[href^="mailto:orders@pecowater.com?subject="]');
@@ -98,28 +92,30 @@ test.describe('product catalog', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('PECO dual containment tanks');
   });
 
-  test('series products are listed without links or pages of their own', async ({
+  test('chemistry is shown as series only, with no series or product pages', async ({
     page,
     request,
   }) => {
-    await page.goto('/products/chemistry/4000-series/');
-    const items = page.getByRole('region', { name: 'Products in this series' }).locator('.card');
-    await expect(items).toHaveCount(10);
-    await expect(items.first()).toContainText('PECO 4971');
-    expect(await page.locator('a[href^="/products/chemistry/4000-series/peco-"]').count()).toBe(0);
-    await expect(page.locator('main')).not.toContainText('Details');
-    expect((await request.get('/products/chemistry/4000-series/peco-4990/')).status()).toBe(404);
-  });
-
-  test('series pages invite questions by phone or email', async ({ page }) => {
-    await page.goto('/products/chemistry/4000-series/');
-    const note = page.getByRole('complementary', { name: 'Product data sheets' });
-    await expect(note).toContainText('Need more information on a product in this series?');
-    await expect(note.locator('a[href="tel:+18015326972"]')).toHaveCount(1);
-    await expect(note.locator('a[href^="mailto:orders@pecowater.com"]')).toHaveAttribute(
-      'href',
-      'mailto:orders@pecowater.com?subject=Product%20information%3A%204000%20Series',
-    );
+    for (const path of ['/products/', '/products/chemistry/']) {
+      await page.goto(path);
+      const cards = page.locator('article.card.series');
+      await expect(cards, path).toHaveCount(8);
+      for (const code of ['2000', '3000', '4000', '5000', '7000', '8000', '9000', 'O']) {
+        await expect(cards.filter({ hasText: `Series ${code}` }), `${path} ${code}`).toHaveCount(1);
+      }
+      await expect(cards.first()).toContainText('Steam boiler products');
+      expect(await page.locator('a[href*="-series/"]').count(), path).toBe(0);
+      await expect(page.locator('main'), path).not.toContainText('PECO 4971');
+      const note = page.getByRole('complementary', { name: 'Product data sheets' }).first();
+      await expect(note, path).toContainText('Need more information on our chemistry?');
+      await expect(note.locator('a[href^="mailto:orders@pecowater.com"]')).toHaveAttribute(
+        'href',
+        'mailto:orders@pecowater.com?subject=Product%20information%3A%20PECO%20chemistry',
+      );
+    }
+    for (const gone of ['/products/chemistry/4000-series/peco-4990/']) {
+      expect((await request.get(gone)).status(), gone).toBe(404);
+    }
   });
 
   test('equipment products still link to their pages', async ({ page }) => {
@@ -128,7 +124,7 @@ test.describe('product catalog', () => {
   });
 
   test('missing content is marked for drafts', async ({ page }) => {
-    await page.goto('/products/chemistry/2000-series/');
+    await page.goto('/products/pretreatment/');
     await expect(page.locator('[data-confirm^="Content needed:"]').first()).toBeVisible();
   });
 

@@ -138,7 +138,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
   | **O Series (Other)** | Glycol (heat transfer fluids, freeze and corrosion protection) and calcium chloride | |
 
   - 4000 Series products named on the current site: PECO 4971, 4972, 4980, 4981, 4982, 4985, 4986, 4990, 4991, 4992 (4990–4992 are described as "multi-duty cooling water treatment"). `[SITE]`
-  - Individual product numbers and names for the other series are still needed (§9 q10).
+  - **On the website, chemistry is shown as series only** `[RYAN, Oct 16, 2026]`: each series appears as a card (number, name, what it is for, a short description) on /products/ and /products/chemistry/. There are no series pages and no individual product listings or pages. Customers call 801-532-6972 or email orders@pecowater.com for information on specific products.
 - **Pretreatment**: water softeners, dealkalizers, reverse osmosis (RO).
 - **Controllers** (conductivity, pH, ORP, fluorescence, mass balance; basic units to systems integration; web-based reporting and trending). PECO uses all of the models below, **mainly the Walchem line**. `[RYAN, Oct 15, 2026]`
   - Walchem **WBL/WDB** (boiler controller, one or two boilers, high temperature/pressure conductivity, up to 6 relays)
@@ -266,7 +266,7 @@ Logo: `brand/logo-power-engineering.png` (536×322, transparent, single color #2
 
 ## 6. Current site: URL inventory (for 301 redirects)
 
-The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL: The chemistry series targets and the old-category mapping below were approved by Ryan on Oct 15, 2026. The live rules are in `public/_redirects`.
+The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL: Ryan approved series targets for the old chemistry categories on Oct 15, 2026; on Oct 16, 2026 chemistry became series-only with no series pages, so all old chemistry URLs now go to /products/chemistry/. The live rules are in `public/_redirects`.
 
 ```
 /                                         → /
@@ -275,11 +275,11 @@ The current site is WordPress (Gravity Forms contact form, `/category/...` taxon
 /about-us/                                → /about
 /contact-us/                              → /contact
 /category/treatments/                     → /products/chemistry
-/category/treatments/cooling/             → /products/chemistry/4000-series/
-/category/treatments/boiler/              → /products/chemistry/2000-series/
-/category/treatments/closed-loop/         → /products/chemistry/8000-series/
-/category/treatments/antimicrobial/       → /products/chemistry/7000-series/
-/category/treatments/calcium-chloride/    → /products/chemistry/o-series/
+/category/treatments/cooling/             → /products/chemistry/
+/category/treatments/boiler/              → /products/chemistry/
+/category/treatments/closed-loop/         → /products/chemistry/
+/category/treatments/antimicrobial/       → /products/chemistry/
+/category/treatments/calcium-chloride/    → /products/chemistry/
 /category/controllers/                    → /products/controllers
 /category/controllers/walchem-controllers/→ /products/controllers/walchem/
 /category/controllers/lmi-controllers/    → /products/controllers/lmi
@@ -298,7 +298,7 @@ The current site is WordPress (Gravity Forms contact form, `/category/...` taxon
 /treatments/                              → /products/chemistry/
 /treatments/cooling-treatment/, -2 … -8 and
 /treatments/a-multi-duty-cooling-water-treatment/, -2 … -5
-                                          → /products/chemistry/4000-series/  (Ryan, Oct 16, 2026: no per-product mapping)
+                                          → /products/chemistry/  (Ryan, Oct 16, 2026: series only, no per-product mapping)
 ```
 Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and export Google Search Console coverage to catch every indexed URL, especially bulletin PDFs and the `/wp-content/uploads/` files linked externally.
 
@@ -405,7 +405,7 @@ peco-website/
 7. Customer portal: is there a customer-facing service report portal (Ryan's files mention "AquaCore Hub" implementation/exclusivity docs and "Aquassist" licenses)? If so, add a "Customer login" link and feature smart testing on the site.
 8. ~~Filtration brands?~~ Resolved Oct 15, 2026: list only Quantrol's own cartridge and bag filtration.
 9. Real descriptions and specs for the feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations) and coupon racks, and the full list of PECO's drop test kits. (The feeder list and custom manufacturing were confirmed Oct 15, 2026.)
-10. Product numbers and names in each chemistry series (2000, 3000, 4000, 5000, 7000, 8000, 9000, O), with a one-line description of each. (Resolved Oct 15, 2026: no PDS or SDS on the website; customers request them.) Also needed: ProMinent pump models, and confirmation of the 40 gal Gemini tank's weight and material.
+10. ~~Product numbers and names in each chemistry series~~ Not needed: the site shows chemistry as series only (Oct 16, 2026). (Resolved Oct 15, 2026: no PDS or SDS on the website; customers request them.) Also needed: ProMinent pump models, and confirmation of the 40 gal Gemini tank's weight and material.
 11. Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)? (The industries list was confirmed Oct 14, 2026.)
 12. Team page: names, titles and photos to include (e.g. the PhD chemist, service techs)?
 13. Real photography: can we schedule a shoot (see the shot list in §5)? For the catalog: send PECO product photos, and manufacturer images with permission noted (policy set Oct 16, 2026). Until then, keep the Commons photos with credits.

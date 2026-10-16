@@ -7,7 +7,7 @@
         "http://localhost/404.html",
         "http://localhost/products/index.html",
         "http://localhost/products/pumps/index.html",
-        "http://localhost/products/chemistry/4000-series/index.html",
+        "http://localhost/products/chemistry/index.html",
         "http://localhost/products/tanks/dual-containment-tanks/index.html"
       ],
       "numberOfRuns": 5
