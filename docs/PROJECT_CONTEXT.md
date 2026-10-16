@@ -256,6 +256,8 @@ The prototype photos are **stock images from Wikimedia Commons** used under CC l
 | lab-hplc-icp.jpg | ICP with HPLC modules | Superchilum | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:HPLC-ICPMS_TISIS_01.JPG |
 | lab-ic.jpg | Dionex ICS-3000 IC system | LukaszKatlewa | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dionex_ICS-3000_ion_chromatography_system.jpg |
 
+**Product catalog photos** `[RYAN, Oct 16, 2026]`: use both PECO's own product photos and manufacturer product images. Use a manufacturer image only with that manufacturer's permission, and record where it came from. Never use images from submittal drawings marked proprietary (e.g. the tank drawings). Never name the tank manufacturer, even in alt text or file names. The catalog has no product photos yet.
+
 **Photo shot list for PECO's own photography (priority order):** Ridgewater lab with the iCAP, Vanquish and Metrohm in frame; the PhD chemist at work; a PECO technician testing at a customer cooling tower; a fabricated chemical feed panel or skid; the GC7/GC8 glycol feeder; a Walchem controller install; the delivery truck transferring into a customer tank; the Salt Lake City production and warehouse; the training center with a class in session; the team photo; the Idaho Falls location; a filtration install.
 
 Logo: `brand/logo-power-engineering.png` (536×322, transparent, single color #235FAC). Request an **SVG** version from whoever designed it; it's needed for production (crisp at all sizes, recolorable for white-on-navy).
@@ -406,7 +408,7 @@ peco-website/
 10. Product numbers and names in each chemistry series (2000, 3000, 4000, 5000, 7000, 8000, 9000, O), with a one-line description of each. (Resolved Oct 15, 2026: no PDS or SDS on the website; customers request them.) Also needed: ProMinent pump models, and confirmation of the 40 gal Gemini tank's weight and material.
 11. Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)? (The industries list was confirmed Oct 14, 2026.)
 12. Team page: names, titles and photos to include (e.g. the PhD chemist, service techs)?
-13. Real photography: can we schedule a shoot (see the shot list in §5)? Until then, keep the Commons photos with credits.
+13. Real photography: can we schedule a shoot (see the shot list in §5)? For the catalog: send PECO product photos, and manufacturer images with permission noted (policy set Oct 16, 2026). Until then, keep the Commons photos with credits.
 14. Dark mode: wanted or not?
 15. The university metallurgical relationship: can we name the university?
 16. Analytics preference and any cookie/privacy requirements.
