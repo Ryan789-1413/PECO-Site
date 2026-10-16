@@ -1,16 +1,20 @@
 ---
-// Link card for a product on a category page.
+// Product card on a category page. Linked to the product page, except chemistry series
+// products, which have no product pages (Ryan, Oct 16, 2026).
 import { productHref, type Product } from '../../lib/catalog';
 
 interface Props {
   product: Product;
+  /** False renders a plain card with no link and no "Details" prompt. */
+  linked?: boolean;
 }
 
-const { product } = Astro.props;
+const { product, linked = true } = Astro.props;
 const { name, brand, summary, specs } = product.data;
+const Tag = linked ? 'a' : 'article';
 ---
 
-<a class="card" href={productHref(product)}>
+<Tag class:list={['card', { static: !linked }]} href={linked ? productHref(product) : undefined}>
   {brand && <span class="brand">{brand}</span>}
   <h3>{name}</h3>
   <p class="summary">{summary}</p>
@@ -24,10 +28,12 @@ const { name, brand, summary, specs } = product.data;
       ))}
     </dl>
   )}
-  <span class="go" aria-hidden="true">
-    Details &rarr;
-  </span>
-</a>
+  {linked && (
+    <span class="go" aria-hidden="true">
+      Details &rarr;
+    </span>
+  )}
+</Tag>
 
 <style>
   .card {
@@ -42,10 +48,10 @@ const { name, brand, summary, specs } = product.data;
     color: var(--ink);
     text-decoration: none;
   }
-  .card:hover {
+  a.card:hover {
     border-color: var(--brand);
   }
-  .card:hover h3 {
+  a.card:hover h3 {
     color: var(--brand);
   }
   .brand {
