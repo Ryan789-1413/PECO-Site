@@ -40,9 +40,9 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - Privately held and independent. Implied by Associated Labs membership, which requires privately held, owner-operated companies. `[RYAN, confirmed Oct 14, 2026]`: "privately held and independent" and "privately held and locally run" are approved wording.
 
 ### History
-- **1946**: founded as a **design-build firm for steam generating plants**. `[SITE]`
+- **1945**: founded as a **design-build firm for steam generating plants**. `[SITE]` Year corrected from the current site's 1946 by Ryan on Oct 16, 2026. `[RYAN]`
 - **1961**: began specializing in designing, installing and maintaining **water treatment systems and programs**. `[SITE]`
-- **2026**: 80th anniversary ("Celebrating 80 years, 1946–2026"). The letterhead files are named "Letterhead_80 years". `[RYAN, inferred from files]`
+- **80 years**: the site shows "Celebrating 80 years, 1945–2025". `[RYAN, Oct 16, 2026]` The letterhead files are named "Letterhead_80 years".
 - Describes itself as a "growing corporation" serving the Mountain West, and a "one-stop shop" for water treatment. `[SITE]`
 - Consults with design engineers during planning. `[SITE]`
 - Tracks regional water supply patterns to customize treatment programs. `[SITE]`
@@ -231,7 +231,7 @@ Dark-mode values exist in the prototype (`prefers-color-scheme` plus a `[data-th
 ### Layout and components
 - Max width 1200px, 24px gutters (18px under 480px).
 - Section rhythm: 96px padding (64px on mobile).
-- Utility bar (navy) → sticky white header → hero (copy left, photo right, on a blueprint grid) → proof strip (5 stats) → Ecosystem (closed-loop SVG diagram plus a 6-cell grid) → Systems (3 photos plus a 6-item list) → Equipment & Filtration (3 photo cards, a 4-column list, a brands row) → Ridgewater Analytical (navy band: facts list, 2 photos, 3 instrument cards, analyte table) → Service program (4 steps plus an example digital report card) → New construction (2 department cards plus a 6-item grid) → Training band (brand blue) → Industries (8 cards) → Memberships (AWT and AL cards plus a navy "independent" band) → About (giant "1946", copy, mission, 4 values) → Working with us (3 cards) → Contact (navy, with form) → Footer (with photo credits).
+- Utility bar (navy) → sticky white header → hero (copy left, photo right, on a blueprint grid) → proof strip (5 stats) → Ecosystem (closed-loop SVG diagram plus a 6-cell grid) → Systems (3 photos plus a 6-item list) → Equipment & Filtration (3 photo cards, a 4-column list, a brands row) → Ridgewater Analytical (navy band: facts list, 2 photos, 3 instrument cards, analyte table) → Service program (4 steps plus an example digital report card) → New construction (2 department cards plus a 6-item grid) → Training band (brand blue) → Industries (8 cards) → Memberships (AWT and AL cards plus a navy "independent" band) → About (giant "1945", copy, mission, 4 values) → Working with us (3 cards) → Contact (navy, with form) → Footer (with photo credits).
 - **The ecosystem diagram** is an inline SVG with 6 nodes in a dashed ring around "Your Water System": 01 Formulate → 02 Fabricate → 03 Deliver → 04 Monitor → 05 Service → 06 Analyze (teal, Ridgewater) → back to Formulate. The numbering is meaningful because it is a real loop.
 - Cards use 1px hairlines and a 6px radius, and are applied selectively. There are no gradients, no emoji and no animation.
 
@@ -344,7 +344,7 @@ Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and expo
 /new-construction         Construction Service Dept, consulting, cleaning, disinfection
 /training                 Water Treatment 101 + seasonal courses + schedule + sign-up
 /industries/[slug]
-/about                    History (1946 → 1961 → today), mission, team, locations
+/about                    History (1945 → 1961 → today), mission, team, locations
 /memberships              AWT + Associated Labs (could live in /about)
 /resources                Knowledge center: bulletins, SDS, articles, case studies ("Boneyard")
 /contact                  Form, phone, locations, map link

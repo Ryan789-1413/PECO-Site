@@ -3,7 +3,7 @@
 @docs/PROJECT_CONTEXT.md
 
 ## What this repo is
-This is the production rebuild of pecowater.com for Power Engineering Company, Inc. (PECO), an industrial water treatment company in Salt Lake City (founded 1946, water treatment since 1961) with an in-house lab, **Ridgewater Analytical** (HPLC, ICP, IC).
+This is the production rebuild of pecowater.com for Power Engineering Company, Inc. (PECO), an industrial water treatment company in Salt Lake City (founded 1945, water treatment since 1961) with an in-house lab, **Ridgewater Analytical** (HPLC, ICP, IC).
 
 `prototype/index.html` is the **approved design**. It is a single self-contained HTML file and the visual source of truth. Production code must match its look, tokens, typography and copy unless Ryan approves a change. Never edit the prototype to fix production bugs; it is a reference.
 

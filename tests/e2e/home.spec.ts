@@ -106,3 +106,14 @@ test('robots.txt and sitemap are published', async ({ request }) => {
   expect((await request.get('/robots.txt')).ok()).toBe(true);
   expect((await request.get('/sitemap-index.xml')).ok()).toBe(true);
 });
+
+test('founding year is 1945 and the banner reads 1945–2025', async ({ page }) => {
+  for (const path of ['/', '/products/', '/404.html']) {
+    await page.goto(path);
+    await expect(page.locator('.utility'), path).toContainText('1945–2025');
+    await expect(page.locator('body'), path).not.toContainText('1946');
+  }
+  await page.goto('/');
+  await expect(page.locator('.about .yr')).toHaveText('1945');
+  await expect(page.locator('.proof')).toContainText('Continuous operation since 1945');
+});

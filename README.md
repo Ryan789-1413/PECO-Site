@@ -1,6 +1,6 @@
 # Power Engineering Website
 
-This repo is the rebuild of **pecowater.com**, the website of Power Engineering Company, Inc., an industrial water treatment company in Salt Lake City (founded 1946). The site covers PECO's chemistry, equipment, filtration, field service and **Ridgewater Analytical**, its in-house HPLC/ICP/IC lab.
+This repo is the rebuild of **pecowater.com**, the website of Power Engineering Company, Inc., an industrial water treatment company in Salt Lake City (founded 1945). The site covers PECO's chemistry, equipment, filtration, field service and **Ridgewater Analytical**, its in-house HPLC/ICP/IC lab.
 
 ## Contents
 | Path | What it is |
