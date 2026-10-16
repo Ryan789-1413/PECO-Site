@@ -33,8 +33,6 @@
   seo:
     title: 2000 Series steam boiler products | PECO chemistry
     description: PECO 2000 Series steam boiler treatment products, made in Salt Lake City.
-  gaps:
-    - 2000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/3000-series
   title: '3000 Series: neutralizing amines'
@@ -48,8 +46,6 @@
   seo:
     title: 3000 Series neutralizing amines | PECO chemistry
     description: PECO 3000 Series neutralizing amines for steam condensate lines.
-  gaps:
-    - 3000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/4000-series
   title: '4000 Series: cooling tower products'
@@ -80,8 +76,6 @@
   seo:
     title: 5000 Series system cleaners | PECO chemistry
     description: PECO 5000 Series system cleaners in high alkaline and neutral formulas.
-  gaps:
-    - 5000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/7000-series
   title: '7000 Series: biocides'
@@ -95,8 +89,6 @@
   seo:
     title: 7000 Series biocides | PECO chemistry
     description: PECO 7000 Series EPA-registered biocides for microbiological control.
-  gaps:
-    - 7000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/8000-series
   title: '8000 Series: closed loop inhibitors'
@@ -112,8 +104,6 @@
   seo:
     title: 8000 Series closed loop inhibitors | PECO chemistry
     description: PECO 8000 Series corrosion inhibitors for chilled water, hot water and process loops.
-  gaps:
-    - 8000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/9000-series
   title: '9000 Series: flocculants and biodispersants'
@@ -127,8 +117,6 @@
   seo:
     title: 9000 Series flocculants and biodispersants | PECO chemistry
     description: PECO 9000 Series flocculants and biodispersants.
-  gaps:
-    - 9000 Series product numbers, names and one-line descriptions
 
 - id: chemistry/o-series
   title: 'O Series: other products'

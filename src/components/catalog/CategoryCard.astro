@@ -1,5 +1,7 @@
 ---
-// Link card for a catalog category or chemistry series.
+// Card for a catalog category or chemistry series. Equipment categories link to their pages.
+// Chemistry series are shown only as plain cards (number, name, what it is for and a
+// description), with no series pages (Ryan, Oct 16, 2026).
 import { categoryHref, labelOf, type Category } from '../../lib/catalog';
 
 interface Props {
@@ -8,32 +10,30 @@ interface Props {
 }
 
 const { category, count } = Astro.props;
-const { series, summary } = category.data;
+const { series, summary, intro } = category.data;
 const countLabel = `${count} ${count === 1 ? 'product' : 'products'}`;
 ---
 
-{/* Series cards: big series number, then what the series contains and what it is for. */}
-<a class:list={['card', { series: !!series }]} href={categoryHref(category.id)}>
-  {series ? (
-    <>
-      <span class="code">
-        <span class="visually-hidden">Series </span>
-        {series.code}
-      </span>
-      <h3>{series.products}</h3>
-      {series.for && <p class="meta">For {series.for.toLowerCase()}</p>}
-    </>
-  ) : (
-    <>
-      <h3>{labelOf(category)}</h3>
-      <p class="meta">{countLabel}</p>
-      <p class="summary">{summary}</p>
-    </>
-  )}
-  <span class="go" aria-hidden="true">
-    View &rarr;
-  </span>
-</a>
+{series ? (
+  <article class="card series">
+    <span class="code">
+      <span class="visually-hidden">Series </span>
+      {series.code}
+    </span>
+    <h3>{series.products}</h3>
+    {series.for && <p class="meta">For {series.for.toLowerCase()}</p>}
+    <p class="summary">{intro}</p>
+  </article>
+) : (
+  <a class="card" href={categoryHref(category.id)}>
+    <h3>{labelOf(category)}</h3>
+    <p class="meta">{countLabel}</p>
+    <p class="summary">{summary}</p>
+    <span class="go" aria-hidden="true">
+      View &rarr;
+    </span>
+  </a>
+)}
 
 <style>
   .card {
@@ -48,10 +48,10 @@ const countLabel = `${count} ${count === 1 ? 'product' : 'products'}`;
     color: var(--ink);
     text-decoration: none;
   }
-  .card:hover {
+  a.card:hover {
     border-color: var(--brand);
   }
-  .card:hover h3 {
+  a.card:hover h3 {
     color: var(--brand);
   }
   .code {

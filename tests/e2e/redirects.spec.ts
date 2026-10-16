@@ -35,7 +35,7 @@ test('every redirect target is a built page', () => {
   expect(missing).toEqual([]);
 });
 
-test('old product bulletin pages land on the 4000 Series page', () => {
+test('old product bulletin pages land on the chemistry page', () => {
   const targets = new Map(rules.map(([from, to]) => [from, to]));
   const slugs = [
     'cooling-treatment',
@@ -45,7 +45,7 @@ test('old product bulletin pages land on the 4000 Series page', () => {
   ];
   for (const slug of slugs) {
     for (const from of [`/treatments/${slug}/`, `/treatments/${slug}`]) {
-      expect(targets.get(from), from).toBe('/products/chemistry/4000-series/');
+      expect(targets.get(from), from).toBe('/products/chemistry/');
     }
   }
   expect(targets.get('/treatments/')).toBe('/products/chemistry/');

@@ -1,28 +1,28 @@
 ---
 // Product data sheets and SDS are not published on the site; customers request them by
-// phone or at orders@pecowater.com (Ryan, Oct 15-16, 2026). Chemistry series pages have no
-// product pages, so their note also invites questions about any product (Ryan, Oct 16, 2026).
+// phone or at orders@pecowater.com (Ryan, Oct 15-16, 2026). Chemistry is shown as series
+// only, so chemistry notes also invite questions about any product (Ryan, Oct 16, 2026).
 import { PHONE_DISPLAY, PHONE_TEL, ORDERS_EMAIL, ordersMailto } from '../../data/company';
 
 interface Props {
   /** Product name, when shown on a product page. */
   product?: string;
-  /** Series label (e.g. "4000 Series"), when shown on a chemistry series page. */
-  series?: string;
+  /** True next to the chemistry series (on /products/ and /products/chemistry/). */
+  chemistry?: boolean;
 }
 
-const { product, series } = Astro.props;
-const subject = series
-  ? `Product information: ${series}`
+const { product, chemistry = false } = Astro.props;
+const subject = chemistry
+  ? 'Product information: PECO chemistry'
   : product
     ? `Data sheet request: ${product}`
     : 'Data sheet request';
 ---
 
 <aside class="note" aria-label="Product data sheets">
-  {series ? (
+  {chemistry ? (
     <p>
-      <strong>Need more information on a product in this series?</strong> Call{' '}
+      <strong>Need more information on our chemistry?</strong> Call{' '}
       <a href={PHONE_TEL}>{PHONE_DISPLAY}</a> or email{' '}
       <a href={ordersMailto(subject)}>{ORDERS_EMAIL}</a>. Product data sheets and safety data sheets
       (SDS) are available on request.
