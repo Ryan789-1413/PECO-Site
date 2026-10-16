@@ -26,7 +26,13 @@ export async function loadCatalog() {
     return chain;
   };
 
-  return { categories, products, byId, childrenOf, productsIn, countUnder, lineage };
+  /**
+   * Chemistry series products are listed on their series page only, with no product page
+   * of their own (Ryan, Oct 16, 2026). Equipment products keep their pages.
+   */
+  const hasPage = (p: Product) => byId.get(p.data.category.id)?.data.group !== 'chemistry';
+
+  return { categories, products, byId, childrenOf, productsIn, countUnder, lineage, hasPage };
 }
 
 export const categoryHref = (id: string) => `/products/${id}/`;

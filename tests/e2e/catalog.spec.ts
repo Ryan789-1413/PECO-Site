@@ -5,7 +5,6 @@ const PAGES = [
   '/products/',
   '/products/chemistry/',
   '/products/chemistry/4000-series/',
-  '/products/chemistry/4000-series/peco-4990/',
   '/products/pumps/',
   '/products/pumps/walchem/walchem-ehe/',
   '/products/tanks/dual-containment-tanks/',
@@ -97,6 +96,35 @@ test.describe('product catalog', () => {
       await expect(page.locator('body'), path).not.toContainText(/peabody|gemini/i);
     }
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('PECO dual containment tanks');
+  });
+
+  test('series products are listed without links or pages of their own', async ({
+    page,
+    request,
+  }) => {
+    await page.goto('/products/chemistry/4000-series/');
+    const items = page.getByRole('region', { name: 'Products in this series' }).locator('.card');
+    await expect(items).toHaveCount(10);
+    await expect(items.first()).toContainText('PECO 4971');
+    expect(await page.locator('a[href^="/products/chemistry/4000-series/peco-"]').count()).toBe(0);
+    await expect(page.locator('main')).not.toContainText('Details');
+    expect((await request.get('/products/chemistry/4000-series/peco-4990/')).status()).toBe(404);
+  });
+
+  test('series pages invite questions by phone or email', async ({ page }) => {
+    await page.goto('/products/chemistry/4000-series/');
+    const note = page.getByRole('complementary', { name: 'Product data sheets' });
+    await expect(note).toContainText('Need more information on a product in this series?');
+    await expect(note.locator('a[href="tel:+18015326972"]')).toHaveCount(1);
+    await expect(note.locator('a[href^="mailto:orders@pecowater.com"]')).toHaveAttribute(
+      'href',
+      'mailto:orders@pecowater.com?subject=Product%20information%3A%204000%20Series',
+    );
+  });
+
+  test('equipment products still link to their pages', async ({ page }) => {
+    await page.goto('/products/pumps/walchem/');
+    await expect(page.locator('a[href="/products/pumps/walchem/walchem-ehe/"]')).toBeVisible();
   });
 
   test('missing content is marked for drafts', async ({ page }) => {

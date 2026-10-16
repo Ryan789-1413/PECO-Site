@@ -9,7 +9,6 @@
     category: chemistry/4000-series,
     order: 1,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4971 description],
   }
 - {
     id: peco-4972,
@@ -17,7 +16,6 @@
     category: chemistry/4000-series,
     order: 2,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4972 description],
   }
 - {
     id: peco-4980,
@@ -25,7 +23,6 @@
     category: chemistry/4000-series,
     order: 3,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4980 description],
   }
 - {
     id: peco-4981,
@@ -33,7 +30,6 @@
     category: chemistry/4000-series,
     order: 4,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4981 description],
   }
 - {
     id: peco-4982,
@@ -41,7 +37,6 @@
     category: chemistry/4000-series,
     order: 5,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4982 description],
   }
 - {
     id: peco-4985,
@@ -49,7 +44,6 @@
     category: chemistry/4000-series,
     order: 6,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4985 description],
   }
 - {
     id: peco-4986,
@@ -57,7 +51,6 @@
     category: chemistry/4000-series,
     order: 7,
     summary: 4000 Series cooling tower product.,
-    gaps: [PECO 4986 description],
   }
 - {
     id: peco-4990,
@@ -65,7 +58,6 @@
     category: chemistry/4000-series,
     order: 8,
     summary: Multi-duty cooling water treatment.,
-    gaps: [PECO 4990 full description],
   }
 - {
     id: peco-4991,
@@ -73,7 +65,6 @@
     category: chemistry/4000-series,
     order: 9,
     summary: Multi-duty cooling water treatment.,
-    gaps: [PECO 4991 full description],
   }
 - {
     id: peco-4992,
@@ -81,7 +72,6 @@
     category: chemistry/4000-series,
     order: 10,
     summary: Multi-duty cooling water treatment.,
-    gaps: [PECO 4992 full description],
   }
 
 # ── O Series ────────────────────────────────────────────────────────────────────
@@ -94,15 +84,11 @@
     - >-
       Glycol supply, inhibitor maintenance and concentration testing so loops stay protected
       through Intermountain winters.
-  gaps:
-    - Glycol product numbers and available concentrations
 - id: calcium-chloride
   name: Calcium chloride
   category: chemistry/o-series
   order: 2
   summary: Calcium chloride, part of the O Series.
-  gaps:
-    - Calcium chloride product number and typical uses
 
 # ── Controllers ─────────────────────────────────────────────────────────────────
 - id: walchem-wbl-wdb

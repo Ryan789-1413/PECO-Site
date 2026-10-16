@@ -1,5 +1,6 @@
 ---
-// Every catalog category (/products/<category>/) and product (/products/<category>/<product>/).
+// Every catalog category (/products/<category>/) and equipment product
+// (/products/<category>/<product>/). Chemistry products have no pages of their own.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CatalogHero from '../../components/catalog/CatalogHero.astro';
 import CategoryCard from '../../components/catalog/CategoryCard.astro';
@@ -18,10 +19,10 @@ import {
 } from '../../lib/catalog';
 
 export async function getStaticPaths() {
-  const { categories, products } = await loadCatalog();
+  const { categories, products, hasPage } = await loadCatalog();
   return [
     ...categories.map((c) => ({ params: { path: c.id }, props: { categoryId: c.id } })),
-    ...products.map((p) => ({
+    ...products.filter(hasPage).map((p) => ({
       params: { path: `${p.data.category.id}/${p.id}` },
       props: { productId: p.id },
     })),
@@ -170,7 +171,7 @@ const siblings = product ? items.filter((p) => p.id !== product.id) : [];
           <ul class="grid">
             {items.map((p) => (
               <li>
-                <ProductCard product={p} />
+                <ProductCard product={p} linked={catalog.hasPage(p)} />
               </li>
             ))}
           </ul>
@@ -179,7 +180,7 @@ const siblings = product ? items.filter((p) => p.id !== product.id) : [];
     )}
     <section class="section note-section">
       <div class="wrap">
-        <DataSheetNote />
+        <DataSheetNote series={category.data.series ? labelOf(category) : undefined} />
       </div>
     </section>
   </BaseLayout>
