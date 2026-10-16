@@ -10,8 +10,7 @@
 #
 # TODO before cutover (Phase 5):
 # - Crawl the live site and export Search Console coverage (§6) to catch every indexed URL.
-# - Product bulletin pages (cooling-treatment-2 ... -8, a-multi-duty-cooling-water-treatment-3 ... -5)
-#   -> /products/chemistry/<peco-number>/ once the PECO number for each page is known.
+# - (Done Oct 16, 2026: product bulletin pages go to the 4000 Series page; see the end of this file.)
 # - /wp-content/uploads/ bulletin PDFs that are linked from other sites.
 
 # Top-level pages
@@ -25,16 +24,16 @@
 # Treatments (PECO chemistry)
 /category/treatments/                        /products/chemistry/                     301
 /category/treatments                         /products/chemistry/                     301
-/category/treatments/cooling/                /products/chemistry/cooling/             301
-/category/treatments/cooling                 /products/chemistry/cooling/             301
-/category/treatments/boiler/                 /products/chemistry/boiler/              301
-/category/treatments/boiler                  /products/chemistry/boiler/              301
-/category/treatments/closed-loop/            /products/chemistry/closed-loop/         301
-/category/treatments/closed-loop             /products/chemistry/closed-loop/         301
-/category/treatments/antimicrobial/          /products/chemistry/antimicrobial/       301
-/category/treatments/antimicrobial           /products/chemistry/antimicrobial/       301
-/category/treatments/calcium-chloride/       /products/chemistry/calcium-chloride/    301
-/category/treatments/calcium-chloride        /products/chemistry/calcium-chloride/    301
+/category/treatments/cooling/                /products/chemistry/4000-series/          301
+/category/treatments/cooling                 /products/chemistry/4000-series/          301
+/category/treatments/boiler/                 /products/chemistry/2000-series/          301
+/category/treatments/boiler                  /products/chemistry/2000-series/          301
+/category/treatments/closed-loop/            /products/chemistry/8000-series/         301
+/category/treatments/closed-loop             /products/chemistry/8000-series/         301
+/category/treatments/antimicrobial/          /products/chemistry/7000-series/         301
+/category/treatments/antimicrobial           /products/chemistry/7000-series/         301
+/category/treatments/calcium-chloride/       /products/chemistry/o-series/          301
+/category/treatments/calcium-chloride        /products/chemistry/o-series/          301
 
 # Controllers
 /category/controllers/                       /products/controllers/                   301
@@ -79,3 +78,34 @@
 /category/misc/test-kit                      /products/monitoring/test-kits/          301
 /category/miscellaneous/                     /products/                               301
 /category/miscellaneous                      /products/                               301
+
+# Old product bulletin pages (all cooling treatments). Ryan (Oct 16, 2026): send them to the
+# 4000 Series page rather than individual products. Live slugs checked on pecowater.com.
+/treatments/                                   /products/chemistry/                     301
+/treatments                                    /products/chemistry/                     301
+/treatments/cooling-treatment/                 /products/chemistry/4000-series/         301
+/treatments/cooling-treatment                  /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-2/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-2                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-3/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-3                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-4/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-4                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-5/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-5                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-6/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-6                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-7/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-7                /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-8/               /products/chemistry/4000-series/         301
+/treatments/cooling-treatment-8                /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment/ /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-2/ /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-2 /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-3/ /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-3 /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-4/ /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-4 /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-5/ /products/chemistry/4000-series/         301
+/treatments/a-multi-duty-cooling-water-treatment-5 /products/chemistry/4000-series/         301

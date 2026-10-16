@@ -1,0 +1,383 @@
+# Catalog categories. `id` is the URL path under /products/.
+# Sources: docs/PROJECT_CONTEXT.md §2 (Products and brands) and approved home page copy.
+# Old WordPress category URLs redirect here (public/_redirects).
+
+# ── PECO chemistry, by series (Ryan, Oct 15, 2026) ─────────────────────────────
+- id: chemistry
+  title: PECO chemistry
+  group: chemistry
+  order: 1
+  summary: Our own product blends, made in Salt Lake City and organized by series.
+  intro: >-
+    We manufacture our own chemical formulations in Salt Lake City, with direct oversight of
+    consistency, performance and supply. Each PECO product belongs to a numbered series built
+    for one kind of system.
+  notes:
+    - Expedited production for short lead times.
+    - Hands-free delivery and transfer directly into your on-site storage tanks.
+  seo:
+    title: PECO chemistry | Power Engineering
+    description: >-
+      PECO water treatment chemistry, made in Salt Lake City: steam boiler, condensate,
+      cooling tower, system cleaner, biocide, closed loop and flocculant series.
+
+- id: chemistry/2000-series
+  title: '2000 Series: steam boiler products'
+  label: 2000 Series
+  group: chemistry
+  parent: chemistry
+  order: 1
+  series: { code: '2000', products: Steam boiler products, for: Steam boilers }
+  summary: Steam boiler products for steam boilers.
+  intro: The 2000 Series is our line of treatment products for steam boilers.
+  seo:
+    title: 2000 Series steam boiler products | PECO chemistry
+    description: PECO 2000 Series steam boiler treatment products, made in Salt Lake City.
+  gaps:
+    - 2000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/3000-series
+  title: '3000 Series: neutralizing amines'
+  label: 3000 Series
+  group: chemistry
+  parent: chemistry
+  order: 2
+  series: { code: '3000', products: Neutralizing amines, for: Condensate lines }
+  summary: Neutralizing amines for condensate lines.
+  intro: The 3000 Series is our line of neutralizing amines for condensate lines.
+  seo:
+    title: 3000 Series neutralizing amines | PECO chemistry
+    description: PECO 3000 Series neutralizing amines for steam condensate lines.
+  gaps:
+    - 3000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/4000-series
+  title: '4000 Series: cooling tower products'
+  label: 4000 Series
+  group: chemistry
+  parent: chemistry
+  order: 3
+  series: { code: '4000', products: Cooling tower products, for: Cooling towers }
+  summary: Cooling tower products for cooling towers.
+  intro: >-
+    The 4000 Series is our line of cooling tower products: scale, corrosion and biological
+    control that lets towers run at higher cycles with less water and energy.
+  seo:
+    title: 4000 Series cooling tower products | PECO chemistry
+    description: >-
+      PECO 4000 Series cooling tower water treatment, including PECO 4971 through 4992
+      multi-duty products.
+
+- id: chemistry/5000-series
+  title: '5000 Series: system cleaners'
+  label: 5000 Series
+  group: chemistry
+  parent: chemistry
+  order: 4
+  series: { code: '5000', products: 'System cleaners, high alkaline and neutral' }
+  summary: System cleaners, high alkaline and neutral.
+  intro: The 5000 Series is our line of system cleaners, in high alkaline and neutral formulas.
+  seo:
+    title: 5000 Series system cleaners | PECO chemistry
+    description: PECO 5000 Series system cleaners in high alkaline and neutral formulas.
+  gaps:
+    - 5000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/7000-series
+  title: '7000 Series: biocides'
+  label: 7000 Series
+  group: chemistry
+  parent: chemistry
+  order: 5
+  series: { code: '7000', products: EPA-registered biocides, for: Microbiological control }
+  summary: EPA-registered biocide products.
+  intro: The 7000 Series is our line of EPA-registered biocide products.
+  seo:
+    title: 7000 Series biocides | PECO chemistry
+    description: PECO 7000 Series EPA-registered biocides for microbiological control.
+  gaps:
+    - 7000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/8000-series
+  title: '8000 Series: closed loop inhibitors'
+  label: 8000 Series
+  group: chemistry
+  parent: chemistry
+  order: 6
+  series: { code: '8000', products: Closed loop inhibitors, for: Closed loops }
+  summary: Corrosion inhibitors for closed loops.
+  intro: >-
+    The 8000 Series is our line of closed loop inhibitors for chilled water, hot water and
+    process loops.
+  seo:
+    title: 8000 Series closed loop inhibitors | PECO chemistry
+    description: PECO 8000 Series corrosion inhibitors for chilled water, hot water and process loops.
+  gaps:
+    - 8000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/9000-series
+  title: '9000 Series: flocculants and biodispersants'
+  label: 9000 Series
+  group: chemistry
+  parent: chemistry
+  order: 7
+  series: { code: '9000', products: Flocculants and biodispersants }
+  summary: Flocculants and biodispersants.
+  intro: The 9000 Series is our line of flocculants and biodispersants.
+  seo:
+    title: 9000 Series flocculants and biodispersants | PECO chemistry
+    description: PECO 9000 Series flocculants and biodispersants.
+  gaps:
+    - 9000 Series product numbers, names and one-line descriptions
+
+- id: chemistry/o-series
+  title: 'O Series: other products'
+  label: O Series
+  group: chemistry
+  parent: chemistry
+  order: 8
+  series: { code: O, products: Glycol and calcium chloride }
+  summary: Glycol heat transfer fluids and calcium chloride.
+  intro: The O Series covers our other products, including glycol heat transfer fluids and calcium chloride.
+  seo:
+    title: O Series glycol and calcium chloride | PECO chemistry
+    description: PECO O Series products, including glycol heat transfer fluids and calcium chloride.
+
+# ── Equipment ──────────────────────────────────────────────────────────────────
+- id: controllers
+  title: Controllers and sensors
+  label: Controllers
+  group: equipment
+  order: 1
+  summary: >-
+    Walchem and LMI controllers that automate blowdown and feed from conductivity, pH, ORP or
+    fluorescence probes.
+  intro: >-
+    Walchem and LMI controllers automate blowdown and feed from conductivity, pH, ORP or
+    fluorescence probes, from basic units to systems integration with web-based reporting and
+    trending. Most of our installs use the Walchem line.
+  seo:
+    title: Water treatment controllers | Power Engineering
+    description: >-
+      Walchem and LMI boiler and cooling tower controllers with conductivity, pH, ORP and
+      fluorescence sensors, installed and serviced by Power Engineering.
+
+- id: controllers/walchem
+  title: Walchem controllers
+  label: Walchem
+  group: equipment
+  parent: controllers
+  order: 1
+  summary: Boiler and cooling tower controllers for one or two systems, with up to 6 relays.
+  intro: >-
+    Walchem boiler and cooling tower controllers handle one or two systems each, with up to
+    6 relays. They are the controllers we install most.
+  seo:
+    title: Walchem controllers | Power Engineering
+    description: Walchem WBL/WDB boiler and WCT/WDT cooling tower controllers.
+
+- id: controllers/lmi
+  title: LMI controllers
+  label: LMI
+  group: equipment
+  parent: controllers
+  order: 2
+  summary: Cooling tower bleed-and-feed control with dual biocide timers.
+  intro: The LMI DC4500 handles cooling tower bleed-and-feed with dual biocide timers.
+  seo:
+    title: LMI controllers | Power Engineering
+    description: LMI DC4500 cooling tower bleed-and-feed controller.
+
+- id: pumps
+  title: Chemical feed pumps
+  label: Pumps
+  group: equipment
+  order: 2
+  summary: LMI, Walchem and ProMinent metering pumps sized to your dosage.
+  intro: >-
+    LMI, Walchem and ProMinent chemical metering pumps sized to your dosage, plus transfer pumps
+    set up for accurate, repeatable feed.
+  seo:
+    title: Chemical metering pumps | Power Engineering
+    description: >-
+      LMI, Walchem and ProMinent chemical metering pumps and high-pressure transfer pumps,
+      installed and serviced by Power Engineering.
+
+- id: pumps/lmi
+  title: LMI metering pumps
+  label: LMI
+  group: equipment
+  parent: pumps
+  order: 1
+  summary: Roytronic and Excel series positive displacement metering pumps.
+  intro: LMI Roytronic and Excel series metering pumps use positive displacement Liquifram feed.
+  seo:
+    title: LMI metering pumps | Power Engineering
+    description: LMI Roytronic Series A, Excel Series AD and Series B, C and P metering pumps.
+
+- id: pumps/walchem
+  title: Walchem metering pumps
+  label: Walchem
+  group: equipment
+  parent: pumps
+  order: 2
+  summary: EHE, EZ and EH-HV series metering pumps.
+  intro: Walchem EHE, EZ and EH-HV series metering pumps, including a high-viscosity model.
+  seo:
+    title: Walchem metering pumps | Power Engineering
+    description: Walchem EHE, EZ and EH-HV series chemical metering pumps.
+
+- id: pumps/prominent
+  title: ProMinent metering pumps
+  label: ProMinent
+  group: equipment
+  parent: pumps
+  order: 3
+  summary: ProMinent chemical metering pumps.
+  intro: We also install and service ProMinent chemical metering pumps.
+  seo:
+    title: ProMinent metering pumps | Power Engineering
+    description: ProMinent chemical metering pumps installed and serviced by Power Engineering.
+
+- id: feeders
+  title: Feeders and feed stations
+  label: Feeders
+  group: equipment
+  order: 3
+  summary: Glycol feeders, pot feeders and chemical feed stations, including custom builds.
+  intro: >-
+    GC7 and GC8 glycol feeders that hold loop pressure and freeze protection, pot feeders for
+    closed loops, and chemical feed stations and panels.
+  notes:
+    - Custom orders and custom manufacturing are available.
+  seo:
+    title: Glycol feeders and feed stations | Power Engineering
+    description: >-
+      GC7 and GC8 glycol feeders, glycol recovery, pot feeders and chemical feed stations, with
+      custom orders and custom manufacturing.
+
+- id: feeders/glycol
+  title: Glycol feeders
+  label: Glycol feeders
+  group: equipment
+  parent: feeders
+  order: 1
+  summary: GC7 and GC8 glycol feeders and glycol recovery.
+  intro: GC7 and GC8 glycol feeders hold loop pressure and freeze protection in closed loops.
+  seo:
+    title: GC7 and GC8 glycol feeders | Power Engineering
+    description: GC7-22, GC7-GC8 and GC8 glycol feeders and glycol recovery systems.
+
+- id: feeders/pot-feeder
+  title: Pot feeders
+  label: Pot feeders
+  group: equipment
+  parent: feeders
+  order: 2
+  summary: Pot feeders for closed loops.
+  intro: Pot feeders for adding chemical to closed loops.
+  seo:
+    title: Pot feeders | Power Engineering
+    description: Pot feeders for closed loop chemical treatment.
+
+- id: feeders/feed-stations
+  title: Chemical feed stations
+  label: Feed stations
+  group: equipment
+  parent: feeders
+  order: 3
+  summary: Chemical feed stations and panels.
+  intro: Chemical feed stations and panels, including custom builds.
+  seo:
+    title: Chemical feed stations | Power Engineering
+    description: Chemical feed stations and panels, with custom orders and custom manufacturing.
+
+- id: tanks
+  title: Chemical tanks
+  label: Tanks
+  group: equipment
+  order: 4
+  summary: Dual containment chemical tanks from 20 to 120 gallons.
+  intro: >-
+    Dual containment tanks hold chemical in a primary tank set inside a secondary tank, with a
+    port for interstitial leak detection.
+  seo:
+    title: Dual containment chemical tanks | Power Engineering
+    description: PECO dual containment chemical tanks in 20, 40, 70 and 120 gallon sizes.
+
+- id: valves
+  title: Motorized valves and actuators
+  label: Valves
+  group: equipment
+  order: 5
+  summary: Belimo motorized valves and Bi-Torq actuators for automated control.
+  intro: >-
+    Belimo motorized valves and Bi-Torq actuators let the treatment controller open and close
+    lines automatically, for example for blowdown.
+  seo:
+    title: Motorized valves and actuators | Power Engineering
+    description: Belimo motorized valves and Bi-Torq valve actuators for automated control.
+
+- id: monitoring
+  title: Monitoring and test kits
+  label: Monitoring
+  group: equipment
+  order: 6
+  summary: Corrosion coupon racks and PECO drop test kits.
+  intro: Corrosion coupon racks and the drop test kits we build in-house for field testing.
+  seo:
+    title: Coupon racks and test kits | Power Engineering
+    description: Corrosion coupon racks and PECO drop test kits for field water testing.
+
+- id: monitoring/coupon-racks
+  title: Corrosion coupon racks
+  label: Coupon racks
+  group: equipment
+  parent: monitoring
+  order: 1
+  summary: Corrosion coupon racks.
+  intro: Corrosion coupon racks.
+  seo:
+    title: Corrosion coupon racks | Power Engineering
+    description: Corrosion coupon racks for measuring corrosion rates in cooling and closed loop systems.
+
+- id: monitoring/test-kits
+  title: PECO drop test kits
+  label: Test kits
+  group: equipment
+  parent: monitoring
+  order: 2
+  summary: Drop test kits we build in-house for field tests.
+  intro: We build our own drop test kits for field tests such as total hardness, nitrite and sulfite.
+  seo:
+    title: Drop test kits | Power Engineering
+    description: PECO drop test kits for field tests including total hardness, nitrite and sulfite.
+
+- id: filtration
+  title: Filtration
+  group: equipment
+  order: 7
+  summary: Quantrol cartridge and bag filtration.
+  intro: >-
+    Side-stream and full-flow filtration that removes the dirt, debris and suspended solids that
+    drive fouling, under-deposit corrosion and biological growth. We supply Quantrol cartridge
+    and bag filtration.
+  seo:
+    title: Cartridge and bag filtration | Power Engineering
+    description: >-
+      Quantrol cartridge and bag filtration for side-stream and full-flow filtration of cooling
+      towers and closed loops.
+
+- id: pretreatment
+  title: Pretreatment
+  group: equipment
+  order: 8
+  summary: Water softeners, dealkalizers and reverse osmosis systems.
+  intro: >-
+    Water softeners, dealkalizers and reverse osmosis that keep hardness and alkalinity out of
+    towers, boilers and loops.
+  seo:
+    title: Softeners, dealkalizers and RO | Power Engineering
+    description: Water softeners, dealkalizers and reverse osmosis systems for makeup water pretreatment.
+  gaps:
+    - Brands and size ranges for softeners, dealkalizers and reverse osmosis systems

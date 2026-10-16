@@ -1,0 +1,51 @@
+---
+// Content still needed from PECO. Draft-only: every item is an Unconfirmed marker, so
+// `npm run check:launch` fails until the content is supplied and the gap is removed.
+import Unconfirmed from '../Unconfirmed.astro';
+
+interface Props {
+  gaps: string[];
+}
+
+const { gaps } = Astro.props;
+---
+
+{gaps.length > 0 && (
+  <div class="gaps">
+    <p class="gaps-title">Content to come from PECO</p>
+    <ul>
+      {gaps.map((g) => (
+        <Unconfirmed as="li" note={`Content needed: ${g}`}>
+          {g}
+        </Unconfirmed>
+      ))}
+    </ul>
+  </div>
+)}
+
+<style>
+  .gaps {
+    display: grid;
+    gap: 10px;
+    padding: 16px 18px;
+    border: 1px dashed var(--todo);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .gaps-title {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--todo);
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+</style>

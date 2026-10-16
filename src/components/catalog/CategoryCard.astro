@@ -1,0 +1,86 @@
+---
+// Link card for a catalog category or chemistry series.
+import { categoryHref, labelOf, type Category } from '../../lib/catalog';
+
+interface Props {
+  category: Category;
+  count: number;
+}
+
+const { category, count } = Astro.props;
+const { series, summary } = category.data;
+const countLabel = `${count} ${count === 1 ? 'product' : 'products'}`;
+---
+
+{/* Series cards: big series number, then what the series contains and what it is for. */}
+<a class:list={['card', { series: !!series }]} href={categoryHref(category.id)}>
+  {series ? (
+    <>
+      <span class="code">
+        <span class="visually-hidden">Series </span>
+        {series.code}
+      </span>
+      <h3>{series.products}</h3>
+      {series.for && <p class="meta">For {series.for.toLowerCase()}</p>}
+    </>
+  ) : (
+    <>
+      <h3>{labelOf(category)}</h3>
+      <p class="meta">{countLabel}</p>
+      <p class="summary">{summary}</p>
+    </>
+  )}
+  <span class="go" aria-hidden="true">
+    View &rarr;
+  </span>
+</a>
+
+<style>
+  .card {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    height: 100%;
+    padding: 22px 22px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .card:hover {
+    border-color: var(--brand);
+  }
+  .card:hover h3 {
+    color: var(--brand);
+  }
+  .code {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--brand);
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+  }
+  .meta {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .summary {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  .go {
+    margin-top: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--brand);
+  }
+</style>

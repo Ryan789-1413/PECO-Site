@@ -1,0 +1,361 @@
+# Catalog products. Each page is /products/<category>/<id>/.
+# Sources: docs/PROJECT_CONTEXT.md §2 (Products and brands). Missing content goes in `gaps`.
+# No product data sheets or SDS on the site: pages show how to request them (Ryan, Oct 15, 2026).
+
+# ── 4000 Series: cooling tower products [SITE] ──────────────────────────────────
+- {
+    id: peco-4971,
+    name: PECO 4971,
+    category: chemistry/4000-series,
+    order: 1,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4971 description],
+  }
+- {
+    id: peco-4972,
+    name: PECO 4972,
+    category: chemistry/4000-series,
+    order: 2,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4972 description],
+  }
+- {
+    id: peco-4980,
+    name: PECO 4980,
+    category: chemistry/4000-series,
+    order: 3,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4980 description],
+  }
+- {
+    id: peco-4981,
+    name: PECO 4981,
+    category: chemistry/4000-series,
+    order: 4,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4981 description],
+  }
+- {
+    id: peco-4982,
+    name: PECO 4982,
+    category: chemistry/4000-series,
+    order: 5,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4982 description],
+  }
+- {
+    id: peco-4985,
+    name: PECO 4985,
+    category: chemistry/4000-series,
+    order: 6,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4985 description],
+  }
+- {
+    id: peco-4986,
+    name: PECO 4986,
+    category: chemistry/4000-series,
+    order: 7,
+    summary: 4000 Series cooling tower product.,
+    gaps: [PECO 4986 description],
+  }
+- {
+    id: peco-4990,
+    name: PECO 4990,
+    category: chemistry/4000-series,
+    order: 8,
+    summary: Multi-duty cooling water treatment.,
+    gaps: [PECO 4990 full description],
+  }
+- {
+    id: peco-4991,
+    name: PECO 4991,
+    category: chemistry/4000-series,
+    order: 9,
+    summary: Multi-duty cooling water treatment.,
+    gaps: [PECO 4991 full description],
+  }
+- {
+    id: peco-4992,
+    name: PECO 4992,
+    category: chemistry/4000-series,
+    order: 10,
+    summary: Multi-duty cooling water treatment.,
+    gaps: [PECO 4992 full description],
+  }
+
+# ── O Series ────────────────────────────────────────────────────────────────────
+- id: glycol-heat-transfer-fluids
+  name: Glycol heat transfer fluids
+  category: chemistry/o-series
+  order: 1
+  summary: Heat transfer fluids for freeze and corrosion protection in closed loops.
+  description:
+    - >-
+      Glycol supply, inhibitor maintenance and concentration testing so loops stay protected
+      through Intermountain winters.
+  gaps:
+    - Glycol product numbers and available concentrations
+- id: calcium-chloride
+  name: Calcium chloride
+  category: chemistry/o-series
+  order: 2
+  summary: Calcium chloride, part of the O Series.
+  gaps:
+    - Calcium chloride product number and typical uses
+
+# ── Controllers ─────────────────────────────────────────────────────────────────
+- id: walchem-wbl-wdb
+  name: Walchem WBL/WDB boiler controllers
+  category: controllers/walchem
+  brand: Walchem
+  order: 1
+  summary: Boiler controllers for one or two boilers.
+  specs:
+    - { label: Application, value: One or two boilers }
+    - { label: Measurement, value: High temperature and pressure conductivity }
+    - { label: Relays, value: Up to 6 }
+- id: walchem-wct-wdt
+  name: Walchem WCT/WDT cooling tower controllers
+  category: controllers/walchem
+  brand: Walchem
+  order: 2
+  summary: Cooling tower controllers for one or two towers.
+  specs:
+    - { label: Application, value: One or two cooling towers }
+    - { label: Measurement, value: Conductivity plus pH or ORP }
+    - { label: Relays, value: Up to 6 }
+- id: lmi-dc4500
+  name: LMI DC4500 cooling tower controller
+  category: controllers/lmi
+  brand: LMI
+  order: 1
+  summary: Cooling tower bleed-and-feed controller.
+  specs:
+    - { label: Control, value: Bleed-and-feed }
+    - { label: Biocide timers, value: Dual }
+    - { label: Feed modes, value: '4' }
+- id: probes-and-sensors
+  name: Probes and sensors
+  category: controllers
+  order: 3
+  summary: Conductivity, pH, ORP and fluorescence sensors for our controllers.
+  includes:
+    - Conductivity probes
+    - pH probes
+    - ORP probes
+    - Fluorescence sensors
+
+# ── Pumps ───────────────────────────────────────────────────────────────────────
+- id: lmi-metering-pumps
+  name: LMI metering pumps
+  category: pumps/lmi
+  brand: LMI
+  order: 1
+  summary: Roytronic and Excel series positive displacement metering pumps.
+  models:
+    - Roytronic Series A
+    - Roytronic Excel Series AD
+    - Series B
+    - Series C
+    - Series P
+  specs:
+    - { label: Pump type, value: Liquifram positive displacement }
+    - { label: Enclosure, value: NEMA 4X / IP65 }
+    - { label: Approvals, value: 'NSF, UL/CUL and CE on some models' }
+- id: walchem-ehe
+  name: Walchem EHE Series metering pumps
+  category: pumps/walchem
+  brand: Walchem
+  order: 1
+  summary: Metering pumps up to 20 GPH with 1800:1 turndown.
+  specs:
+    - { label: Flow, value: Up to 20 GPH }
+    - { label: Pressure, value: Up to 150 psi }
+    - { label: Turndown, value: '1800:1' }
+- id: walchem-ez
+  name: Walchem EZ Series metering pumps
+  category: pumps/walchem
+  brand: Walchem
+  order: 2
+  summary: Metering pumps up to 6.3 GPH.
+  specs:
+    - { label: Flow, value: Up to 6.3 GPH }
+    - { label: Pressure, value: Up to 150 psi }
+- id: walchem-eh-hv
+  name: Walchem EH-HV metering pumps
+  category: pumps/walchem
+  brand: Walchem
+  order: 3
+  summary: Metering pumps for high-viscosity chemicals.
+  gaps:
+    - EH-HV flow and pressure ratings
+- id: prominent-metering-pumps
+  name: ProMinent metering pumps
+  category: pumps/prominent
+  brand: ProMinent
+  order: 1
+  summary: ProMinent chemical metering pumps.
+  gaps:
+    - ProMinent pump models and ratings
+- id: high-pressure-transfer-pumps
+  name: High-pressure transfer pumps
+  category: pumps
+  order: 4
+  summary: High-pressure transfer pumps, permanent or portable.
+  gaps:
+    - Transfer pump brands and ratings
+
+# ── Feeders (list confirmed by Ryan, Oct 15, 2026) ──────────────────────────────
+- id: gc7-22-glycol-feeder
+  name: GC7-22 glycol feeder
+  category: feeders/glycol
+  order: 1
+  summary: Glycol feeder that holds loop pressure and freeze protection.
+  gaps: [GC7-22 description and specs]
+- id: gc7-gc8-glycol-feeder
+  name: GC7-GC8 glycol feeder
+  category: feeders/glycol
+  order: 2
+  summary: Glycol feeder that holds loop pressure and freeze protection.
+  gaps: [GC7-GC8 description and specs]
+- id: gc8-glycol-feeder
+  name: GC8 glycol feeder
+  category: feeders/glycol
+  order: 3
+  summary: Glycol feeder that holds loop pressure and freeze protection.
+  gaps: [GC8 description and specs]
+- id: glycol-recovery
+  name: Glycol recovery
+  category: feeders/glycol
+  order: 4
+  summary: Glycol recovery systems.
+  gaps: [Glycol recovery description and specs]
+- id: pot-feeder
+  name: Pot feeder
+  category: feeders/pot-feeder
+  order: 1
+  summary: Pot feeder for closed loops.
+  gaps: ['Pot feeder description, sizes and pressure rating']
+- id: chemical-feed-stations
+  name: Chemical feed stations and panels
+  category: feeders/feed-stations
+  order: 1
+  summary: Chemical feed stations and panels, including custom builds.
+  gaps: [Feed station description and typical configurations]
+
+# ── Tanks (specs from supplier submittals, Ryan, Oct 15, 2026). On the site they are
+# "PECO dual containment tanks": never name the manufacturer or its product line.
+- id: dual-containment-tanks
+  name: PECO dual containment tanks
+  category: tanks
+  order: 1
+  summary: Dual containment chemical tanks in 20, 40, 70 and 120 gallon sizes.
+  description:
+    - >-
+      Each tank holds chemical in a primary tank set inside a secondary tank, for atmospheric
+      service. A plugged port gives access to the space between them for interstitial leak
+      detection.
+    - >-
+      The 120 gallon tank is also available in other materials and colors, with an FRP wrap,
+      or in a configuration that meets NSF/ANSI 61.
+  includes:
+    - 8 in. vented twist lid
+    - Two 2 in. FNPT spin-weld fittings with plugs
+    - Pump suction connection
+    - Interstitial leak detection port
+  table:
+    caption: Tank sizes
+    columns: [Capacity, Footprint, Overall height, Material]
+    rows:
+      - [20 gal, 18 × 18 in., About 23⅝ in., HDPE]
+      - [40 gal, 18 × 18 in., About 41¾ in., '—']
+      - [70 gal, 24 × 24 in., About 39⅞ in., LLDPE with UV inhibitor]
+      - [120 gal, 32 × 32 in., About 49¾ in., 'LPE (167 gal secondary)']
+  gaps:
+    - 40 gal tank material and weight (the submittal drawing contradicts itself)
+
+# ── Valves (generic descriptions, Ryan, Oct 15, 2026) ───────────────────────────
+- id: belimo-motorized-valves
+  name: Belimo motorized valves
+  category: valves
+  brand: Belimo
+  order: 1
+  summary: Motorized valves that open and close on a signal from the treatment controller.
+  description:
+    - >-
+      Belimo motorized valves let the controller open and close a line automatically, for
+      example for cooling tower or boiler blowdown.
+- id: bi-torq-actuators
+  name: Bi-Torq valve actuators
+  category: valves
+  brand: Bi-Torq
+  order: 2
+  summary: Actuators that open and close valves automatically.
+  description:
+    - >-
+      Bi-Torq actuators automate valves on treatment and process lines so they open and close on
+      a control signal.
+
+# ── Monitoring ──────────────────────────────────────────────────────────────────
+- id: corrosion-coupon-racks
+  name: Corrosion coupon racks
+  category: monitoring/coupon-racks
+  order: 1
+  summary: Racks that hold corrosion coupons in the system flow.
+  gaps:
+    - Coupon rack description, materials and sizes
+- id: peco-drop-test-kits
+  name: PECO drop test kits
+  category: monitoring/test-kits
+  order: 1
+  summary: Drop test kits we build in-house for field tests.
+  includes:
+    - Total hardness
+    - Nitrite
+    - Sulfite
+  gaps:
+    - Full list of PECO drop test kits
+
+# ── Filtration: Quantrol's own lines only (Ryan, Oct 15, 2026) ──────────────────
+- id: quantrol-cartridge-filtration
+  name: Quantrol cartridge filtration
+  category: filtration
+  brand: Quantrol
+  order: 1
+  summary: Cartridge housings and filter cartridges for side-stream and process filtration.
+  includes:
+    - Stainless cartridge housings
+    - Jumbo cartridge housings and filters
+    - String-wound cartridge filters
+    - Meltblown cartridge filters
+    - High-purity polypropylene cartridge filters
+    - Oil removal cartridges
+    - Pressure gauge kit
+- id: quantrol-bag-filtration
+  name: Quantrol bag filtration
+  category: filtration
+  brand: Quantrol
+  order: 2
+  summary: Bag housings and filter bags.
+  includes:
+    - Bag housings
+    - Bag filters
+    - Oil removal bags
+
+# ── Pretreatment [SITE] ─────────────────────────────────────────────────────────
+- id: water-softeners
+  name: Water softeners
+  category: pretreatment
+  order: 1
+  summary: Softeners that remove hardness from makeup water.
+- id: dealkalizers
+  name: Dealkalizers
+  category: pretreatment
+  order: 2
+  summary: Dealkalizers that reduce alkalinity in makeup water.
+- id: reverse-osmosis-systems
+  name: Reverse osmosis systems
+  category: pretreatment
+  order: 3
+  summary: Reverse osmosis systems for high-purity makeup water.

@@ -33,7 +33,7 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
   - The Salt Lake City site houses the headquarters, chemical production, a fabrication shop and Ridgewater Analytical. `[RYAN, confirmed Oct 14, 2026]`
 - Second location: **Idaho Falls, Idaho**, with a local representative and chemical storage/inventory. `[SCOPE]`
 - Phone: **801-532-6972**. `[SITE]`
-- Email: none published on the current site. `[CONFIRM]` (ryan@pecowater.com is Ryan's own address, not a general inbox.)
+- Email: none published on the current site. **orders@pecowater.com** is the address for product data sheet and SDS requests. `[RYAN, Oct 16, 2026]` A general inbox for form leads is still `[CONFIRM]` (ryan@pecowater.com is Ryan's own address, not a general inbox).
 - Hours: not published. `[CONFIRM]`
 - Service area: Utah, Idaho and the **Mountain West / Intermountain West**. `[SITE]`
 - Employees: **22**. `[SCOPE]`
@@ -122,25 +122,55 @@ Each fact is tagged with its source: `[SCOPE]` is the PECO "Scope of Capabilitie
 - **State contracts** and an **FSS (Federal Supply Schedule) contract for GSA-qualified purchases**. `[SITE]` `[SCOPE]` `[CONFIRM contract numbers/schedule SIN for display]`
 - Public record: PECO holds FAA Air Route Traffic Control Center (ZLC ARTCC, Salt Lake City) water treatment awards, FY2024 and FY2025 (govconinabox). Possible case study or "who we serve" logo. `[CONFIRM]`
 
-### Products and brands (from current site catalog) `[SITE]`
-- **Treatments (PECO-brand chemistry)**
-  - Cooling: PECO 4971, 4972, 4980, 4981, 4982, 4985, 4986, 4990, 4991, 4992 (4990–4992 are described as "multi-duty cooling water treatment"; each has a product bulletin on the current site).
-  - Boiler, closed loop, antimicrobial (biocides), calcium chloride.
-  - Heat transfer fluids, freeze and corrosion protection (glycol).
+### Products and brands (from current site catalog) `[SITE]`, updated by Ryan Oct 15, 2026 `[RYAN]`
+- **Product literature: no product data sheets (PDS) or safety data sheets (SDS) on the website.** `[RYAN, Oct 15, 2026]` Customers request them by phone (801-532-6972) or email (**orders@pecowater.com**, Ryan, Oct 16, 2026) and PECO sends them. Product pages say how to request them; there are no PDF downloads.
+- **Treatments: PECO chemistry, organized as PECO's own product blends and series.** `[RYAN, Oct 15, 2026]` The catalog groups chemistry by these series:
+
+  | Series | Products | For |
+  |---|---|---|
+  | **2000 Series** | Steam boiler products | Steam boilers |
+  | **3000 Series** | Neutralizing amines | Condensate lines |
+  | **4000 Series** | Cooling tower products | Cooling towers |
+  | **5000 Series** | System cleaners, high alkaline and neutral | System cleaning |
+  | **7000 Series** | Biocides, EPA-registered | Microbiological control |
+  | **8000 Series** | Closed loop inhibitors | Closed loops |
+  | **9000 Series** | Flocculants and biodispersants | |
+  | **O Series (Other)** | Glycol (heat transfer fluids, freeze and corrosion protection) and calcium chloride | |
+
+  - 4000 Series products named on the current site: PECO 4971, 4972, 4980, 4981, 4982, 4985, 4986, 4990, 4991, 4992 (4990–4992 are described as "multi-duty cooling water treatment"). `[SITE]`
+  - Individual product numbers and names for the other series are still needed (§9 q10).
 - **Pretreatment**: water softeners, dealkalizers, reverse osmosis (RO).
-- **Controllers** (conductivity, pH, ORP, fluorescence, mass balance; basic units to systems integration; web-based reporting and trending):
+- **Controllers** (conductivity, pH, ORP, fluorescence, mass balance; basic units to systems integration; web-based reporting and trending). PECO uses all of the models below, **mainly the Walchem line**. `[RYAN, Oct 15, 2026]`
   - Walchem **WBL/WDB** (boiler controller, one or two boilers, high temperature/pressure conductivity, up to 6 relays)
   - Walchem **WCT/WDT** (cooling tower controller, one or two towers, conductivity plus pH or ORP, up to 6 relays)
   - LMI **DC4500** (cooling tower bleed-and-feed, dual biocide timers, 4 feed modes)
-- **Pumps**:
+- **Pumps (chemical injection)**: PECO uses all of the pumps below, **plus ProMinent pumps**. `[RYAN, Oct 15, 2026]`
   - LMI: Roytronic Series A, Roytronic Excel Series AD, Series B, Series C, Series P (Liquifram positive displacement, NEMA 4X/IP65; some models NSF, UL/CUL, CE)
   - Walchem: EHE Series (up to 20 GPH, 150 psi, 1800:1 turndown), EZ Series (up to 6.3 GPH, 150 psi), EH-HV (high viscosity)
-  - Glycol feed systems, high-pressure transfer pumps (permanent or portable), re-pressure pumps for RO.
-- **Feeders**: chemical feed stations, **GC7-22 glycol feeder**, **GC7-GC8 glycol feeder**, **GC8 glycol feeder**, **glycol recovery**, **pot feeder**. (The current site has lorem ipsum on these pages. Real descriptions are needed.)
-- **Tanks**: PECO chemical tanks.
-- **Valves**: **Belimo**, **Bi-torq** (motorized/actuated valves).
-- **Misc**: corrosion coupon racks; hand-held test kits (titration, drop tests, handheld meters, fluorescence, photometers).
-- **Filtration** `[RYAN]`: "we deal with filtration." Product lines confirmed Oct 14, 2026: side-stream and full-flow filtration for towers, cartridge and bag housings, closed loop filtration, filter elements/media/spare parts. `[CONFIRM brands, if they should be named]`
+  - ProMinent (models still needed).
+  - Glycol feed systems, high-pressure transfer pumps (permanent or portable).
+  - **Do not list RO re-pressure pumps anywhere on the site.** `[RYAN, Oct 15, 2026]`
+- **Feeders**: chemical feed stations, **GC7-22 glycol feeder**, **GC7-GC8 glycol feeder**, **GC8 glycol feeder**, **glycol recovery**, **pot feeder**. This list is correct. `[RYAN, Oct 15, 2026]` PECO also does **custom orders and custom manufacturing** of feeders. `[RYAN, Oct 15, 2026]` (The current site has lorem ipsum on these pages. Real descriptions and specs are still needed.)
+- **Tanks: dual containment chemical tanks** `[RYAN, Oct 15, 2026]`. **On the website they are "PECO dual containment tanks": never name the manufacturer (Peabody Engineering) or its product line (Gemini²).** `[RYAN, Oct 15, 2026]` Internally they are Peabody Engineering Gemini² tanks. Each has an inner (primary) tank inside an outer (secondary) tank, for atmospheric service. Source: the Peabody submittal drawings Ryan shared (`Y:\Job Documents & Correspondence\PECO Submittals & O & Ms\Gemini Tanks\`). The drawings are marked proprietary to Peabody: use them for specs only, and never publish or commit them.
+
+  | Size | Footprint | Overall height | Material | Notes |
+  |---|---|---|---|---|
+  | 20 gal | 18" × 18" | about 23⅝" | HDPE | |
+  | 40 gal | 18" × 18" | about 41¾" | (see note) | |
+  | 70 gal | 24" × 24" | about 39⅞" | LLDPE with UV inhibitor | approx. 64.6 lb |
+  | 120 gal | 32" × 32" | about 49¾" | LPE | 120 gal primary inside a 167 gal secondary |
+
+  - Common features: 8" vented twist lid; two 2" FNPT spin-weld fittings with plugs; pump suction connection; port with plug for interstitial leak detection.
+  - Per the 120 gal drawing, Peabody offers other materials (XLPE, PP, PVDF), colors (natural, blue, black), an FRP wrap, and an alternate configuration that meets NSF/ANSI 61.
+  - The 40 gal drawing contradicts itself: its title block and notes say "70 gal" (45.37 lb, HDLPE, Viton/Teflon gaskets), while its parts list and other sheets say 40 gal. Don't publish the 40 gal weight or material until confirmed.
+- **Valves**: Belimo motorized valves and Bi-Torq actuators. Use **generic descriptions** for both, not model-by-model listings. `[RYAN, Oct 15, 2026]`
+- **Test kits**: PECO **builds its own drop test kits** for field tests, such as total hardness, nitrite and sulfite. `[RYAN, Oct 15, 2026]` (A full list of the kits is still needed.)
+- **Corrosion coupon racks**: offered `[SITE]`; a real description is still needed.
+- **Filtration** `[RYAN]`: product lines confirmed Oct 14, 2026: side-stream and full-flow filtration for towers, cartridge and bag housings, closed loop filtration, filter elements/media/spare parts. **The filtration supplier is Quantrol** (quantrol.com). `[RYAN, Oct 15, 2026]`
+  - **List only Quantrol's own filtration** `[RYAN, Oct 15, 2026]`:
+    - **Quantrol Cartridge Filtration**: stainless cartridge housings, jumbo cartridge housings and filters, string-wound cartridge filters, meltblown cartridge filters, high-purity polypropylene cartridge filters, oil removal, pressure gauge kit. Quantrol also publishes side-stream filtration guidelines.
+    - **Quantrol Bag Filtration**: bag housings, bag filters, oil removal.
+  - Not listed: the other brands Quantrol carries (Harmsco, Hydronix, Shelco, Global Filter, Watts and its non-filtration lines). Quantrol, Inc. (Elburn, Illinois, est. 1988) is a manufacturer's representative. Describe its products in PECO's own words; don't copy Quantrol's text.
 - **Probes/sensors** `[RYAN]`: conductivity, pH (plus ORP and fluorescence per the controllers page).
 
 ### Systems served
@@ -226,6 +256,8 @@ The prototype photos are **stock images from Wikimedia Commons** used under CC l
 | lab-hplc-icp.jpg | ICP with HPLC modules | Superchilum | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:HPLC-ICPMS_TISIS_01.JPG |
 | lab-ic.jpg | Dionex ICS-3000 IC system | LukaszKatlewa | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Dionex_ICS-3000_ion_chromatography_system.jpg |
 
+**Product catalog photos** `[RYAN, Oct 16, 2026]`: use both PECO's own product photos and manufacturer product images. Use a manufacturer image only with that manufacturer's permission, and record where it came from. Never use images from submittal drawings marked proprietary (e.g. the tank drawings). Never name the tank manufacturer, even in alt text or file names. The catalog has no product photos yet.
+
 **Photo shot list for PECO's own photography (priority order):** Ridgewater lab with the iCAP, Vanquish and Metrohm in frame; the PhD chemist at work; a PECO technician testing at a customer cooling tower; a fabricated chemical feed panel or skid; the GC7/GC8 glycol feeder; a Walchem controller install; the delivery truck transferring into a customer tank; the Salt Lake City production and warehouse; the training center with a class in session; the team photo; the Idaho Falls location; a filtration install.
 
 Logo: `brand/logo-power-engineering.png` (536×322, transparent, single color #235FAC). Request an **SVG** version from whoever designed it; it's needed for production (crisp at all sizes, recolorable for white-on-navy).
@@ -234,22 +266,22 @@ Logo: `brand/logo-power-engineering.png` (536×322, transparent, single color #2
 
 ## 6. Current site: URL inventory (for 301 redirects)
 
-The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL:
+The current site is WordPress (Gravity Forms contact form, `/category/...` taxonomy). Keep or redirect every URL: The chemistry series targets and the old-category mapping below were approved by Ryan on Oct 15, 2026. The live rules are in `public/_redirects`.
 
 ```
 /                                         → /
-/all-products/                            → /equipment  (or /products)
+/all-products/                            → /products/
 /services/                                → /services
 /about-us/                                → /about
 /contact-us/                              → /contact
 /category/treatments/                     → /products/chemistry
-/category/treatments/cooling/             → /products/chemistry/cooling
-/category/treatments/boiler/              → /products/chemistry/boiler
-/category/treatments/closed-loop/         → /products/chemistry/closed-loop
-/category/treatments/antimicrobial/       → /products/chemistry/antimicrobial
-/category/treatments/calcium-chloride/    → /products/chemistry/calcium-chloride
+/category/treatments/cooling/             → /products/chemistry/4000-series/
+/category/treatments/boiler/              → /products/chemistry/2000-series/
+/category/treatments/closed-loop/         → /products/chemistry/8000-series/
+/category/treatments/antimicrobial/       → /products/chemistry/7000-series/
+/category/treatments/calcium-chloride/    → /products/chemistry/o-series/
 /category/controllers/                    → /products/controllers
-/category/controllers/walchem-controllers/→ /products/controllers?brand=walchem (or /products/controllers/walchem)
+/category/controllers/walchem-controllers/→ /products/controllers/walchem/
 /category/controllers/lmi-controllers/    → /products/controllers/lmi
 /category/pumps/                          → /products/pumps
 /category/pumps/lmi-pumps/                → /products/pumps/lmi
@@ -263,7 +295,10 @@ The current site is WordPress (Gravity Forms contact form, `/category/...` taxon
 /category/misc/coupon-rack/               → /products/monitoring/coupon-racks
 /category/misc/test-kit/                  → /products/monitoring/test-kits
 /category/miscellaneous/                  → /products
-Product bulletin pages (e.g. cooling-treatment-2 … -8, a-multi-duty-cooling-water-treatment-3 … -5) → /products/chemistry/<peco-number>
+/treatments/                              → /products/chemistry/
+/treatments/cooling-treatment/, -2 … -8 and
+/treatments/a-multi-duty-cooling-water-treatment/, -2 … -5
+                                          → /products/chemistry/4000-series/  (Ryan, Oct 16, 2026: no per-product mapping)
 ```
 Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and export Google Search Console coverage to catch every indexed URL, especially bulletin PDFs and the `/wp-content/uploads/` files linked externally.
 
@@ -280,7 +315,7 @@ Before cutover, crawl the live site (`wget --spider` or Screaming Frog) and expo
 - Optional CMS later, so non-developers can edit: Decap CMS (git-based, free), TinaCMS, or Keystatic. Keystatic or Decap fits the "edit products and bulletins without a developer" need.
 - Hosting: **Cloudflare Pages**, **Netlify** or **Vercel** (all free or cheap for a static site). Netlify gives built-in form handling (Netlify Forms) without a backend. With Cloudflare, use a Pages Function or Turnstile plus an email API (Resend/Postmark/SendGrid) for the forms.
 - Forms: site survey request, training sign-up, lab/sample inquiry, general contact. Requirements: spam protection (Turnstile or hCaptcha, plus a honeypot), routing to a shared inbox (needs a general address such as info@ or sales@ `[CONFIRM]`), an auto-reply, and optional CRM push.
-- Product bulletins and SDS: host PDFs under `/public/docs/bulletins/` and `/public/docs/sds/`, and link them from product pages. Decide whether SDS are public or request-only `[CONFIRM]`.
+- Product bulletins and SDS: **not on the website** (Ryan, Oct 15, 2026). Product pages tell customers to request a product data sheet or SDS by phone or at orders@pecowater.com. No PDF downloads.
 - Analytics: privacy-friendly (Plausible or Cloudflare Web Analytics) or GA4 `[CONFIRM preference]`. If GA4 is used, a cookie consent banner may be needed.
 - SEO:
   - Per-page title and description; Open Graph images.
@@ -361,19 +396,19 @@ peco-website/
 
 ## 9. Open questions for Ryan (blockers marked ★)
 
-1. ★ Street addresses for Salt Lake City and Idaho Falls, a general email inbox for form leads, and business hours.
+1. ★ Street addresses for Salt Lake City and Idaho Falls, a general email inbox for form leads, and business hours. (PDS/SDS requests go to orders@pecowater.com: confirmed Oct 16, 2026.)
 2. ★ Who controls DNS and hosting for pecowater.com today? Which hosting platform do we want (Netlify / Cloudflare Pages / Vercel / the existing host)?
 3. ★ Confirm the Ridgewater instrument models (iCAP PRO XP Duo, Vanquish Flex, Metrohm IC), whether to name them, and whether Ridgewater takes outside samples. (Lab location confirmed Oct 14, 2026.)
 4. ★ Get logo-use permission for AWT and AL. (The Associated Labs figures were confirmed for publication Oct 14, 2026.)
 5. How many staff are AWT **CWT**-certified?
 6. ~~Is the site survey free? What does "bi-monthly" mean?~~ Resolved Oct 14, 2026: the survey is free, and on-site service visits are monthly.
 7. Customer portal: is there a customer-facing service report portal (Ryan's files mention "AquaCore Hub" implementation/exclusivity docs and "Aquassist" licenses)? If so, add a "Customer login" link and feature smart testing on the site.
-8. Filtration: should specific brands be named? (Product lines confirmed Oct 14, 2026.)
-9. Real descriptions for feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations), coupon rack and test kits. The current pages are lorem ipsum.
-10. PECO chemistry bulletins: the PDFs or text for PECO 4971–4992, plus boiler, closed loop, antimicrobial and calcium chloride lines. Should SDS be public?
+8. ~~Filtration brands?~~ Resolved Oct 15, 2026: list only Quantrol's own cartridge and bag filtration.
+9. Real descriptions and specs for the feeders (GC7-22, GC7-GC8, GC8, glycol recovery, pot feeder, feed stations) and coupon racks, and the full list of PECO's drop test kits. (The feeder list and custom manufacturing were confirmed Oct 15, 2026.)
+10. Product numbers and names in each chemistry series (2000, 3000, 4000, 5000, 7000, 8000, 9000, O), with a one-line description of each. (Resolved Oct 15, 2026: no PDS or SDS on the website; customers request them.) Also needed: ProMinent pump models, and confirmation of the 40 gal Gemini tank's weight and material.
 11. Any customers willing to be named or given a case study (FAA ZLC ARTCC, hospitals, school districts)? (The industries list was confirmed Oct 14, 2026.)
 12. Team page: names, titles and photos to include (e.g. the PhD chemist, service techs)?
-13. Real photography: can we schedule a shoot (see the shot list in §5)? Until then, keep the Commons photos with credits.
+13. Real photography: can we schedule a shoot (see the shot list in §5)? For the catalog: send PECO product photos, and manufacturer images with permission noted (policy set Oct 16, 2026). Until then, keep the Commons photos with credits.
 14. Dark mode: wanted or not?
 15. The university metallurgical relationship: can we name the university?
 16. Analytics preference and any cookie/privacy requirements.

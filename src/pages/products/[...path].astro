@@ -1,0 +1,301 @@
+---
+// Every catalog category (/products/<category>/) and product (/products/<category>/<product>/).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CatalogHero from '../../components/catalog/CatalogHero.astro';
+import CategoryCard from '../../components/catalog/CategoryCard.astro';
+import ProductCard from '../../components/catalog/ProductCard.astro';
+import DataSheetNote from '../../components/catalog/DataSheetNote.astro';
+import SpecList from '../../components/catalog/SpecList.astro';
+import DataTable from '../../components/catalog/DataTable.astro';
+import GapList from '../../components/catalog/GapList.astro';
+import {
+  loadCatalog,
+  crumbsFor,
+  categoryHref,
+  labelOf,
+  type Category,
+  type Product,
+} from '../../lib/catalog';
+
+export async function getStaticPaths() {
+  const { categories, products } = await loadCatalog();
+  return [
+    ...categories.map((c) => ({ params: { path: c.id }, props: { categoryId: c.id } })),
+    ...products.map((p) => ({
+      params: { path: `${p.data.category.id}/${p.id}` },
+      props: { productId: p.id },
+    })),
+  ];
+}
+
+interface Props {
+  categoryId?: string;
+  productId?: string;
+}
+
+const { categoryId, productId } = Astro.props;
+const catalog = await loadCatalog();
+
+const product: Product | undefined = productId
+  ? catalog.products.find((p) => p.id === productId)
+  : undefined;
+const category: Category = catalog.byId.get(product ? product.data.category.id : categoryId!)!;
+const lineage = catalog.lineage(category.id);
+const groupLabel = category.data.group === 'chemistry' ? 'PECO chemistry' : 'Equipment';
+const seriesLabel = lineage.find((c) => c.data.series)?.data.label;
+
+// Category view
+const children = catalog.childrenOf(category.id);
+const items = catalog.productsIn(category.id);
+
+// Product view
+const siblings = product ? items.filter((p) => p.id !== product.id) : [];
+---
+
+{product ? (
+  <BaseLayout
+    title={`${product.data.name} | Power Engineering`}
+    description={`${product.data.name}: ${product.data.summary}`}
+  >
+    <CatalogHero
+      crumbs={crumbsFor(lineage, product.data.name)}
+      eyebrow={product.data.brand ?? seriesLabel ?? labelOf(category)}
+      title={product.data.name}
+      lead={product.data.summary}
+    />
+    <section class="section">
+      <div class:list={['wrap', 'product', { solo: product.data.specs.length === 0 }]}>
+        <div class="main">
+          {product.data.description.map((d) => (
+            <p class="desc">{d}</p>
+          ))}
+          {product.data.models.length > 0 && (
+            <div class="block">
+              <h2>Models</h2>
+              <ul class="ticks">
+                {product.data.models.map((m) => (
+                  <li>{m}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {product.data.includes.length > 0 && (
+            <div class="block">
+              <h2>{category.id.startsWith('monitoring') ? 'Tests' : 'Includes'}</h2>
+              <ul class="ticks">
+                {product.data.includes.map((m) => (
+                  <li>{m}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {product.data.table && (
+            <div class="block">
+              <h2>Sizes</h2>
+              <DataTable {...product.data.table} />
+            </div>
+          )}
+          <GapList gaps={product.data.gaps} />
+        </div>
+        {product.data.specs.length > 0 && (
+          <div class="side">
+            <h2>Specifications</h2>
+            <SpecList specs={product.data.specs} />
+          </div>
+        )}
+      </div>
+      <div class="wrap">
+        <DataSheetNote product={product.data.name} />
+      </div>
+    </section>
+    {siblings.length > 0 && (
+      <section class="section more" aria-labelledby="more-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">{labelOf(category)}</p>
+            <h2 id="more-title">More in this category</h2>
+          </div>
+          <ul class="grid">
+            {siblings.map((p) => (
+              <li>
+                <ProductCard product={p} />
+              </li>
+            ))}
+          </ul>
+          <p class="back">
+            <a href={categoryHref(category.id)}>All {labelOf(category)} &rarr;</a>
+          </p>
+        </div>
+      </section>
+    )}
+  </BaseLayout>
+) : (
+  <BaseLayout title={category.data.seo.title} description={category.data.seo.description}>
+    <CatalogHero
+      crumbs={crumbsFor(lineage)}
+      eyebrow={category.data.series ? `${groupLabel} · ${category.data.series.code}` : groupLabel}
+      title={category.data.title}
+      lead={category.data.intro}
+      notes={category.data.notes}
+      gaps={category.data.gaps}
+    />
+    {children.length > 0 && (
+      <section class="section" aria-labelledby="children-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">{labelOf(category)}</p>
+            <h2 id="children-title">
+              {category.id === 'chemistry' ? 'Product series' : 'Browse by type'}
+            </h2>
+          </div>
+          <ul class="grid">
+            {children.map((c) => (
+              <li>
+                <CategoryCard category={c} count={catalog.countUnder(c.id)} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+    {items.length > 0 && (
+      <section class:list={['section', { alt: children.length > 0 }]} aria-labelledby="items-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">{labelOf(category)}</p>
+            <h2 id="items-title">
+              {category.data.series ? 'Products in this series' : 'Products'}
+            </h2>
+          </div>
+          <ul class="grid">
+            {items.map((p) => (
+              <li>
+                <ProductCard product={p} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+    <section class="section note-section">
+      <div class="wrap">
+        <DataSheetNote />
+      </div>
+    </section>
+  </BaseLayout>
+)}
+
+<style>
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .alt,
+  .more {
+    background: var(--surface);
+    border-block: 1px solid var(--line);
+  }
+  /* Data sheet note: tight under a plain section, spaced under the header or a tinted band. */
+  .note-section {
+    padding-block: 48px 96px;
+  }
+  .section + .note-section {
+    padding-top: 0;
+  }
+  .alt + .note-section {
+    padding-top: 64px;
+  }
+  .product {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 56px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+  .product.solo {
+    grid-template-columns: minmax(0, 760px);
+  }
+  .main,
+  .side {
+    display: grid;
+    gap: 24px;
+    align-content: start;
+    min-width: 0;
+  }
+  .desc {
+    font-size: var(--step-1);
+    color: var(--muted);
+    max-width: 62ch;
+  }
+  .block {
+    display: grid;
+    gap: 12px;
+  }
+  h2 {
+    font-size: var(--step-2);
+    font-weight: 700;
+  }
+  .section-head h2 {
+    font-size: var(--step-3);
+  }
+  .ticks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .ticks li {
+    padding-left: 18px;
+    position: relative;
+  }
+  .ticks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 8px;
+    height: 1.5px;
+    background: var(--brand);
+  }
+  .back {
+    margin-top: 24px;
+  }
+  .back a {
+    color: var(--brand);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .back a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 960px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .product {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 700px) {
+    .note-section {
+      padding-block: 32px 64px;
+    }
+    .section + .note-section {
+      padding-top: 0;
+    }
+    .alt + .note-section {
+      padding-top: 48px;
+    }
+  }
+</style>
